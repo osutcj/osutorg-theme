@@ -12,6 +12,18 @@ It can be used also as the home page or the default page.
 
 {{!-- This block loads specific styles for the index page --}}
 {{#contentFor "styles"}}
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            clifford: '#da373d',
+          }
+        }
+      }
+    }
+  </script>
   <link rel="stylesheet" type="text/css" href="{{asset "css/home.css"}}" media="screen" />
   <link rel="stylesheet" type="text/css" href="{{asset "css/listing.css"}}" media="screen" />
 {{/contentFor}}
@@ -34,7 +46,7 @@ into the {body} of the default.hbs template --}}
   {{!-- Inject styles of the hero image to make it responsive --}}
   {{> hero background=@site.cover_image}}
   <div class="m-hero__content" data-aos="fade-down">
-    <img src="{{asset 'images/OSUT_alb.svg'}}">
+    <img class="w-64" src="{{asset 'images/OSUT_alb.svg'}}">
 
     {{#if @custom.use_custom_cta}}
       <a href="{{@custom.custom_cta_url}}" class="m-button filled">{{@custom.custom_cta_text}}</a>
