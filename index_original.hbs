@@ -23,14 +23,7 @@ into the {body} of the default.hbs template --}}
 {{!-- Special header.hbs partial to generate the <header> tag --}}
 {{> header background=@site.cover_image}}
 
-<style>
-  .homepage .m-hero__picture {
-    opacity: 1;
-  }
-
-</style>
-
-<main class="main-wrap homepage">
+<main class="main-wrap">
   {{!-- Inject styles of the hero image to make it responsive --}}
   {{> hero background=@site.cover_image}}
   <div class="m-hero__content" data-aos="fade-down">
