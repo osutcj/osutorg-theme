@@ -1,0 +1,236 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    .auto-grid {
+        --auto-grid-min-size: 16rem;
+
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(var(--auto-grid-min-size), 1fr));
+        grid-gap: 1rem;
+        grid-auto-rows: 1fr;
+    }
+
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        max-width: 380px;
+        margin: auto;
+        text-align: center;
+        border-radius: 10px;
+        transition-duration: 400ms;
+        height: 100%;
+    }
+
+    .title {
+        color: #B50000 !important;
+        font-size: 18px;
+        margin-bottom: 10px !important;
+    }
+
+    a {
+        text-decoration: none;
+        font-size: 22px;
+        transition-duration: 400ms;
+    }
+
+    button:hover,
+    a:hover {
+        transition-duration: 400ms;
+    }
+
+    /* On mouse-over, add a deeper shadow */
+    .card:hover {
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+        transition-duration: 400ms;
+    }
+
+    /* Add some padding inside the card container */
+    .container {
+        padding: 2px 16px;
+    }
+
+    .profile-image {
+        border-radius: 10px;
+        width: 300px;
+        margin: 0 !important;
+        height: 225px !important;
+        object-fit: cover;
+    }
+
+    .links {
+        padding-bottom: 10px;
+    }
+
+    .name {
+        color: #000;
+        /*font-family: "poppins";
+        font-weight: 900;*/
+        font-size: 1.6em !important;
+        margin-top: 20px !important;
+        margin-bottom: 10px !important;
+        min-height: 80px !important;
+    }
+
+    .icon {
+        margin: 5px;
+        color: #454545 !important;
+    }
+
+    .icon:hover {
+        color: grey !important;
+    }
+</style>
+<div>
+    <h1 style="text-align: center;">Direcții</h1>
+    <div class="auto-grid">
+        <div class="card">
+            <img src="https://osut.org/content/images/bce/ParaschivCorina.jpg" alt="John" class="profile-image">
+            <h1 class="name">Corina <br> Paraschiv</h1>
+            <p class="title">Cultural</p>
+            <div class="links">
+                <a class="icon" href="#"><i class="fa fa-facebook"></i></a>
+                <a class="icon" href="#"><i class="fa fa-linkedin"></i></a>
+                <a class="icon" href="#"><i class="fa fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://osut.org/content/images/bce/AnghelusDiana.jpg" alt="John" class="profile-image"
+                style="object-position: 0 20%;">
+            <h1 class="name">Diana <br> Angheluș</h1>
+            <p class="title">Divertisment</p>
+            <div class="links">
+                <a class="icon" href="#"><i class="fa fa-facebook"></i></a>
+                <a class="icon" href="#"><i class="fa fa-linkedin"></i></a>
+                <a class="icon" href="#"><i class="fa fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://osut.org/content/images/bce/Barb-DudanAndreea.jpg" alt="John" class="profile-image">
+            <h1 class="name">Andreea <br> Barb-Dudan</h1>
+            <p class="title">Educațional</p>
+            <div class="links">
+                <a class="icon" href="#"><i class="fa fa-facebook"></i></a>
+                <a class="icon" href="#"><i class="fa fa-linkedin"></i></a>
+                <a class="icon" href="#"><i class="fa fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://osut.org/content/images/bce/TarnarGabriel.jpg" alt="John" class="profile-image"
+                style="object-position: 0 30%;">
+            <h1 class="name">Gabriel <br> Tărnar</h1>
+            <p class="title">Sport și sănătate</p>
+            <div class="links">
+                <a class="icon" href="#"><i class="fa fa-facebook"></i></a>
+                <a class="icon" href="#"><i class="fa fa-linkedin"></i></a>
+                <a class="icon" href="#"><i class="fa fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div>
+    <h1 style="text-align: center;">Servicii</h1>
+    <div class="auto-grid">
+        <div class="card">
+            <img src="https://osut.org/content/images/bce/GiorgianaSpatacean.jpg" alt="John" class="profile-image">
+            <h1 class="name">Giorgiana <br> Spătăcean</h1>
+            <p class="title">Financiar</p>
+            <div class="links">
+                <a class="icon" href="#"><i class="fa fa-facebook"></i></a>
+                <a class="icon" href="#"><i class="fa fa-linkedin"></i></a>
+                <a class="icon" href="#"><i class="fa fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://osut.org/content/images/bce/ProfeanuTeodor.jpg" alt="John" class="profile-image">
+            <h1 class="name">Teodor <br> Profeanu</h1>
+            <p class="title">Imagine</p>
+            <div class="links">
+                <a class="icon" href="#"><i class="fa fa-facebook"></i></a>
+                <a class="icon" href="#"><i class="fa fa-linkedin"></i></a>
+                <a class="icon" href="#"><i class="fa fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://osut.org/content/images/bce/RaresLiscan.jpg" alt="John" class="profile-image">
+            <h1 class="name">Rareș <br> Lișcan</h1>
+            <p class="title">IT</p>
+            <div class="links">
+                <a class="icon" href="#"><i class="fa fa-facebook"></i></a>
+                <a class="icon" href="#"><i class="fa fa-linkedin"></i></a>
+                <a class="icon" href="#"><i class="fa fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://osut.org/content/images/bce/CiolteIrina.jpg" alt="John" class="profile-image"
+                style="object-position: 0 10%;">
+            <h1 class="name">Irina <br> Ciolte</h1>
+            <p class="title">Media</p>
+            <div class="links">
+                <a class="icon" href="#"><i class="fa fa-facebook"></i></a>
+                <a class="icon" href="#"><i class="fa fa-linkedin"></i></a>
+                <a class="icon" href="#"><i class="fa fa-instagram"></i></a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://osut.org/content/images/bce/ConstandacheIulian.jpg" alt="John" class="profile-image"
+                style="object-position: 0 40%;">
+            <h1 class="name">Iulian <br> Costandache</h1>
+            <p class="title">Tehnic-Administrativ</p>
+            <div class="links">
+                <a class="icon" href="#"><i class="fa fa-facebook"></i></a>
+                <a class="icon" href="#"><i class="fa fa-linkedin"></i></a>
+                <a class="icon" href="#"><i class="fa fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div>
+    <h1 style="text-align: center;">Proiecte</h1>
+    <div class="auto-grid">
+        <div class="card">
+            <img src="https://osut.org/content/images/bce/LazarRaul.jpg" alt="John" class="profile-image">
+            <h1 class="name">Raul <br> Lazăr</h1>
+            <p class="title">PoliHack</p>
+            <div class="links">
+                <a class="icon" href="#"><i class="fa fa-facebook"></i></a>
+                <a class="icon" href="#"><i class="fa fa-linkedin"></i></a>
+                <a class="icon" href="#"><i class="fa fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://osut.org/content/images/bce/FilipCristian.jpg" alt="John" class="profile-image">
+            <h1 class="name">Filip <br> Cristian</h1>
+            <p class="title">Viitor Inginer</p>
+            <div class="links">
+                <a class="icon" href="#"><i class="fa fa-facebook"></i></a>
+                <a class="icon" href="#"><i class="fa fa-linkedin"></i></a>
+                <a class="icon" href="#"><i class="fa fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://osut.org/content/images/bce/DaianMihai.jpg" alt="John" class="profile-image"
+                style="object-position: 0 50%;">
+            <h1 class="name">Mihai <br> Daian</h1>
+            <p class="title">InfoTech</p>
+            <div class="links">
+                <a class="icon" href="#"><i class="fa fa-facebook"></i></a>
+                <a class="icon" href="#"><i class="fa fa-linkedin"></i></a>
+                <a class="icon" href="#"><i class="fa fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://osut.org/content/images/bce/AlexandraOlaru.jpg" alt="John" class="profile-image">
+            <h1 class="name">Alexandra <br> Olaru</h1>
+            <p class="title">Balul Bobocilor</p>
+            <div class="links">
+                <a class="icon" href="#"><i class="fa fa-facebook"></i></a>
+                <a class="icon" href="#"><i class="fa fa-linkedin"></i></a>
+                <a class="icon" href="#"><i class="fa fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+
+</div>
