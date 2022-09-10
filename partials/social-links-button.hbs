@@ -1,0 +1,52 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+
+<style>
+    .container{
+        position: sticky;
+        bottom: 1rem;
+        right: 1rem;
+        height: 80px;
+        width: 80px;
+        background: #b50000;
+        border-radius: 50%;
+        align-self: flex-end;
+        text-align: center;
+    }
+    .fa-plus{
+        margin-top: 18px;
+        color: white;
+        cursor: pointer;
+        display: block;
+        transition: .7s;
+        font-size: 50px;
+    }
+    .fa-instagram {
+        background: red;
+        color: white;
+        display: block;
+    }
+ 
+</style>
+
+<div class="container" onclick="expand()">
+    <i class="fa fa-plus" id="plus"></i>
+    <a href="https://www.instagram.com/osutcluj/" class="fa fa-instagram" id="instagram"></a>
+</div>
+
+<script>
+    var opened = false;
+    var plus = document.getElementById('plus');
+
+    function expand(){
+        if(opened == false){
+            plus.style.transform = "rotate(360deg)";
+            opened = true;
+        }
+        else{
+            plus.style.transform = "rotate(0deg)";
+            opened = false;
+        }
+    }
+
+</script>
