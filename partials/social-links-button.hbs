@@ -3,49 +3,93 @@
 
 <style>
     .container{
-        position: sticky;
+        position: fixed;
         bottom: 1rem;
         right: 1rem;
-        height: 80px;
-        width: 80px;
+        min-height: 50px;
+        width: 50px;
         background: #b50000;
         border-radius: 50%;
         align-self: flex-end;
         text-align: center;
+        transition-duration: 500ms;
     }
     .fa-plus{
-        margin-top: 18px;
+        margin-top: 10px;
         color: white;
         cursor: pointer;
-        display: block;
         transition: .7s;
-        font-size: 50px;
+        font-size: 35px;
+        z-index: 10;
     }
     .fa-instagram {
-        background: red;
         color: white;
-        display: block;
+        border-radius: 50%;
+        margin-top: 9px;
+        font-size: 35px;
+        
     }
- 
+    .fa-facebook{
+        color: white;
+        border-radius: 50%;
+        margin-top: 12px;
+        font-size: 35px;
+    }
+    .fa-linkedin{
+        color: white;
+        border-radius: 50%;
+        margin-top: 8px;
+        font-size: 35px;;
+    }
+
 </style>
+
+
+<div class="container" style="background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); background: -webkit-radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);" id = "continsta">
+    <a href="https://www.instagram.com/osutcluj/"  target="_blank">
+        <i class="fa fa-instagram"></i>
+    </a> 
+</div>
+
+<div class="container"  style = "background-color: #4267B2" id = "contfb">
+    <a href="https://www.facebook.com/OSUTCJ/" target="_blank">
+        <i class="fa fa-facebook"></i>
+    </a> 
+</div>
+
+<div class="container"  style = "background-color: #0e76a8" id = "contlinkedin">
+    <a href="https://www.linkedin.com/company/osut-cluj"  target="_blank">
+        <i class="fa fa-linkedin"></i>
+    </a> 
+</div>
 
 <div class="container" onclick="expand()">
     <i class="fa fa-plus" id="plus"></i>
-    <a href="https://www.instagram.com/osutcluj/" class="fa fa-instagram" id="instagram"></a>
+    
 </div>
+
 
 <script>
     var opened = false;
     var plus = document.getElementById('plus');
+    var insta = document.getElementById('continsta')
+    var fb = document.getElementById('contfb');
+    var linkedin = document.getElementById('contlinkedin');
 
     function expand(){
         if(opened == false){
-            plus.style.transform = "rotate(360deg)";
             opened = true;
+            plus.style.transform = "rotate(360deg)";
+            insta.style.transform = "translate(0,-55px)";
+            fb.style.transform = "translate(0, -110px)";
+            linkedin.style.transform = "translate(0, -165px)";
         }
         else{
-            plus.style.transform = "rotate(0deg)";
             opened = false;
+            plus.style.transform = "rotate(0deg)";
+            insta.style.transform = "translate(0,0px)";
+            fb.style.transform = "translate(0,0px)";
+            linkedin.style.transform = "translate(0,0px)";
         }
     }
 
