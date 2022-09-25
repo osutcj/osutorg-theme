@@ -20,7 +20,7 @@
     z-index: 10;
 }
 
-.fa-instagram {
+#social-navigation-instagram {
     color: white;
     border-radius: 50%;
     margin-top: 9px;
@@ -28,14 +28,14 @@
 
 }
 
-.fa-facebook {
+#social-navigation-facebook {
     color: white;
     border-radius: 50%;
     margin-top: 12px;
     font-size: 35px;
 }
 
-.fa-linkedin {
+#social-navigation-linkedin {
     color: white;
     border-radius: 50%;
     margin-top: 8px;
