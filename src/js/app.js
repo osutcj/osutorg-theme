@@ -174,8 +174,8 @@ $(() => {
             <a href="${bestResults[i].item.url}" class="m-result__link">\
               <h3 class="m-result__title">${bestResults[i].item.title}</h3>\
               <span class="m-result__date">${formatDate(
-                bestResults[i].item.published_at
-              )}</span>\
+            bestResults[i].item.published_at
+          )}</span>\
             </a>\
           </article>`;
         }
@@ -270,7 +270,7 @@ $(() => {
       slidesPerView: 'auto',
       a11y: true,
       on: {
-        init: function() {
+        init: function () {
           shave('.js-recent-article-title', 50);
         }
       }
@@ -286,23 +286,21 @@ $(() => {
     $('[data-aos]').addClass('no-aos-animation');
   }
 
-  if ($openSecondaryMenu.length > 0) {
-    const template = document.getElementById('secondary-navigation-template');
+  const template = document.getElementById('secondary-navigation-template');
 
-    secondaryMenuTippy = tippy('.js-open-secondary-menu', {
-      appendTo: document.body,
-      content: template.innerHTML,
-      allowHTML: true,
-      arrow: true,
-      trigger: 'click',
-      interactive: true,
-      onShow() {
-        toggleDesktopTopbarOverflow(true);
-      },
-      onHidden() {
-        toggleDesktopTopbarOverflow(false);
-      }
-    });
+  secondaryMenuTippy = tippy('.js-open-secondary-menu', {
+    appendTo: document.body,
+    content: template.innerHTML,
+    allowHTML: true,
+    arrow: true,
+    trigger: 'click',
+    interactive: true,
+    onShow() {
+      toggleDesktopTopbarOverflow(true);
+    },
+    onHidden() {
+      toggleDesktopTopbarOverflow(false);
+    }
   }
 
   tippy('.js-tooltip');
