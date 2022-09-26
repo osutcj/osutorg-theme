@@ -45,49 +45,49 @@ into the {body} of the default.hbs template --}}
         {{/if}}
     </div>
     </section>
-    <article>
-        <div class="l-content">
-            <div class="l-wrapper in-post" data-aos="fade-up" data-aos-delay="300">
-                <div class="l-post-content">
-                    <div class="pos-relative js-post-content">
-                        {{#get "posts" filter="tag:proiecte"}}
-                        {{#foreach posts}}
-                            <div class="m-featured-slider__list__item swiper-slide">
-                            <article class="m-featured-article {{#unless feature_image}}no-picture{{/unless}}">
-                                <div class="m-featured-article__picture">
-                                    {{#if feature_image}}
-                                    <style>
-                                        #featured-bg-{{id}} {
-                                        background-image: url({{img_url feature_image size='l'}});
-                                        }
-                                    @media(max-width: 768px) {
-                                    #featured-bg-{{id}} {
-                                    background-image: url({{img_url feature_image size='m'}});
-                                    }
-                                    }
-                                    </style>
-                                    <div id="featured-bg-{{id}}"></div>
-                                    {{/if}}
-                                </div>
-                            <div class="m-featured-article__meta">
-                            {{#if primary_tag}}
-                                <a href="{{primary_tag.url}}" class="m-featured-article__tag">{{primary_tag.name}}</a>
-                                {{/if}}
-                            </div>
-                            <a href="{{url}}" class="m-featured-article__content">
-                                <h2 class="m-featured-article__title js-featured-article-title" title="{{title}}">
-                                    {{title}}
-                                </h2>
-                            </a>
-                            </article>
-                        </div>
-                        {{/foreach}}
-                        {{/get}}
+    <div class="l-content">
+      <div class="l-wrapper in-post" data-aos="fade-up" data-aos-delay="300">
+        <div class="l-grid centered">
+          {{#get "posts" filter="tag:proiecte"}}
+            <div class="m-featured-slider swiper js-featured-slider">
+                <div class="m-featured-slider__list swiper-wrapper">
+                  {{#foreach posts}}
+                    <div class="m-featured-slider__list__item swiper-slide">
+                      <article class="m-featured-article {{#unless feature_image}}no-picture{{/unless}}">
+                          <div class="m-featured-article__picture">
+                              {{#if feature_image}}
+                              <style>
+                                  #featured-bg-{{id}} {
+                                  background-image: url({{img_url feature_image size='l'}});
+                                  }
+                              @media(max-width: 768px) {
+                              #featured-bg-{{id}} {
+                              background-image: url({{img_url feature_image size='m'}});
+                              }
+                              }
+                              </style>
+                              <div id="featured-bg-{{id}}"></div>
+                              {{/if}}
+                          </div>
+                      <div class="m-featured-article__meta">
+                      {{#if primary_tag}}
+                          <a href="{{primary_tag.url}}" class="m-featured-article__tag">{{primary_tag.name}}</a>
+                          {{/if}}
+                      </div>
+                      <a href="{{url}}" class="m-featured-article__content">
+                          <h2 class="m-featured-article__title js-featured-article-title" title="{{title}}">
+                              {{title}}
+                          </h2>
+                      </a>
+                      </article>
                     </div>
+                  {{/foreach}}
                 </div>
             </div>
+          {{/get}}
         </div>
-    </article>
+      </div>
+    </div>
     {{/post}}
 
 </main>
