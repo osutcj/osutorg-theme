@@ -46,7 +46,7 @@ into the {body} of the default.hbs template --}}
   <div class="l-content">
     <div class="l-wrapper" data-aos="fade-up" data-aos-delay="300">
       <div class="l-grid centered">
-        {{#get "posts" filter="tag:proiecte" as |featured|}}
+        {{#get "posts" filter="tag:proiecte" include="tags,authors" as |featured|}}
           {{> "loop"}}
         {{/get}}
       </div>

@@ -122,7 +122,7 @@ into the {body} of the default.hbs template --}}
           {{/if}}
         {{/get}}
         {{!-- The tag below iterates over all the posts --}}
-        {{#get "posts" filter="primary_tag:Stiri"}}
+        {{#get "posts" filter="primary_tag:Stiri" include="authors,tags"}}
           {{> "loop"}}
         {{/get}}
       </div>
