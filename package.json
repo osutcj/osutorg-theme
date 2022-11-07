@@ -46,11 +46,6 @@
         "type": "text",
         "default": "Subscribe",
         "group": "homepage"
-      },
-      "custom_cta_url": {
-        "type": "text",
-        "default": "/newsletter",
-        "group": "homepage"
       }
     }
   },
