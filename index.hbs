@@ -51,7 +51,7 @@ into the {body} of the default.hbs template --}}
     {{#if @custom.use_custom_cta}}
       <a href="{{@site.url}}/#/portal/signup" class="m-button filled">{{@custom.custom_cta_text}}</a>
     {{else}}
-      {{#if @labs.members}}
+      {{#if @site.members_enabled}}
         <a href="{{@site.url}}/#/portal/signup" class="m-button filled js-newslette">{{t "Subscribe"}}</a>
       {{/if}}
     {{/if}}
