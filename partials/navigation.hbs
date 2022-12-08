@@ -3,7 +3,7 @@ This navigation template is shared across all the pages.
 Also it includes the big submenu.
 --}}
 
-  
+
 {{#foreach navigation}}
   {{#matchRegex slug "\w{0,}-has_children"}}
     <li class="nav-{{slug}}">
@@ -13,11 +13,23 @@ Also it includes the big submenu.
       </a>
     </li>
   {{else}}
-    {{#matchRegex slug "\w{0,}-subitem"}}
-    {{else}}
-      <li class="nav-{{slug}}{{#if current}} nav-current{{/if}}">
-        <a href="{{url absolute="true"}}">{{label}}</a>
-      </li>
+    {{^matchRegex slug "\w{0,}-subitem"}}
+      {{^matchRegex slug "\w{0,}-ssubitem2"}}
+        {{^matchRegex slug "\w{0,}-children2"}}
+          <li class="nav-{{slug}}{{#if current}} nav-current{{/if}}">
+            <a href="{{url absolute="true"}}">{{label}}</a>
+          </li>
+        {{/matchRegex}}
+      {{/matchRegex}}
     {{/matchRegex}}
+  {{/matchRegex}}
+
+  {{#matchRegex slug "\w{0,}-children2"}}
+    <li class="nav-{{slug}}">
+      <a href="javascript:void(0)" class="js-open-secondary-menu2">
+        {{#removeNavigationType label "children2"}}{{/removeNavigationType}}
+        <span class="icon-chevron-down" aria-hidden="true"></span>
+      </a>
+    </li>
   {{/matchRegex}}
 {{/foreach}}

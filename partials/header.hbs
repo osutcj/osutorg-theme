@@ -140,4 +140,16 @@ This header template is shared across all the pages.
       </ul>
     </div>
 
+    <div id="2secondary-navigation-template" style="display: none;">
+      <ul class="m-secondary-menu">
+        {{#foreach navigation}}
+          {{#matchRegex slug "\w{0,}-ssubitem2"}}
+            <li class="nav-{{slug}}{{#if current}} nav-current{{/if}}">
+              <a href="{{url absolute="true"}}">{{#removeNavigationType label "ssubitem2"}}{{/removeNavigationType}}</a>
+            </li>
+          {{/matchRegex}}
+        {{/foreach}}
+      </ul>
+    </div>
+
 </header>

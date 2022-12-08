@@ -11,9 +11,7 @@ import { isRTL, formatDate, isDarkMode, isMobile } from './helpers';
 
 $(() => {
   if (isRTL()) {
-    $('html')
-      .attr('dir', 'rtl')
-      .addClass('rtl');
+    $('html').attr('dir', 'rtl').addClass('rtl');
   }
 
   const $body = $('body');
@@ -78,7 +76,7 @@ $(() => {
     const api = new GhostContentAPI({
       url: host,
       key,
-      version: 'v4'
+      version: 'v4',
     });
     const allPosts = [];
     const fuseOptions = {
@@ -87,28 +85,28 @@ $(() => {
       findAllMatches: true,
       includeScore: true,
       minMatchCharLength: 2,
-      keys: ['title', 'custom_excerpt', 'tags.name']
+      keys: ['title', 'custom_excerpt', 'tags.name'],
     };
 
     api.posts
       .browse({
         limit: 'all',
         include: 'tags',
-        fields: 'id, title, url, published_at, custom_excerpt'
+        fields: 'id, title, url, published_at, custom_excerpt',
       })
-      .then(posts => {
+      .then((posts) => {
         for (let i = 0, len = posts.length; i < len; i++) {
           allPosts.push(posts[i]);
         }
 
         fuse = new Fuse(allPosts, fuseOptions);
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
       });
   };
 
-  const toggleDesktopTopbarOverflow = disableOverflow => {
+  const toggleDesktopTopbarOverflow = (disableOverflow) => {
     if (!isMobile()) {
       if (disableOverflow) {
         $mainNav.addClass('toggle-overflow');
@@ -159,7 +157,7 @@ $(() => {
   $inputSearch.on('keyup', () => {
     if ($inputSearch.val().length > 0 && fuse) {
       const results = fuse.search($inputSearch.val());
-      const bestResults = results.filter(result => {
+      const bestResults = results.filter((result) => {
         if (result.score <= 0.5) {
           return result;
         }
@@ -174,8 +172,8 @@ $(() => {
             <a href="${bestResults[i].item.url}" class="m-result__link">\
               <h3 class="m-result__title">${bestResults[i].item.title}</h3>\
               <span class="m-result__date">${formatDate(
-            bestResults[i].item.published_at
-          )}</span>\
+                bestResults[i].item.published_at
+              )}</span>\
             </a>\
           </article>`;
         }
@@ -213,7 +211,7 @@ $(() => {
     toggleDesktopTopbarOverflow(false);
   });
 
-  $(window).on('click', e => {
+  $(window).on('click', (e) => {
     if (submenuIsOpen) {
       if ($submenuOption && !$submenuOption.contains(e.target)) {
         submenuIsOpen = false;
@@ -222,7 +220,7 @@ $(() => {
     }
   });
 
-  $(document).on('keyup', e => {
+  $(document).on('keyup', (e) => {
     if (e.key === 'Escape' && $search.hasClass('opened')) {
       $closeSearch.trigger('click');
     }
@@ -244,7 +242,7 @@ $(() => {
     const headroom = new Headroom($header[0], {
       tolerance: {
         down: 10,
-        up: 20
+        up: 20,
       },
       offset: 15,
       onUnpin: () => {
@@ -258,7 +256,7 @@ $(() => {
             desktopSecondaryMenuTippy.hide();
           }
         }
-      }
+      },
     });
     headroom.init();
   }
@@ -272,21 +270,22 @@ $(() => {
       on: {
         init: function () {
           shave('.js-recent-article-title', 50);
-        }
-      }
+        },
+      },
     });
   }
 
   if (typeof disableFadeAnimation === 'undefined' || !disableFadeAnimation) {
     AOS.init({
       once: true,
-      startEvent: 'DOMContentLoaded'
+      startEvent: 'DOMContentLoaded',
     });
   } else {
     $('[data-aos]').addClass('no-aos-animation');
   }
 
   const template = document.getElementById('secondary-navigation-template');
+  const template2 = document.getElementById('2secondary-navigation-template');
 
   secondaryMenuTippy = tippy('.js-open-secondary-menu', {
     appendTo: document.body,
@@ -300,8 +299,23 @@ $(() => {
     },
     onHidden() {
       toggleDesktopTopbarOverflow(false);
-    }
-  }
+    },
+  });
+
+  secondaryMenuTippy2 = tippy('.js-open-secondary-menu2', {
+    appendTo: document.body,
+    content: template2.innerHTML,
+    allowHTML: true,
+    arrow: true,
+    trigger: 'click',
+    interactive: true,
+    onShow() {
+      toggleDesktopTopbarOverflow(true);
+    },
+    onHidden() {
+      toggleDesktopTopbarOverflow(false);
+    },
+  });
 
   tippy('.js-tooltip');
 
