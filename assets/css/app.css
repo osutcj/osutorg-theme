@@ -2815,13 +2815,34 @@ _:-ms-fullscreen {
 
 .m-footer {
     flex-shrink: 0;
-    background-color: var(--footer-background-color)
+    background-color: var(--footer-background-color);
 }
 
 .m-footer__content {
     color: #fff;
     text-align: center;
-    padding: 50px 20px
+    width: 100vw;
+    padding: 50px 20px;
+    margin: 0px 0px 0px 0px;
+}
+
+.m-footer-contact-map{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 0;
+}
+
+.m-footer-contact{
+    height: inherit;
+    flex-shrink: 0;
+    padding: 5px;
+}
+
+.m-footer-map{
+    height: inherit;
+    flex-shrink: 1;
+    padding: 5px;
 }
 
 @media only screen and (min-width:48rem) {
@@ -2857,6 +2878,19 @@ _:-ms-fullscreen {
 
 .m-footer-copyright span {
     display: block
+}
+
+@media only screen and (min-width:48rem){
+    .map-iframe{
+        width: 400px;
+        height: 300px;
+    }
+}
+
+@media only screen and (max-width:48rem){
+    .map-iframe{
+        display:none;
+    }
 }
 
 @media only screen and (min-width:48rem) {

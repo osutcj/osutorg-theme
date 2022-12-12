@@ -4,18 +4,39 @@ This footer template is shared across all the pages.
 
 <footer class="m-footer">
   <div class="m-footer__content">
+
     {{#if @site.secondary_navigation}}
       <nav class="m-footer__nav-secondary" role="navigation" aria-label="{{t "Secondary menu in footer"}}">
         {{navigation type="secondary"}}
       </nav>
     {{/if}}
+
+    <div class="m-footer-contact-map">
+
+      <p class="m-footer-contact">    <!-- de adaugat in json-urile de locales traducerile -->
+        <span>{{t "Date de contact:"}} </span>
+        <br><br>
+        <span>{{t "Adresă de e-mail:"}} <wbr> adresa@mail.trbschimbat</span><br>
+        <span>{{t "Număr de telefon: "}} <wbr> 0740 161 243</span><br>
+        <span>{{t "Strada"}} Ceahlău 72,<wbr> Cluj-Napoca 400347 </span><br>
+      </p>
+
+      <p class="m-footer-map">
+        <iframe class="map-iframe" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1366.72120684107!2d23.58616270378838!3d46.756175379331225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47490dd37411dee7%3A0x37af0fc996d79c6e!2sOSUT%20Cluj-Napoca!5e0!3m2!1sen!2sro!4v1670864062311!5m2!1sen!2sro" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </p>
+
+    </div>
+
     <p class="m-footer-copyright">
+      <br>
       <span>{{@site.title}} &copy; {{date format="YYYY"}}</span>
       <span>&nbsp; &bull; &nbsp;</span>
       <span>{{t "Published with"}} <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a></span>
     </p>
+
     <p class="m-footer-copyright jslicense">
       <a href="{{asset "html/javascript.html"}}" rel="jslicense">{{t "JavaScript license information"}}</a>
     </p>
+
   </div>
 </footer>
