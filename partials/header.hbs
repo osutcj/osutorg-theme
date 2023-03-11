@@ -1,3 +1,7 @@
+{{!--
+This header template is shared across all the pages.
+--}}
+
 <header class="m-header {{#if background}}with-picture{{/if}} js-header">
   <div class="m-mobile-topbar" data-aos="fade-down">
     <button class="m-icon-button in-mobile-topbar js-open-menu" aria-label="{{t "Open menu"}}">
@@ -126,12 +130,14 @@
 
     <div id="secondary-navigation-template" style="display: none;">
       <ul class="m-secondary-menu">
-        {{search}}
+        {{#foreach navigation}}
+          {{#matchRegex slug "\w{0,}-subitem"}}
+            <li class="nav-{{slug}}{{#if current}} nav-current{{/if}}">
+              <a href="{{url absolute="true"}}">{{#removeNavigationType label "subitem"}}{{/removeNavigationType}}</a>
+            </li>
+          {{/matchRegex}}
+        {{/foreach}}
       </ul>
     </div>
 
-    {{!-- May have discovered gold
-    https://github.com/eddiesigner/liebling/wiki/How-to-enable-search --}}
-
 </header>
-
