@@ -26,6 +26,7 @@ It can be used also as the home page or the default page.
   </script>
   <link rel="stylesheet" type="text/css" href="{{asset "css/home.css"}}" media="screen" />
   <link rel="stylesheet" type="text/css" href="{{asset "css/listing.css"}}" media="screen" />
+  {{!-- <link rel="stylesheet" type="text/css" href="{{asset "css/anunt.css"}}" media="screen"> --}}
 {{/contentFor}}
 
 {{!-- The tag below means: insert everything in this file
@@ -57,6 +58,9 @@ into the {body} of the default.hbs template --}}
     {{/if}}
   </div>
   </section>
+
+  {{> anunt title="OSUT te informeaza" subtitle="Vezi sectiunea Proiecte"}}
+
   <div class="l-content">
     <div class="l-wrapper" data-aos="fade-up" data-aos-delay="300">
       <div class="l-grid centered">
