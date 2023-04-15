@@ -2,6 +2,36 @@
 This footer template is shared across all the pages.
 --}}
 
+<style>
+  .sponsor {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.sponsor-logo {
+  max-width: 100px;
+  height: auto;
+}
+
+.social-buttons a {
+  display: inline-block;
+  margin-right: 10px;
+  font-size: 24px;
+}
+
+.social-buttons a:last-child {
+  margin-right: 0;
+}
+
+.your-logo {
+  max-width: 100px;
+  height: auto;
+}
+
+</style>
+
 <footer class="m-footer">
   <div class="m-footer__content">
     {{#if @site.secondary_navigation}}
@@ -9,11 +39,17 @@ This footer template is shared across all the pages.
         {{navigation type="secondary"}}
       </nav>
     {{/if}}
-    <p class="m-footer-copyright">
-      <span>&nbsp; &bull; &nbsp;</span>
-      <span>{{@site.title}} &copy; {{date format="YYYY"}}</span>
-      <span>&nbsp; &bull; &nbsp;</span>
-    </p>
+    <div class="sponsor">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnc6k3TxOhxOZud8bcUYKHOmNkSgdvqN_IXfpg4xym&s" alt="reload the page pls" class="sponsor-logo">
+  <div class="social-buttons">
+    <a href="https://www.facebook.com/OSUTCJ/?locale=ro_RO"><img src="{{asset "images/Facebook-logo.png"}}" alt="reload the page pls" height="30" width="30"></a>
+    <a href="https://www.instagram.com/osutcluj/"><img src="{{asset "images/Instagram_logo.png"}}" alt="reload the page pls" height="17" width="17"></a>
+  </div>
+  <img src="{{asset "images/utcnlogo - Copy.png"}}" alt="reload the page pls" class="your-logo">
+</div>
+
+    <div>
+</div>
     <p class="m-footer-copyright jslicense">
       Made with ❤️ by Serviciul IT  
     </p>
