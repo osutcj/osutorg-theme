@@ -26,6 +26,7 @@ It can be used also as the home page or the default page.
   </script>
   <link rel="stylesheet" type="text/css" href="{{asset "css/home.css"}}" media="screen" />
   <link rel="stylesheet" type="text/css" href="{{asset "css/listing.css"}}" media="screen" />
+  <link rel="stylesheet" type="text/css" href="{{asset "css/counters.css"}}" media="screen" />
   {{!-- <link rel="stylesheet" type="text/css" href="{{asset "css/anunt.css"}}" media="screen"> --}}
 {{/contentFor}}
 
@@ -42,110 +43,6 @@ into the {body} of the default.hbs template --}}
   }
 
 </style>
-
-{{!-- For counters --}}
-<style>
-.counter_full {
-  display: flex;
-  justify-content: center;
-  position: relative;
-}
-
-.counter {
-  display: inline-block;
-  text-align: center;
-  padding: 20px;
-  margin-right: 20px;
-  position: relative;
-}
-
-.counter h2 {
-  font-size: 2.6vw; /* Updated to use vw units */
-  color: #33a1ff;
-  margin: 0;
-  margin-bottom: 1vw; /* Updated to use vw units */
-}
-
-.counter p {
-  font-size: 1.8vw; /* Updated to use vw units */
-  margin: 0;
-}
-
-.count {
-  font-size: 48px;
-  font-weight: bold;
-  margin-top: 20px;
-  position: relative;
-}
-
-.count:before {
-  content: '';
-  position: absolute;
-  top: -10px;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background-color: #555;
-}
-
-.count:after {
-  content: '';
-  position: absolute;
-  top: -10px;
-  left: 0;
-  width: 0%;
-  height: 2px;
-  background-color: #33a1ff;
-  transition: all 0.5s;
-}
-
-.box-icon {
-  font-size: 64px;
-  color: #33a1ff;
-  margin-bottom: 10px;
-}
-
-.box-icon i {
-  display: block;
-}
-
-@media only screen and (max-width: 768px) {
-  .parent {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .counter {
-    width: 100%;
-    height: auto;
-    margin-right: 0;
-    margin-bottom: 20px;
-    padding: 10px;
-  }
-  
-  .counter h2 {
-    font-size: 4vw; /* Updated to use vw units */
-    margin-bottom: 0.5vw; /* Updated to use vw units */
-  }
-  
-  .counter p {
-    font-size: 2.8vw; /* Updated to use vw units */
-  }
-  
-  .count {
-    font-size: 6vw;
-  }
-  
-  .box-icon {
-    font-size: 48px;
-    margin-bottom: 5px;
-  }
-}
-
-  
-</style>
-
-
 
 <main class="main-wrap homepage">
   {{!-- Inject styles of the hero image to make it responsive --}}
@@ -170,47 +67,25 @@ into the {body} of the default.hbs template --}}
         <div class="box-icon">
           <i class="fa fa-users"></i>
         </div>
-        <div class="count" data-target="200">0</div>
-        <p>Total Volunteers</p>
+        <div class="count" data-target="300">0</div>
+        <p>Voluntari activi</p>
       </div>
       <div class="counter">
         <div class="box-icon">
           <i class="fa fa-trophy"></i>
         </div>
         <div class="count" data-target="50">0</div>
-        <p>Total Prizes</p>
+        <p>Premii câștigate</p>
       </div>
       <div class="counter">
         <div class="box-icon">
           <i class="fa fa-graduation-cap"></i>
         </div>
-        <div class="count" data-target="10000">0</div>
-        <p>Represented Students</p>
+        <div class="count" data-target="60">0</div>
+        <p>Studenți reprezentanți</p>
       </div>
     </div>
   </div>
-
-  {{!-- For counters --}}
-<script>
-  const counters = document.querySelectorAll('.count');
-
-    counters.forEach(counter => {
-      const updateCount = () => {
-        const target = +counter.getAttribute('data-target');
-        const count = +counter.innerText;
-        const increment = Math.ceil(target / 100);
-
-        if (count < target) {
-          counter.innerText = count + increment;
-          setTimeout(updateCount, 20);
-        } else {
-          counter.innerText = target;
-        }
-      };
-
-      updateCount();
-    });
-</script>
 
   <div class="l-content">
     <div class="l-wrapper" data-aos="fade-up" data-aos-delay="300">
@@ -292,3 +167,25 @@ into the {body} of the default.hbs template --}}
 {{#contentFor "scripts"}}
   <script defer src="{{asset "js/home.js"}}"></script>
 {{/contentFor}}
+
+{{!-- For counters --}}
+<script>
+  const counters = document.querySelectorAll('.count');
+
+    counters.forEach(counter => {
+      const updateCount = () => {
+        const target = +counter.getAttribute('data-target');
+        const count = +counter.innerText;
+        const increment = Math.ceil(target / 100);
+
+        if (count < target) {
+          counter.innerText = count + increment;
+          setTimeout(updateCount, 20);
+        } else {
+          counter.innerText = target;
+        }
+      };
+
+      updateCount();
+    });
+</script>
