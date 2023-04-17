@@ -11,13 +11,14 @@ This footer template is shared across all the pages.
 }
 
 .sponsor-logo {
-  max-width: 100px;
-  height: auto;
+  max-width: 150px;
+  height: 50px;
 }
 
 .social-buttons a {
   display: inline-block;
   margin-right: 10px;
+  margin-top: 8px;
   font-size: 24px;
 }
 
@@ -25,9 +26,13 @@ This footer template is shared across all the pages.
   margin-right: 0;
 }
 
+.social-buttons a:first-child{
+  margin-left: -1.7rem;
+}
+
 .your-logo {
-  max-width: 100px;
-  height: auto;
+  max-width: 150px;
+  height: 50px;
 }
 
 </style>
@@ -40,16 +45,13 @@ This footer template is shared across all the pages.
       </nav>
     {{/if}}
     <div class="sponsor">
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnc6k3TxOhxOZud8bcUYKHOmNkSgdvqN_IXfpg4xym&s" alt="reload the page pls" class="sponsor-logo">
-  <div class="social-buttons">
-    <a href="https://www.facebook.com/OSUTCJ/?locale=ro_RO"><img src="{{asset "images/Facebook-logo.png"}}" alt="reload the page pls" height="30" width="30"></a>
-    <a href="https://www.instagram.com/osutcluj/"><img src="{{asset "images/Instagram_logo.png"}}" alt="reload the page pls" height="17" width="17"></a>
-  </div>
-  <img src="{{asset "images/utcnlogo - Copy.png"}}" alt="reload the page pls" class="your-logo">
-</div>
-
-    <div>
-</div>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnc6k3TxOhxOZud8bcUYKHOmNkSgdvqN_IXfpg4xym&s" alt="reload the page pls" class="sponsor-logo">
+      <div class="social-buttons">
+        <a href="https://www.facebook.com/OSUTCJ/?locale=ro_RO"><img src="{{asset "images/Facebook-logo.png"}}" alt="reload the page pls" height="50" width="50"></a>
+        <a href="https://www.instagram.com/osutcluj/"><img src="{{asset "images/Instagram_logo.png"}}" alt="reload the page pls" height="30" width="30"></a>
+      </div>
+      <img src="{{asset "images/utcn-logo-alb.png"}}" alt="reload the page pls" class="your-logo">
+    </div>
     <p class="m-footer-copyright jslicense">
       Made with ❤️ by Serviciul IT  
     </p>
