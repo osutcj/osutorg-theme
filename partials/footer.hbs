@@ -5,7 +5,7 @@ This footer template is shared across all the pages.
 <style>
   .sponsor {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   padding: 10px;
 }
@@ -13,19 +13,6 @@ This footer template is shared across all the pages.
 .sponsor-logo {
   max-width: 150px;
   height: 50px;
-}
-
-.social-buttons a {
-  display: inline-block;
-  margin-right: 10px;
-  margin-top: 0.5rem;
-}
-
-.social-buttons a:first-child{
-  margin-left: -1.7rem;
-}
-.social-buttons a:last-child {
-  margin-right: 0;
 }
 
 .your-logo {
@@ -52,9 +39,6 @@ This footer template is shared across all the pages.
     margin-top: 1rem;
     margin-bottom: 1rem;
   }
-  .social-buttons a:first-child{
-    margin-left: -1rem;
-  }
 }
 
 </style>
@@ -68,10 +52,6 @@ This footer template is shared across all the pages.
     {{/if}}
     <div class="sponsor">
       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnc6k3TxOhxOZud8bcUYKHOmNkSgdvqN_IXfpg4xym&s" alt="reload the page pls" class="sponsor-logo">
-      <div class="social-buttons">
-        <a href="https://www.facebook.com/OSUTCJ/?locale=ro_RO" target="_blank"><img src="{{asset "images/Facebook-logo.png"}}" alt="reload the page pls" width="50" height="50"></a>
-        <a href="https://www.instagram.com/osutcluj/" target="_blank"><img src="{{asset "images/Instagram_logo.png"}}" alt="reload the page pls" width="30" height="30"></a>
-      </div>
       <img src="{{asset "images/utcn-logo-alb.png"}}" alt="reload the page pls" class="your-logo">
     </div>
     <p class="m-footer-copyright jslicense" style="margin-top: 0.5rem;">
