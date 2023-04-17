@@ -11,23 +11,50 @@ This footer template is shared across all the pages.
 }
 
 .sponsor-logo {
-  max-width: 100px;
-  height: auto;
+  max-width: 150px;
+  height: 50px;
 }
 
 .social-buttons a {
   display: inline-block;
   margin-right: 10px;
-  font-size: 24px;
+  margin-top: 0.5rem;
 }
 
+.social-buttons a:first-child{
+  margin-left: -1.7rem;
+}
 .social-buttons a:last-child {
   margin-right: 0;
 }
 
 .your-logo {
-  max-width: 100px;
-  height: auto;
+  max-width: 150px;
+  height: 50px;
+}
+
+@media screen and (max-width: 720px) {
+  .sponsor{
+      display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+  }
+  .your-logo{
+    max-width: 300px;
+    height: 100px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  .sponsor-logo{
+    max-width: 300px;
+    height: 100px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  .social-buttons a:first-child{
+    margin-left: -1rem;
+  }
 }
 
 </style>
@@ -42,12 +69,12 @@ This footer template is shared across all the pages.
     <div class="sponsor">
       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnc6k3TxOhxOZud8bcUYKHOmNkSgdvqN_IXfpg4xym&s" alt="reload the page pls" class="sponsor-logo">
       <div class="social-buttons">
-        <a href="https://www.facebook.com/OSUTCJ/?locale=ro_RO"><img src="{{asset "images/Facebook-logo.png"}}" alt="reload the page pls" height="30" width="30"></a>
-        <a href="https://www.instagram.com/osutcluj/"><img src="{{asset "images/Instagram_logo.png"}}" alt="reload the page pls" height="17" width="17"></a>
+        <a href="https://www.facebook.com/OSUTCJ/?locale=ro_RO" target="_blank"><img src="{{asset "images/Facebook-logo.png"}}" alt="reload the page pls" width="50" height="50"></a>
+        <a href="https://www.instagram.com/osutcluj/" target="_blank"><img src="{{asset "images/Instagram_logo.png"}}" alt="reload the page pls" width="30" height="30"></a>
       </div>
       <img src="{{asset "images/utcn-logo-alb.png"}}" alt="reload the page pls" class="your-logo">
     </div>
-    <p class="m-footer-copyright jslicense">
+    <p class="m-footer-copyright jslicense" style="margin-top: 0.5rem;">
       Made with ❤️ by Serviciul IT  
     </p>
   </div>
