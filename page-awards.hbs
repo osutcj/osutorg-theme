@@ -1,0 +1,383 @@
+{{!--
+This template is used for the posts that are marked as pages.
+--}}
+
+{{!-- This block preloads specific assets for the post page --}}
+{{#contentFor "preload"}}
+<link rel="preload" href="{{asset " css/post.css"}}" as="style" />
+<link rel="preload" href="{{asset " js/page.js"}}" as="script" />
+{{/contentFor}}
+
+{{!-- This block loads specific styles for the post page --}}
+{{#contentFor "styles"}}
+<link rel="stylesheet" type="text/css" href="{{asset " css/post.css"}}" media="screen" />
+<style>
+    :root {
+        --wimg: 748px;
+        --himg: 400px;
+    }
+
+    #app {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: -60px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: #0e0e0e;
+    }
+
+    .border {
+        width: 2rem;
+        height: 2rem;
+        border: 1px solid black;
+    }
+
+    .imageHolder {
+        width: var(--wimg);
+        height: var(--himg);
+        position: absolute;
+        transition: all 0.4s ease;
+        background-size: cover;
+        border: 0px solid black;
+        background-repeat: no-repeat;
+        border-radius: 1.5rem;
+    }
+
+    #rootcarousel {
+        position: relative;
+    }
+
+    .imageSize {
+        width: var(--wimg);
+        height: var(--himg);
+    }
+
+    .img1cls {
+        opacity: 50%;
+        scale: 75%;
+        left: -200px;
+        z-index: 5;
+    }
+
+    .img2cls {
+        left: -100px;
+        opacity: 75%;
+        scale: 87.5%;
+        z-index: 7;
+    }
+
+    .img3cls {
+        opacity: 100%;
+        z-index: 10;
+        scale: 100%;
+        left: 0px;
+        bottom: 0px;
+
+    }
+
+    .img4cls {
+        left: 100px;
+        opacity: 75%;
+        scale: 87.5%;
+        z-index: 7;
+
+    }
+
+    .img5cls {
+        left: 200px;
+        opacity: 50%;
+        scale: 75%;
+        z-index: 5;
+    }
+
+    .navwrapper {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        align-items: center;
+        height: 20px;
+        color: white;
+        gap: 40px;
+        padding-top: 10px;
+
+    }
+
+    #buttonLeft {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      pointer-events: all;
+      width: 50px;
+      height: 50px;
+      background: none;
+      border: none;
+    }
+
+    #buttonRight {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        pointer-events: all;
+        width: 50px;
+        height: 50px;
+        background: none;
+        border: none;
+    }
+
+    .green {
+        background-color: green;
+      background-image: url('{{ asset "images/im1osut.webp"}}');
+
+    }
+
+    .blue {
+        background-color: blue;
+      background-image: url('{{ asset "images/im2osut.webp"}}');
+    }
+
+    .red {
+        background-color: red;
+      background-image: url('{{ asset "images/im3osut.webp"}}');
+    }
+
+    .yellow {
+        background-color: yellow;
+      background-image: url('{{ asset "images/im4osut.webp"}}');
+    }
+
+    .purple {
+        background-color: purple;
+      background-image: url('{{ asset "images/im5osut.webp"}}');
+    }
+
+    .buttonWrapper {
+      margin-top: 200px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      align-items: center;
+    }
+
+    @media (max-width: 768px) {
+        :root {
+            --wimg: 200px;
+
+            --himg: 90px;
+        }
+
+        .img1cls {
+            left: -100px
+        }
+
+        .img2cls {
+            left: -50px
+        }
+
+        .img3cls {
+            left: 0px;
+        }
+
+        .img4cls {
+            left: 50px
+        }
+
+        .img5cls {
+            left: 100px;
+        }
+        .imageHolder{
+            border-radius: 0.5rem;
+        }
+        .buttonWrapper{
+            margin-top: 50px;
+        }
+
+    }
+
+    #canvas1 {
+        position: absolute;
+        height: inherit;
+
+    }
+
+    #warpButton {
+        margin: 10px;
+        width: 200px;
+        height: 50px;
+        border-radius: 100px;
+    }
+
+    .inputSlider {
+
+        display: inline;
+
+    }
+
+    .controls {
+        /* position: absolute; */
+        position: absolute;
+        z-index: 100;
+    }
+
+    .field {
+
+        display: inline-block;
+
+    }
+
+    .marginleft {
+        margin-left: 20px;
+    }
+
+    .FlexEq {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .stinput {
+        width: 50px;
+        border-radius: 5px;
+        margin-left: 10px;
+    }
+
+    .range {
+        display: flex;
+        margin: 20px;
+        margin-top: 5px;
+    }
+
+    img {
+        display: none;
+    }
+
+    .mb5 {
+    position:absolute;
+    top: -150px;
+    width: 500px;
+      left: -235px;
+      display: flex;
+      justify-content: center;
+
+    }
+  .svgsize{
+    width: 50px;
+    height: 50px;
+  }
+  .leftarrow{
+    background-image: url("{{asset "images/iconleft.svg"}}");
+    width: 20px;
+    height: 20px;
+  }
+  .rightarrow{
+    background-image: url("{{asset "images/iconright.svg"}}");
+    width: 20px;
+    height: 20px;
+  }
+  .bubble{
+
+    height: 12px;
+    width: 12px;
+    padding-left: 2px;
+    padding-right: 2px;
+
+    border-radius: 100% ;
+    background-color: gray;
+    border: none;
+    transition: all 0.15s ease;
+  }
+  .activebubble{
+    height: 16px;
+    width: 16px;
+    padding-left: 0px;
+    padding-right: 0px;
+    background-color: #7B61FF;
+  }
+</style>
+{{/contentFor}}
+
+{{!-- The tag below means: insert everything in this file
+into the {body} of the default.hbs template --}}
+{{!< default}} {{!-- Special header.hbs partial to generate the <header> tag --}}
+    {{#post}}
+    {{> header background=feature_image}}
+    {{/post}}
+
+    <main class="main-wrap">
+
+            <div id="app">
+                <div id="rootcarousel" class="imageSize">
+
+                    <div id="img1" class="img1cls border green imageHolder">
+                    </div>
+                    <div id="img2" class="img2cls border blue imageHolder">
+                    </div>
+                    <div id="img3" class="img3cls border yellow imageHolder">
+                    </div>
+                    <div id="img4" class="img4cls border red imageHolder">
+                    </div>
+                    <div id="img5" class="img5cls border purple imageHolder">
+                    </div>
+
+
+                </div>
+            </div>
+        {{!-- Everything inside the #post tags pulls data from the post --}}
+        {{#post}}
+        {{!-- Inject styles of the hero image to make it responsive --}}
+        {{> hero background=feature_image}}
+        <div class="m-hero__content" data-aos="fade-down">
+                <h1 class="m-hero-title bigger ">
+                    <div class="mb5">
+                        Awards
+                    </div>
+
+                </h1>
+            {{#if custom_excerpt}}
+            <p class="m-hero-description">{{custom_excerpt}}</p>
+            {{/if}}
+
+        </div>
+        </section>
+        <article>
+            <div class="l-content">
+                <div class="l-wrapper in-post" data-aos="fade-up" data-aos-delay="300">
+
+                    <div class="buttonWrapper">
+                        <button class="" id="buttonRight">
+                          <div class="leftarrow" />
+                        </button>
+
+                      <button class="bubble" id="bubble1" />
+                      <button class="bubble" id="bubble2" />
+                      <button class="bubble" id="bubble3" />
+                      <button class="bubble" id="bubble4" />
+                      <button class="bubble" id="bubble5" />
+
+                        <button class="" id="buttonLeft">
+                          <div class="rightarrow" />
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </article>
+        {{/post}}
+    </main>
+
+    {{!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in
+    default.hbs --}}
+{{#contentFor "scripts"}}
+  <script defer src="{{asset "js/page.js"}}"></script>
+  <script defer type="module" src="{{asset "js/maincar.js"}}"></script>
+{{/contentFor}}

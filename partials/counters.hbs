@@ -1,0 +1,146 @@
+<style>
+    .counter_full {
+        display: flex;
+        justify-content: center;
+        position: relative;
+        margin-top: 2rem;
+    }
+
+    .counter {
+        display: inline-block;
+        text-align: center;
+        padding: 20px;
+        margin-right: 20px;
+        position: relative;
+    }
+
+    .counter h2 {
+        font-size: 30px;
+        color: #b50000;
+        margin: 0;
+        margin-bottom: 4px;
+    }
+
+    .counter p {
+        font-size: 27.6px;
+        margin: 0;
+    }
+
+    .count {
+        font-size: 48px;
+        font-weight: bold;
+        margin-top: 20px;
+        position: relative;
+    }
+
+    .count:before {
+        content: '';
+        position: absolute;
+        top: -10px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #555;
+    }
+
+    .count:after {
+        content: '';
+        position: absolute;
+        top: -10px;
+        left: 0;
+        width: 0%;
+        height: 2px;
+        background-color: #b50000;
+        transition: all 0.5s;
+    }
+
+    .box-icon {
+        font-size: 64px;
+        color: #b50000;
+        margin-bottom: 10px;
+    }
+
+    .box-icon i {
+        display: block;
+    }
+
+    @media only screen and (max-width: 768px) {
+        .parent {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .counter {
+            width: 100%;
+            height: auto;
+            margin-right: 0;
+            margin-bottom: 20px;
+            padding: 10px;
+        }
+
+        .counter h2 {
+            font-size: 30px;
+            margin-bottom: 3.8px;
+        }
+
+        .counter p {
+            font-size: 21.5px;
+        }
+
+        .count {
+            font-size: 46px;
+        }
+
+        .box-icon {
+            font-size: 48px;
+            margin-bottom: 5px;
+        }
+    }
+</style>
+
+
+<div class="counter_full">
+    <div class="counter">
+        <div class="box-icon">
+            <i class="fa fa-users"></i>
+        </div>
+        <div class="count" data-target="300">0</div>
+        <p>Voluntari activi</p>
+    </div>
+    <div class="counter">
+        <div class="box-icon">
+            <i class="fa fa-trophy"></i>
+        </div>
+        <div class="count" data-target="50">0</div>
+        <p>Premii câștigate</p>
+    </div>
+    <div class="counter">
+        <div class="box-icon">
+            <i class="fa fa-graduation-cap"></i>
+        </div>
+        <div class="count" data-target="60">0</div>
+        <p>Studenți reprezentanți</p>
+    </div>
+</div>
+
+{{!-- For counters --}}
+<script>
+  const counters = document.querySelectorAll('.count');
+
+    counters.forEach(counter => {
+      const updateCount = () => {
+        const target = +counter.getAttribute('data-target');
+        const count = +counter.innerText;
+        const increment = Math.ceil(target / 100);
+
+        if (count < target) {
+          counter.innerText = count + increment;
+          setTimeout(updateCount, 20);
+        } else {
+          counter.innerText = target;
+        }
+      };
+
+      updateCount();
+    });
+</script>

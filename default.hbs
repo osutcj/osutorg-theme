@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="{{@site.locale}}">
+  <head>
+    {{!-- Document Settings --}}
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    {{!-- Base Meta --}}
+    <title>{{meta_title}}</title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    {{!-- Preload assets --}}
+    <link rel="preload" href="{{asset "css/app.css"}}" as="style" />
+    <link rel="preload" href="{{asset "js/manifest.js"}}" as="script" />
+    <link rel="preload" href="{{asset "js/vendor/content-api.min.js"}}" as="script" />
+    <link rel="preload" href="{{asset "js/vendor.js"}}" as="script" />
+    <link rel="preload" href="{{asset "js/app.js"}}" as="script" />
+
+    {{!-- This #block helper will try to preload page-specific assets --}}
+    {{{block "preload"}}}
+
+    {{!-- Styles & Scripts --}}
+    <style>
+      /* These font-faces are here to make fonts work if the Ghost instance is installed in a subdirectory */
+
+      /* source-sans-pro-regular */
+      @font-face {
+        font-family: 'Source Sans Pro';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: local('SourceSansPro-Regular'),
+            url("{{asset 'fonts/source-sans-pro/latin/source-sans-pro-regular.woff2'}}") format('woff2'),
+            url("{{asset 'fonts/source-sans-pro/latin/source-sans-pro-regular.woff'}}") format('woff');
+      }
+
+      /* source-sans-pro-600 */
+      @font-face {
+        font-family: 'Source Sans Pro';
+        font-style: normal;
+        font-weight: 600;
+        font-display: swap;
+        src: local('SourceSansPro-SemiBold'),
+            url("{{asset 'fonts/source-sans-pro/latin/source-sans-pro-600.woff2'}}") format('woff2'),
+            url("{{asset 'fonts/source-sans-pro/latin/source-sans-pro-600.woff'}}") format('woff');
+      }
+
+      /* source-sans-pro-700 */
+      @font-face {
+        font-family: 'Source Sans Pro';
+        font-style: normal;
+        font-weight: 700;
+        font-display: swap;
+        src: local('SourceSansPro-Bold'),
+            url("{{asset 'fonts/source-sans-pro/latin/source-sans-pro-700.woff2'}}") format('woff2'),
+            url("{{asset 'fonts/source-sans-pro/latin/source-sans-pro-700.woff'}}") format('woff');
+      }
+
+      @font-face {
+        font-family: 'poppins';
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+        src: url("{{asset 'fonts/poppins/Poppins-Regular.otf'}}") format('opentype');
+      }
+
+      @font-face {
+        font-family: 'poppins';
+        font-weight: normal;
+        font-style: italic;
+        font-display: swap;
+        src: url("{{asset 'fonts/poppins/Poppins-Italic.otf'}}") format('opentype');
+      }
+
+      @font-face {
+        font-family: 'poppins';
+        font-weight: bold;
+        font-style: normal;
+        font-display: swap;
+        src: url("{{asset 'fonts/poppins/Poppins-Bold.otf'}}") format('opentype');
+      }
+
+      @font-face {
+        font-family: 'poppins';
+        font-weight: 500;
+        font-style: normal;
+        font-display: swap;
+        src: url("{{asset 'fonts/poppins/Poppins-SemiBold.otf'}}") format('opentype');
+      }
+
+      @font-face {
+        font-family: 'poppins';
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+        src: url("{{asset 'fonts/poppins/Poppins-Bold.otf'}}") format('opentype');
+      }
+      
+      @font-face {
+        font-family: 'poppins';
+        font-weight: 900;
+        font-style: normal;
+        font-display: swap;
+        src: url("{{asset 'fonts/poppins/Poppins-Black.otf'}}") format('opentype');
+      }
+
+      @font-face {
+        font-family: 'poppins';
+        font-weight: bold;
+        font-style: italic;
+        font-display: swap;
+        src: url("{{asset 'fonts/poppins/Poppins-BlackBoldItalic.otf'}}") format('opentype');
+      }
+
+      /* iconmoon */
+      @font-face {
+        font-family: 'icomoon';
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+        src: url("{{asset 'fonts/icomoon/icomoon.eot?101fc3'}}");
+        src: url("{{asset 'fonts/icomoon/icomoon.eot?101fc3#iefix'}}") format('embedded-opentype'),
+        url("{{asset 'fonts/icomoon/icomoon.ttf?101fc3'}}") format('truetype'),
+        url("{{asset 'fonts/icomoon/icomoon.woff?101fc3'}}") format('woff'),
+        url("{{asset 'fonts/icomoon/icomoon.svg?101fc3#icomoon'}}") format('svg');
+      }
+    </style>
+
+    <link rel="stylesheet" type="text/css" href="{{asset "css/app.css"}}" media="screen" />
+
+    {{!-- This #block helper will inject a stylesheet for a specific page --}}
+    {{{block "styles"}}}
+
+    {{!-- This #block helper will pull data from the hero partial 
+    to inject styles of the hero image to make it responsive --}}
+    {{{block "herobackground"}}}
+
+    {{!-- This tag outputs SEO meta+structured data and other important settings --}}
+    {{ghost_head}}
+
+    {{!-- This style overrides the accent color to match the one from the Admin --}}
+    <style>
+      :root {
+        --primary-subtle-color: var(--ghost-accent-color) !important;
+      }
+    </style>
+
+    {{!-- These variables are used to make the search form work --}}
+    <script>
+      // @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&dn=expat.txt Expat
+      const ghostHost = "{{@site.url}}"
+      // @license-end
+    </script>
+    {{#if @custom.search_api_key}}
+      <script>
+        const ghostSearchApiKey = "{{@custom.search_api_key}}"
+      </script>
+    {{/if}}
+
+    {{!-- This variable disbale the fade animation when it's enabled --}}
+    {{#if @custom.disable_fade_animation}}
+      <script>
+        const disableFadeAnimation = {{@custom.disable_fade_animation}}
+      </script>
+    {{/if}}
+  </head>
+  <body class="{{body_class}}">
+    {{!-- All the main content gets inserted here, index.hbs, post.hbs, etc --}}
+    {{{body}}}
+
+    {{!-- Search form --}}
+    {{> search}}
+
+    {{!-- The footer --}}
+    {{> footer}}
+
+    {{!-- The plus button for social media links --}}
+    {{> social-links-button}}
+
+    {{!-- Common scripts shared between pages --}}
+    <script defer src="{{asset "js/manifest.js"}}"></script>
+    <script defer src="{{asset "js/vendor/content-api.min.js"}}"></script>
+    <script defer src="{{asset "js/vendor.js"}}"></script>
+    <script defer src="{{asset "js/app.js"}}"></script>
+
+    {{!-- The #block helper will pull in data from the #contentFor other template files --}}
+    {{{block "scripts"}}}
+
+    {{!-- Ghost outputs important scripts and data with this tag --}}
+    {{ghost_foot}}
+  </body>
+</html>

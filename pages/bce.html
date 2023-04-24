@@ -1,0 +1,238 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    .auto-grid {
+        --auto-grid-min-size: 16rem;
+
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(var(--auto-grid-min-size), 1fr));
+        grid-gap: 1rem;
+        grid-auto-rows: 1fr;
+    }
+
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        max-width: 380px;
+        margin: auto;
+        text-align: center;
+        border-radius: 10px;
+        transition-duration: 400ms;
+        height: 100%;
+    }
+
+    .title {
+        color: #B50000 !important;
+        font-size: 18px;
+        margin-bottom: 10px !important;
+    }
+
+    button:hover,
+    a:hover {
+        transition-duration: 400ms;
+    }
+
+    /* On mouse-over, add a deeper shadow */
+    .card:hover {
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+        transition-duration: 400ms;
+    }
+
+    /* Add some padding inside the card container */
+    .container {
+        padding: 2px 16px;
+    }
+
+    .profile-image {
+        border-radius: 10px;
+        width: 300px;
+        margin: 0 !important;
+        height: 225px !important;
+        object-fit: cover;
+    }
+
+    .links {
+        padding-bottom: 10px;
+    }
+
+    .name {
+        color: #000;
+        /*font-family: "poppins";
+        font-weight: 900;*/
+        font-size: 1.6em !important;
+        margin-top: 20px !important;
+        margin-bottom: 10px !important;
+        min-height: 80px !important;
+    }
+
+    .icon {
+        margin: 5px;
+        color: #454545 !important;
+        text-decoration: none;
+        font-size: 22px;
+        transition-duration: 400ms;
+    }
+
+    .icon:hover {
+        color: grey !important;
+    }
+</style>
+<div>
+    <h1 style="text-align: center;">Direcții</h1>
+    <div class="auto-grid">
+        <div class="card">
+            <img src="https://osut.org/content/images/bce/Scriti.jpg" alt="John" class="profile-image">
+            <h1 class="name">Cristian <br> Mihalache</h1>
+            <p class="title">Cultural</p>
+            <div class="links">
+                <a class="icon" href="https://www.facebook.com/cristian.mihalache23" target="_blank"><i class="fa fa-facebook"></i></a>
+                <a class="icon" href="https://www.linkedin.com/in/cristian-mihalache-553b9b1b3/?originalSubdomain=ro" target="_blank"><i class="fa fa-linkedin"></i></a>
+                <a class="icon" href="https://www.instagram.com/cristi.benzito/" target="_blank"><i class="fa fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://osut.org/content/images/bce/Bucsi Krisztian2.jpg" alt="John" class="profile-image"
+                style="object-position: 0 20%;">
+            <h1 class="name">Krisztian<br> Bucși</h1>
+            <p class="title">Divertisment</p>
+            <div class="links">
+                <a class="icon" href="https://www.facebook.com/krisztian.bucsi.1" target="_blank"><i class="fa fa-facebook"></i></a>
+                <a class="icon" href="https://www.instagram.com/krisztianbucsi/" target="_blank"><i class="fa fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://osut.org/content/images/bce/MirunaMaxim.jpg" alt="John" class="profile-image">
+            <h1 class="name">Miruna <br> Maxim</h1>
+            <p class="title">Educațional</p>
+            <div class="links">
+                <a class="icon" href="https://www.facebook.com/mirunagabriela.maxim" target="_blank"><i class="fa fa-facebook"></i></a>
+                <a class="icon" href="https://www.instagram.com/maxzzym/" target="_blank"><i class="fa fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://osut.org/content/images/bce/MaraUrdea2.jpg" alt="John" class="profile-image"
+                style="object-position: 0 30%;">
+            <h1 class="name">Mara-Cristina <br> Urdea</h1>
+            <p class="title">Sport și sănătate</p>
+            <div class="links">
+                <a class="icon" href="https://www.facebook.com/mara.urdea/" target="_blank"><i class="fa fa-facebook"></i></a>
+                <a class="icon" href="https://www.linkedin.com/in/mara-cristina-urdea-7a7a1a256/" target="_blank"><i class="fa fa-linkedin"></i></a>
+                <a class="icon" href="https://www.instagram.com/m_ara31/" target="_blank"><i class="fa fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div>
+    <h1 style="text-align: center;">Servicii</h1>
+    <div class="auto-grid">
+        <div class="card">
+            <img src="https://osut.org/content/images/bce/TimisTraian.jpg" alt="John" class="profile-image">
+            <h1 class="name">Traian-Marius <br>Timiș</h1>
+            <p class="title">Financiar</p>
+            <div class="links">
+                <a class="icon" href="https://www.facebook.com/profile.php?id=100010293510822" target="_blank"><i class="fa fa-facebook"></i></a>
+                <a class="icon" href="https://www.linkedin.com/in/traian-timis-346725234/" target="_blank"><i class="fa fa-linkedin"></i></a>
+                <a class="icon" href="https://www.instagram.com/timistm/" target="_blank"><i class="fa fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://osut.org/content/images/bce/TudorCrihalmeanu2.jpg" alt="John" class="profile-image">
+            <h1 class="name">Tudor <br> Crihălmeanu</h1>
+            <p class="title">Imagine</p>
+            <div class="links">
+                <a class="icon" href="https://www.facebook.com/tudor.crihalmeanu/" target="_blank"><i class="fa fa-facebook"></i></a>
+                <a class="icon" href="https://www.instagram.com/tudor.crihalmeanu/" target="_blank"><i class="fa fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://osut.org/content/images/bce/AlexMihoc.jpg" alt="John" class="profile-image">
+            <h1 class="name">Daniel-Alexandru <br> Mihoc</h1>
+            <p class="title">IT</p>
+            <div class="links">
+                <a class="icon" href="https://www.facebook.com/Username.AlexMihoc/" target="_blank"><i class="fa fa-facebook"></i></a>
+                <a class="icon" href="https://www.linkedin.com/in/alexandru-mihoc-1956171a1/" target="_blank"><i class="fa fa-linkedin"></i></a>
+                <a class="icon" href="https://www.instagram.com/alex._mihoc/" target="_blank"><i class="fa fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://osut.org/content/images/bce/AndreiFrincean.jpg" alt="John" class="profile-image"
+                style="object-position: 0 10%;">
+            <h1 class="name">Andrei <br> Frincean</h1>
+            <p class="title">Media</p>
+            <div class="links">
+                <a class="icon" href="https://www.facebook.com/andrei.francean/" target="_blank"><i class="fa fa-facebook"></i></a>
+                <a class="icon" href="https://www.linkedin.com/in/andrei-fr%C3%AEncean-5a33a8226/" target="_blank"><i class="fa fa-linkedin"></i></a>
+                <a class="icon" href="https://www.instagram.com/franceanandrei/" target="_blank"><i class="fa fa-instagram"></i></a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://osut.org/content/images/bce/Radu Matei.jpg" alt="John" class="profile-image"
+                style="object-position: 0 40%;">
+            <h1 class="name">Vladimir Matei <br> Radu</h1>
+            <p class="title">Tehnic-Administrativ</p>
+            <div class="links">
+                <a class="icon" href="https://www.facebook.com/profile.php?id=100015683310089" target="_blank"><i class="fa fa-facebook"></i></a>
+                <a class="icon" href="https://www.instagram.com/raduu_matei" target="_blank"><i class="fa fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div>
+    <h1 style="text-align: center;">Proiecte</h1>
+    <div class="auto-grid">
+        <div class="card">
+            <img src="https://osut.org/content/images/bce/RaulLazar.jpg" alt="John" class="profile-image">
+            <h1 class="name">Raul <br> Lazăr</h1>
+            <p class="title">PoliHack</p>
+            <div class="links">
+                <a class="icon" href="https://m.facebook.com/lazar.raul.7" target="_blank"><i class="fa fa-facebook"></i></a>
+                <a class="icon" href="https://www.linkedin.com/mwlite/in/raul-lazar-89613b1a1" target="_blank"><i class="fa fa-linkedin"></i></a>
+                <a class="icon" href="https://www.instagram.com/raul_lazar/" target="_blank"><i class="fa fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://osut.org/content/images/bce/CristiFilip.jpg" alt="John" class="profile-image">
+            <h1 class="name">Filip <br> Cristian</h1>
+            <p class="title">Viitor Inginer</p>
+            <div class="links">
+                <a class="icon" href="https://www.facebook.com/filip.cristi.37" target="_blank"><i class="fa fa-facebook"></i></a>
+                <a class="icon" href="https://www.linkedin.com/in/cristian-mihai-filip-789701246" target="_blank"><i class="fa fa-linkedin"></i></a>
+                <a class="icon" href="https://instagram.com/filip_cristi?igshid=YmMyMTA2M2Y=" target="_blank"><i class="fa fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://osut.org/content/images/bce/MihaiDaian.jpg" alt="John" class="profile-image"
+                style="object-position: 0 50%;">
+            <h1 class="name">Mihai <br> Daian</h1>
+            <p class="title">InfoTech</p>
+            <div class="links">
+                <a class="icon" href="https://www.facebook.com/mihai.daian150" target="_blank"><i class="fa fa-facebook"></i></a>
+                <a class="icon" href="https://www.linkedin.com/in/mihai-daian" target="_blank"><i class="fa fa-linkedin"></i></a>
+                <a class="icon" href="https://www.instagram.com/daian.mihai/" target="_blank"><i class="fa fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://osut.org/content/images/bce/FilimonAntonia2.jpg" alt="John" class="profile-image">
+            <h1 class="name">Antonia <br> Filimon</h1>
+            <p class="title">Gala Aniversară</p>
+            <div class="links">
+                <a class="icon" href="https://www.facebook.com/antonia.filimon" target="_blank"><i class="fa fa-facebook"></i></a>
+                <a class="icon" href="https://www.linkedin.com/in/antonia-filimon-796600239" target="_blank"><i class="fa fa-linkedin"></i></a>
+                <a class="icon" href=" https://instagram.com/antonia_maria208?igshid=YmMyMTA2M2Y=" target="_blank"><i class="fa fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://osut.org/content/images/bce/DemeanVlad.jpg" alt="John" class="profile-image">
+            <h1 class="name">Vlad <br> Demean</h1>
+            <p class="title">ESU</p>
+            <div class="links">
+                <a class="icon" href="https://www.facebook.com/demean.vlad" target="_blank"><i class="fa fa-facebook"></i></a>
+                <a class="icon" href="https://www.linkedin.com/in/vlad-demean-3822a9249/" target="_blank"><i class="fa fa-linkedin"></i></a>
+                <a class="icon" href="https://instagram.com/__demeanvlad?igshid=YmMyMTA2M2Y=" target="_blank"><i class="fa fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+
+</div>
