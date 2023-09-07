@@ -62,7 +62,7 @@ into the {body} of the default.hbs template --}}
   {{!-- For counters --}}
   {{!-- {{> counters}} --}}
 
-  <div class="l-content">
+  <div class="l-content mobile-layout">
     <div class="l-wrapper" data-aos="fade-up" data-aos-delay="300">
       {{!-- {{> anunt title="OSUT te informeaza"}} --}}
       <div class="l-grid centered">
@@ -77,11 +77,11 @@ into the {body} of the default.hbs template --}}
                         {{#if feature_image}}
                           <style>
                             #featured-bg-{{id}} {
-                              background-image: url({{img_url feature_image size='l'}});
+                              background-image: url('assets/images/bgr.png');
                             }
                             @media(max-width: 768px) {
                               #featured-bg-{{id}} {
-                                background-image: url({{img_url feature_image size='m'}});
+                                background-image: url('assets/images/bgr.png');
                               }
                             }
                           </style>
