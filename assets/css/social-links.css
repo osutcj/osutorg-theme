@@ -50,8 +50,20 @@
     z-index: 2;
 }
 
-@media only screen and (min-width: 48rem) {
+@media only screen and (max-width: 768px) {
+    .container-social-links-40fca29{
+        position: absolute;
+        left: 5px;
+        bottom: 0;
+        padding: auto;
+    }
     .facebook {
-        color: #004225;
+        margin-left: 22px;
+    }
+    .instagram {
+        margin-left: 97px;
+    }
+    .linkedin {
+        margin-left: 175px;
     }
   }
