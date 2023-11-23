@@ -1,0 +1,126 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HTML and CSS Slideshow</title>
+    <style>
+        body {
+            margin: 0;
+        }
+        /* Styling the area of the slides */
+        
+        #slideshow {
+            overflow: hidden;
+            height: 40rem;
+            width: 100%;
+            margin: 0;
+        }
+        
+        /* Style each of the sides 
+        with a fixed width and height */
+        
+        .slide {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            float: left;
+            height: 40rem;
+            width: 100%;
+        }
+        
+        /* Add animation to the slides */
+        
+        .slide-wrapper {
+            display: flex;
+            flex-direction: row;
+            
+            /* Specify the animation with the
+        duration and speed */
+        }
+    </style>
+</head>
+ 
+<body>
+     
+    <!-- Define the slideshow container -->
+    <div id="slideshow"> 
+        <!-- Injected code from JS script, that creates 
+        the <div class="slide-wrapper"> and inserts all the pictures -->
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    // Get the slideshow container
+    let slideshowContainer = document.getElementById("slideshow");
+
+    // Specify the folder path where the images are stored
+    let imagePath = "../Bilder_fur_Karousel/";
+
+    // Array of image filenames
+    let imageFiles = [
+        "F19_Wallpaper_2.jpg",
+        "F20_Wallpaper_5.jpg",
+        "F20_Wallpaper_6.jpg",
+        "F20_Wallpaper_7.jpg",
+        "F20_Wallpaper_2.jpg"
+    ];
+
+    // Create a div to wrap the slides
+    let slidewrapper = document.createElement("div");
+    slidewrapper.className = "slide-wrapper";
+
+    // Iterate through the image files and create slides
+    for (let i = 0; i < imageFiles.length; i++) {
+        // Create a new slide element
+        let slide = document.createElement("div");
+        slide.className = "slide";
+
+        // Set the initial left value for each slide based on index
+        slide.style.left = i * 100 + "%";
+
+        // Create an image element
+        let img = document.createElement("img");
+        img.src = imagePath + imageFiles[i];
+
+        // Append the image to the slide
+        slide.appendChild(img);
+
+        // Append the slide to the slide wrapper
+        slidewrapper.appendChild(slide);
+    }
+
+    // Append the slide wrapper to the slideshow container
+    slideshowContainer.appendChild(slidewrapper);
+
+
+    // Calculate the total duration including breaks
+    let breakDuration = 5; // Break duration in seconds
+    let transitionDuration = 3; // Transition duration for each image in seconds
+    let totalDuration = imageFiles.length * (breakDuration + transitionDuration) - breakDuration;
+
+    // Calculate the keyframes based on the number of images and add breaks every 5 seconds
+    let keyframes = "";
+
+    for (let i = 0; i < imageFiles.length; i++) {
+        let startPercentage = (i * (breakDuration + transitionDuration) / totalDuration) * 100;
+        let endPercentage = ((i + 1) * (breakDuration + transitionDuration) - breakDuration) / totalDuration * 100;
+
+        keyframes += `${startPercentage}% { transform: translateX(-${i * 100}%); } `;
+        //keyframes += `${endPercentage - 5}% { transform: translateX(-${i * 100 + 5}%); } `;
+        keyframes += `${endPercentage}% { transform: translateX(-${i * 100}%); } `;
+    }
+
+    // Create a style element to inject the dynamic keyframes
+    let style = document.createElement("style");
+    style.innerHTML = `@keyframes slide { ${keyframes} }`;
+
+    // Append the style element to the document head
+    document.head.appendChild(style);
+
+    // Set the animation property for the slide wrapper
+    slidewrapper.style.animation = `slide ${totalDuration}s cubic-bezier(0.4, 0.0, 0.2, 1) infinite`;
+
+});
+    </script>
+</body>
+</html>
