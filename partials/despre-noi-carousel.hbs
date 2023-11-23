@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +6,6 @@
         body {
             margin: 0;
         }
-        /* Styling the area of the slides */
         
         #slideshow {
             overflow: hidden;
@@ -24,24 +22,21 @@
             align-items: center;
             justify-content: center;
             float: left;
-            height: 40rem;
+            max-height: 40rem;
             width: 100%;
         }
         
         /* Add animation to the slides */
         
         .slide-wrapper {
+            /* All the slides are arranged one a single infinite-long row */
             display: flex;
             flex-direction: row;
-            
-            /* Specify the animation with the
-        duration and speed */
         }
     </style>
 </head>
  
-<body>
-     
+<body>    
     <!-- Define the slideshow container -->
     <div id="slideshow"> 
         <!-- Injected code from JS script, that creates 
@@ -57,6 +52,7 @@
     let imagePath = "../Bilder_fur_Karousel/";
 
     // Array of image filenames
+    // Note: This can be automatised with fetch method, but has to be used on Node projects
     let imageFiles = [
         "F19_Wallpaper_2.jpg",
         "F20_Wallpaper_5.jpg",
@@ -65,6 +61,17 @@
         "F20_Wallpaper_2.jpg"
     ];
 
+    /* What do we want to achieve:
+        <div class="slide-wrapper">
+            <div class="slide">
+                <img 1...>
+            </div>
+            ...
+            <div class="slide">
+                <img n...>
+            </div>
+        </div>
+    */
     // Create a div to wrap the slides
     let slidewrapper = document.createElement("div");
     slidewrapper.className = "slide-wrapper";
@@ -106,7 +113,6 @@
         let endPercentage = ((i + 1) * (breakDuration + transitionDuration) - breakDuration) / totalDuration * 100;
 
         keyframes += `${startPercentage}% { transform: translateX(-${i * 100}%); } `;
-        //keyframes += `${endPercentage - 5}% { transform: translateX(-${i * 100 + 5}%); } `;
         keyframes += `${endPercentage}% { transform: translateX(-${i * 100}%); } `;
     }
 
