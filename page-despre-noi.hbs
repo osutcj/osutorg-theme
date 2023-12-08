@@ -18,7 +18,6 @@ into the {body} of the default.hbs template --}}
 {{!< default}}
 
 {{!-- Special header.hbs partial to generate the <header> tag --}}
-{{!-- Here we will insert the code for the Photo Carousel (bzw. between {{post}} tags) --}}
 {{#post}}
   {{!-- {{> hero background=feature_image}} --}}
 {{/post}}
@@ -27,7 +26,6 @@ into the {body} of the default.hbs template --}}
   {{!-- Everything inside the #post tags pulls data from the post --}}
   {{#post}}
     {{!-- Inject styles of the hero image to make it responsive --}}
-    {{!-- Reference: https://www.youtube.com/watch?v=McPdzhLRzCg --}}
     {{> hero background=feature_image}}
     {{> despre-noi-carousel}}
     <div class="m-hero__content" data-aos="fade-down">
@@ -41,7 +39,7 @@ into the {body} of the default.hbs template --}}
       <div class="l-content">
         <div class="l-wrapper in-post" data-aos="fade-up" data-aos-delay="300">
           <div class="l-post-content">
-            <div class="pos-relative js-post-content"> Cocalardo
+            <div class="pos-relative js-post-content">
               {{content}}
             </div>
           </div>
