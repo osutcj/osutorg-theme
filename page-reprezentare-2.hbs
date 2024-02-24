@@ -1,0 +1,280 @@
+{{!--
+This template is used for the posts that are marked as pages.
+--}}
+
+{{!-- This block preloads specific assets for the post page --}}
+{{#contentFor "preload"}}
+  <link rel="preload" href="{{asset "css/post.css"}}" as="style" />
+  <link rel="preload" href="{{asset "js/page.js"}}" as="script" />
+{{/contentFor}}
+
+{{!-- This block loads specific styles for the post page --}}
+{{#contentFor "styles"}}
+  <link rel="stylesheet" type="text/css" href="{{asset "css/post.css"}}" media="screen" />
+{{/contentFor}}
+
+<style>
+    .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100vw;
+    max-width: 1024px;
+    margin: 0 auto;
+    }
+
+    .card-grid {
+    margin-top: 3em;
+    --auto-grid-min-size: 300px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(var(--auto-grid-min-size), 1fr));
+    grid-gap: 2rem 0rem;
+    grid-auto-rows: 1fr;
+    }
+
+    .card {
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
+    width: 300px;
+    margin: auto;
+    text-align: center;
+    border-radius: 10px;
+    transition-duration: 400ms;
+    height: 100%;
+    }
+
+    .card img {
+    max-width: 300px;
+    width: 100%;
+    height: 225px;
+    object-fit: cover;
+    border-radius: 10px;
+    object-position: center;
+    }
+
+    .card .card-body {
+    text-align: center;
+    padding: 1em 2em;
+    }
+
+    .card .card-body h2 {
+    margin: 0 0 .5em;
+    font-weight: 700;
+    font-size: 2rem;
+    }
+
+    .card .card-body p.role {
+        color: #B50000;
+    }
+
+    .icon:hover {
+        color: #B50000;
+    }
+    </style>
+    
+{{!-- The tag below means: insert everything in this file
+into the {body} of the default.hbs template --}}
+{{!< default}}
+
+{{!-- Special header.hbs partial to generate the <header> tag --}}
+{{#post}}
+  {{> header background=feature_image}}
+{{/post}}
+
+<main class="main-wrap">
+    <article class="article {{post_class}}">
+
+            <header class="article-header gh-canvas">
+                {{#if feature_image}}
+                <figure class="article-image">
+                    {{!-- This is a responsive image, it loads different sizes depending on device
+                    https://medium.freecodecamp.org/a-guide-to-responsive-images-with-ready-to-use-templates-c400bd65c433
+                    --}}
+                    <img srcset="{{img_url feature_image size=" s"}} 300w, {{img_url feature_image size="m" }} 600w,
+                        {{img_url feature_image size="l" }} 1000w, {{img_url feature_image size="xl" }} 2000w"
+                        sizes="(min-width: 1400px) 1400px, 92vw" src="{{img_url feature_image size=" xl"}}"
+                        alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}" />
+                    {{#if feature_image_caption}}
+                    <figcaption>{{feature_image_caption}}</figcaption>
+                    {{/if}}
+                </figure>
+                {{/if}}
+            </header>
+
+            <section class="container">
+
+
+                <div class="article-title" style="text-align: center;">
+                    <h1>Studenții reprezentanți</h1>
+                </div>
+
+           
+
+                <h2 style="text-align: center">Senat</h2>
+
+                <div class="card-grid" style="margin-bottom: 15px;">
+                    <div class="card">
+                        <img src="/assets/images/default-avatar-square-normal.jpg">
+                        <div class="card-body">
+                            <h2>Filip Cristian-Mihai</h2>
+                            <p class="role">0760993125</p>
+                            <div>
+                                <a class="icon" href="mailto:cristifilip200@gmail.com"><i class="fa fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="/assets/images/default-avatar-square-normal.jpg">
+                        <div class="card-body">
+                            <h2>Dăian Petre-Mihai</h2>
+                            <p class="role">0747953337</p>
+                            <div>
+                                <a class="icon" href="mailto:mihaidaian024@gmail.com"><i class="fa fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="/assets/images/default-avatar-square-normal.jpg">
+                        <div class="card-body">
+                            <h2>Ihoș Iarina-Valentina</h2>
+                            <p class="role">0744216598</p>
+                            <div>
+                                <a class="icon" href="mailto:iarinaihos@gmail.com"><i class="fa fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="/assets/images/default-avatar-square-normal.jpg" >
+                        <div class="card-body">
+                            <h2>Vasile Maria Lorena</h2>
+                            <p class="role">0754637917</p>
+                            <div>
+                                <a class="icon" href="mailto:vasilemarialorena@gmail.com"><i class="fa fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="/assets/images/default-avatar-square-normal.jpg">
+                        <div class="card-body">
+                            <h2>Olaru Constantin-Alexandru</h2>
+                            <p class="role">0760583326</p>
+                            <div>
+                                <a class="icon" href="mailto:alexolaru131@gmail.com"><i class="fa fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h2 style="text-align: center">Consiliu</h2>
+
+                <div class="card-grid" style="margin-bottom: 15px;">
+                    <div class="card">
+                        <img src="/assets/images/default-avatar-square-normal.jpg">
+                        <div class="card-body">
+                            <h2>Nechita Florina-Elena</h2>
+                            <p class="role">0725534103</p>
+                            <div>
+                                <a class="icon" href="mailto:nechitaflorina2002@gmail.com"><i class="fa fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="/assets/images/default-avatar-square-normal.jpg" >
+                        <div class="card-body">
+                            <h2>Dăian Petre-Mihai</h2>
+                            <p class="role">0747953337</p>
+                            <div>
+                                <a class="icon" href="mailto:mihaidaian024@gmail.com"><i class="fa fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="/assets/images/default-avatar-square-normal.jpg">
+                        <div class="card-body">
+                            <h2>Filip Cristian-Mihai</h2>
+                            <p class="role">0760993125</p>
+                            <div>
+                                <a class="icon" href="mailto:cristifilip2002@gmail.com"><i class="fa fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="/assets/images/default-avatar-square-normal.jpg">
+                        <div class="card-body">
+                            <h2>Bălănescu Rareș-Ioan</h2>
+                            <p class="role">0786825333</p>
+                            <div>
+                                <a class="icon" href="mailto:raresbalanescu@gmail.com"><i class="fa fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="/assets/images/default-avatar-square-normal.jpg">
+                        <div class="card-body">
+                            <h2>Demean Vlad</h2>
+                            <p class="role">0736353111</p>
+                            <div>
+                                <a class="icon" href="mailto:demeanvlad8@gmail.com"><i class="fa fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="/assets/images/default-avatar-square-normal.jpg">
+                        <div class="card-body">
+                            <h2>Duțulescu Aurelia-Georgiana</h2>
+                            <p class="role">0746532877</p>
+                            <div>
+                                <a class="icon" href="mailto:dutulescureli14@gmail.com"><i class="fa fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="/assets/images/default-avatar-square-normal.jpg">
+                        <div class="card-body">
+                            <h2>Șeulean Dragoș Oliviu</h2>
+                            <p class="role">0758026098</p>
+                            <div>
+                                <a class="icon" href="mailto:dragosseuo@gmail.com"><i class="fa fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="/assets/images/default-avatar-square-normal.jpg">
+                        <div class="card-body">
+                            <h2>Miclea Rareș</h2>
+                            <p class="role">0734223650</p>
+                            <div>
+                                <a class="icon" href="mailto:miclearares@gmail.com"><i class="fa fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="/assets/images/default-avatar-square-normal.jpg">
+                        <div class="card-body">
+                            <h2>Boncea Natalia-Georgiana</h2>
+                            <p class="role">0745752480</p>
+                            <div>
+                                <a class="icon" href="mailto:nataliaboncea27@gmail.com"><i class="fa fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="/assets/images/default-avatar-square-normal.jpg">
+                        <div class="card-body">
+                            <h2>Buzea Lorena-Maria</h2>
+                            <p class="role">0747055101</p>
+                            <div>
+                                <a class="icon" href="mailto:lorenabuzea25@yahoo.com"><i class="fa fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+        </article>
+</main>
+
+{{!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs --}}
+{{#contentFor "scripts"}}
+  <script defer src="{{asset "js/page.js"}}"></script>
+{{/contentFor}}
