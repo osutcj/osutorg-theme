@@ -21,7 +21,7 @@
 }
 @media only screen and (min-width: 64rem) {
   .m-featured-slider.swiper {
-    width: calc(66.66667% - 40px);
+    /* width: calc(66.66667% - 40px); */  /*this make the featured banner smaller*/
     margin: 0 20px 40px;
     overflow: unset;
   }
