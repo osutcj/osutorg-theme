@@ -1,0 +1,98 @@
+{{!--
+This template is used for the posts that are marked as pages.
+--}}
+
+{{!-- This block preloads specific assets for the post page --}}
+{{#contentFor "preload"}}
+  <link rel="preload" href="{{asset "css/post.css"}}" as="style" />
+  <link rel="preload" href="{{asset "js/page.js"}}" as="script" />
+  <link rel="preload" href="{{asset "assets\css\green.css"}}" as="style"/>
+{{/contentFor}}
+
+{{!-- This block loads specific styles for the post page --}}
+{{#contentFor "styles"}}
+  <link rel="stylesheet" type="text/css" href="{{asset "css/post.css"}}" media="screen" />
+{{/contentFor}}
+
+{{!-- The tag below means: insert everything in this file
+into the {body} of the default.hbs template --}}
+{{!< default}}
+
+{{!-- Special header.hbs partial to generate the <header> tag --}}
+{{#post}}
+  {{> header background=feature_image}}
+{{/post}}
+
+<script>
+    function openTab(tab, tabName) {
+  // Declare all variables
+  var i, tabcontent, tablinks;
+
+  // Get all elements with class="tabcontent" and hide them
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+
+  // Get all elements with class="tablinks" and remove the class "active"
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+
+  // Show the current tab, and add an "active" class to the button that opened the tab
+  var currentTab = document.getElementById(tabName);
+        currentTab.style.display = "flex";
+        currentTab.style.flexDirection = "column"; // Assuming you want a row layout
+        // Add more elements to the display flex class
+        currentTab.style.alignItems = "center"; // Example of adding more elements
+
+        tab.currentTarget.className += " active";
+}
+</script>
+
+<main class="main-wrap">
+  {{!-- Everything inside the #post tags pulls data from the post --}}
+  {{#post}}
+    {{!-- Inject styles of the hero image to make it responsive --}}
+    {{> hero background=feature_image}}
+    <div class="m-hero__content" data-aos="fade-down">
+      <h1 class="m-hero-title bigger">{{title}}</h1>
+      {{#if custom_excerpt}}
+        <p class="m-hero-description">{{custom_excerpt}}</p>
+      {{/if}}
+    </div>
+    </section>
+    <article>
+      
+              <div class="tab">
+                <button class="tablinks" onclick="openTab(event, 'OSUT Green')">OSUT Green</button>
+                <button class="tablinks" onclick="openTab(event, 'Proiecte')">Proiecte</button>
+                <button class="tablinks" onclick="openTab(event, 'Sustenabiliate')">Sustenabiliate</button>
+            </div>
+              <div id="OSUT Green" class="tabcontent">
+                <h3>OSUT Green</h3>
+                <p>Suntem verzi???</p>
+            </div>
+
+            <div id="Proiecte" class="tabcontent">
+                <h3>Proiecte</h3>
+                <p>Proiecte </p>
+            </div>
+
+            <div id="Sustenabiliate" class="tabcontent">
+                <h3>Sustenabiliate</h3>
+                <p>Facem x si y sa fim mai verzi</p>
+            </div>
+            
+          
+        
+      
+    </article>
+  {{/post}}
+</main>
+
+{{!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs --}}
+{{#contentFor "scripts"}}
+  <script defer src="{{asset "js/page.js"}}"></script>
+{{/contentFor}}
