@@ -1826,3 +1826,38 @@
         display: none !important
     }
 }
+
+.tab {
+    overflow: hidden;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    margin-top: 2%;
+
+}
+
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: white solid 2px;
+    border-radius: 50px;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    color: black;
+    background-color: white;
+}
+
+.tab button:hover {
+    background-color: #ddd;
+}
+
+.tab button.active {
+    background-color: #ccc;
+}
+
+.tabcontent {
+    display: none;
+    padding-top: 1%;
+}
