@@ -1858,6 +1858,6 @@
 }
 
 .tabcontent {
-    display: none;
+    display: block;
     padding-top: 1%;
 }
