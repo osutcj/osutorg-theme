@@ -1,0 +1,304 @@
+{{!--
+This template is used for the index page.
+It can be used also as the home page or the default page.
+--}}
+
+{{!-- Training IT --}}
+
+{{!-- This block preloads specific assets for the index page --}}
+{{#contentFor "preload"}}
+  <link rel="preload" href="{{asset "css/home.css"}}" as="style" />
+  <link rel="preload" href="{{asset "css/listing.css"}}" as="style" />
+ 
+  <link rel="preload" href="{{asset "js/home.js"}}" as="script" />
+{{/contentFor}}
+
+{{!-- This block loads specific styles for the index page --}}
+{{#contentFor "styles"}}
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          spacing: {
+            '128': '32rem',
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" type="text/css" href="{{asset "css/home.css"}}" media="screen" />
+
+  <link rel="stylesheet" type="text/css" href="{{asset "css/listing.css"}}" media="screen" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/font-awesome.min.css">
+  {{!-- <link rel="stylesheet" type="text/css" href="{{asset "css/anunt.css"}}" media="screen"> --}}
+{{/contentFor}}
+
+{{!-- The tag below means: insert everything in this file
+into the {body} of the default.hbs template --}}
+{{!< default}}
+
+{{!-- Special header.hbs partial to generate the <header> tag --}}
+{{> header background=@site.cover_image}}
+
+<style>
+  .doneaza {
+    display: inline-block;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+    background-color: red;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30vw;
+    font-family: Arial, sans-serif;
+  }
+
+  .doneaza:hover {
+    background-color: darkred;
+  }
+
+  .responsive-title {
+    margin-left: 20vh;
+    margin-right: 20vh;
+    text-align: justify;
+    font-size: 1.4rem;
+  }
+
+  .responsive-subtitle {
+    margin-left: 20vh;
+    margin-right: 20vh;
+    text-align: justify;
+    font-size: 1.4rem;
+  }
+
+  .section-title {
+    margin-left: 20vh;
+    margin-right: 20vh;
+    text-align: justify;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  .section-content {
+    margin-left: 20vh;
+    margin-right: 20vh;
+    text-align: justify;
+    font-size: 1rem;
+  }
+
+  .cta-message {
+    margin-left: 20vh;
+    margin-right: 20vh;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: bold;
+  }
+
+  @media (max-width: 768px) {
+    .responsive-title, .responsive-subtitle, .section-title, .section-content {
+      margin-left: 5vw;
+      margin-right: 5vw;
+      text-align: left;
+      font-size: 1rem;
+    }
+
+  .cta-message{
+    
+    margin-left: 5vh;
+    margin-right: 5vh;
+  }
+    .section-title {
+      font-size: 1.2rem;
+    }
+
+    .section-content {
+      font-size: 0.9rem;
+    }
+
+    .doneaza {
+      width: 80vw;
+      font-size: 0.9rem;
+    }
+  }
+</style>
+
+<main class="main-wrap">
+  <div>
+    <div style="margin:0 auto; width: 80%; ">
+   <div class="container">
+        <img src="/assets/images/OSUT_alb.svg" style="" class="image logo-infotech">
+
+        <div class="light"></div>
+      </div>
+  <script src="/assets/js/lumina.js"></script>
+  </div>
+  
+    <div class="submenu">
+      <button id="btn1" class="active" onclick="showContent('content1')">Donează</button>
+      <button id="btn2" onclick="showContent('content2')">Donează 3.5%</button>
+    </div>
+
+    <div id="content">
+      <b>
+        <h1 class="responsive-title">IBAN: RO36BTRL01301205950852XX</h1>
+        <h2 class="responsive-subtitle">Organizația Studenților din Universitatea Tehnică din Cluj-Napoca</h2>
+      </b>
+      <br>
+      <h1 class="section-title">De ce să donezi?</h1>
+      <br>
+      <h2 class="section-content">
+        Organizația noastră este mai mult decât un grup de studenți - este o comunitate activă care lucrează pentru a crea oportunități și experiențe de neuitat pentru toți studenții Universității Tehnice din Cluj-Napoca (UTCN). Donația ta ne poate ajuta să ducem această misiune la un alt nivel. Iată de ce merită să ne sprijini:
+      </h2>
+      <br>
+      <h1 class="section-title">1. Investiție în educație și viitorul tinerilor</h1>
+      <br>
+      <h2 class="section-content">
+        Susținerea OSUT înseamnă susținerea viitorilor ingineri, arhitecți și inovatori. Prin proiectele noastre, contribuim la dezvoltarea personală și profesională a studenților, oferindu-le acces la workshop-uri, conferințe și programe de mentorat. Donația ta ajută să le oferim resursele necesare pentru a excela.
+      </h2>
+      <br>
+      <h1 class="section-title">2. Evenimente și proiecte de impact</h1>
+      <br>
+      <h2 class="section-content">
+        Organizăm activități care fac universitatea mai prietenoasă și mai accesibilă: de la sesiuni de orientare pentru boboci, târguri de carieră și concursuri tehnice, până la festivaluri culturale și activități de voluntariat. Cu sprijinul tău, putem dezvolta proiecte care să îmbogățească viața academică și socială a mii de studenți.
+      </h2>
+      <br>
+      <h1 class="cta-message">Fii parte din schimbare! Ajută-ne să transformăm educația și viața studenților din UTCN!</h1>
+      <br>
+    </div>
+  </div>
+</main>
+
+<script>
+    // Function to update content based on the clicked submenu item
+    function showContent(section) {
+        const content = document.getElementById('content');
+        const buttons = document.querySelectorAll('.submenu button');
+
+        // Remove 'active' class from all buttons
+        buttons.forEach(button => button.classList.remove('active'));
+
+        // Set content based on the selected section
+        if (section === 'content1') {
+            content.innerHTML = 
+            `
+     <div id="content">
+      <b>
+        <h1 class="responsive-title">IBAN: RO36BTRL01301205950852XX</h1>
+        <h2 class="responsive-subtitle">Organizația Studenților din Universitatea Tehnică din Cluj-Napoca</h2>
+      </b>
+      <br>
+      <h1 class="section-title">De ce să donezi?</h1>
+      <br>
+      <h2 class="section-content">
+        Organizația noastră este mai mult decât un grup de studenți - este o comunitate activă care lucrează pentru a crea oportunități și experiențe de neuitat pentru toți studenții Universității Tehnice din Cluj-Napoca (UTCN). Donația ta ne poate ajuta să ducem această misiune la un alt nivel. Iată de ce merită să ne sprijini:
+      </h2>
+      <br>
+      <h1 class="section-title">1. Investiție în educație și viitorul tinerilor</h1>
+      <br>
+      <h2 class="section-content">
+        Susținerea OSUT înseamnă susținerea viitorilor ingineri, arhitecți și inovatori. Prin proiectele noastre, contribuim la dezvoltarea personală și profesională a studenților, oferindu-le acces la workshop-uri, conferințe și programe de mentorat. Donația ta ajută să le oferim resursele necesare pentru a excela.
+      </h2>
+      <br>
+      <h1 class="section-title">2. Evenimente și proiecte de impact</h1>
+      <br>
+      <h2 class="section-content">
+        Organizăm activități care fac universitatea mai prietenoasă și mai accesibilă: de la sesiuni de orientare pentru boboci, târguri de carieră și concursuri tehnice, până la festivaluri culturale și activități de voluntariat. Cu sprijinul tău, putem dezvolta proiecte care să îmbogățească viața academică și socială a mii de studenți.
+      </h2>
+      <br>
+      <h1 class="cta-message">Fii parte din schimbare! Ajută-ne să transformăm educația și viața studenților din UTCN!</h1>
+      <br>
+    </div>        `;
+            document.getElementById('btn1').classList.add('active');
+        } else if (section === 'content2') {
+            content.innerHTML = `
+            <div style="align-item:center;">
+            <a href="https://redirectioneaza.ro/osutcj/?ref=osut.org" target="_blank" style="align:center; text-align:justify; font-size:1.1rem; background-color:red; width:50vw;" class="doneaza">Donează 3,5% acum</a>
+            </div>
+            <br>
+            <br>
+            <br>
+            <h1 class="section-content">Chiar tu ne poți ajuta, donând 3.5% din impozitul pe venit către organizația noastră.</h1>
+            <br>
+            <h1 class="section-content">Cum poți face acest lucru? Urmărește acești pași: </h1>
+            <br>
+            <h1 class="section-title"><b> 1. Completarea formularului: </b></h1>
+            <br>
+            <h2 class="section-content"> Pentru venituri din salarii sau pensii: Formularul 230 (Cerere privind destinația sumei reprezentând până la 3.5% din impozitul anual pe veniturile din salarii și din pensii).
+            Pentru alte venituri: Declarația unică. În formular se completează datele personale (nume, CNP, adresa) și datele organizației beneficiare (nume, cod fiscal, cont bancar IBAN).
+            </h2>
+            <br>
+            <h1 class="section-title"><b>2. Depunerea formularului: </b></h1>
+            <br>
+            <h2 class="section-content">Formularul se poate depune în format fizic la administrația financiară (ANAF) de care aparțineți.
+            Se poate trimite prin poștă cu confirmare de primire.
+            Se poate depune online, prin platforma SPV (Spațiul Privat Virtual), dacă aveți un cont activ. 
+            </h2>
+            <br>
+            <h1 class="cta-message"> <b> Campania o să înceapă din data de 1 ianuarie 2025. </b></h1>
+            <br>
+            <br>
+            <br>
+            <div style="margin-left:50vw;">
+            <a href="https://redirectioneaza.ro/osutcj/?ref=osut.org" target="_blank" style="align:center; text-align:justify; font-size:1.1rem; background-color:red; width:50vw;" class="doneaza">Donează 3,5% acum</a>
+            </div>
+            <br>
+            `;
+            document.getElementById('btn2').classList.add('active');
+        } 
+    }
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const modal = document.getElementById("myModal");
+  const closeBtn = modal.querySelector(".close");
+
+  // Open modal
+  document.querySelectorAll(".myImg").forEach((img) => {
+    img.addEventListener("click", function () {
+      const modalTitle = document.getElementById("modalTitle");
+      const modalSubtitle = document.getElementById("modalSubtitle");
+      const captionText = document.getElementById("caption");
+
+      modal.style.display = "block";
+      modalTitle.textContent = img.getAttribute("data-title");
+      modalSubtitle.innerHTML = img.getAttribute("data-subtitle").replace(/\n/g, "<br>");
+      captionText.textContent = img.getAttribute("data-caption");
+    });
+  });
+
+  // Close modal
+  closeBtn.addEventListener("click", function () {
+    modal.style.display = "none";
+  });
+
+  // Close modal on outside click
+  window.addEventListener("click", function (e) {
+    if (e.target === modal) {
+      modal.style.display = "none";
+    }
+  });
+
+  // Close modal on Esc key
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && modal.style.display === "block") {
+      modal.style.display = "none";
+    }
+  });
+});
+
+
+</script>
+ </main>
+
+{{!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs --}}
+{{#contentFor "scripts"}}
+  <script defer src="{{asset "js/home.js"}}"></script>
+{{/contentFor}}

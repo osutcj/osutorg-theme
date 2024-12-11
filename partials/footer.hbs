@@ -1,61 +1,163 @@
-{{!--
-This footer template is shared across all the pages.
---}}
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 <style>
-  .sponsor {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 10px;
+        .footer-bottom a{
+    color: inherit;
 }
 
-.sponsor-logo {
-  max-width: 150px;
-  height: 50px;
+.footer-bottom-contact{
+    padding-bottom: 40px;
+    text-align: justify;
+}
+.footer-bottom-contact b{
+    color:#ffffff
+}
+.footer-bottom-contact h3{
+    color:#ffffff;
+}
+.footer {
+    background-color: #000000; /* Dark blue color */
+    color: #ffffff;
+    padding: 20px 0;
+    text-align: center;
+    font-family: Arial, sans-serif;
 }
 
-.your-logo {
-  max-width: 150px;
-  height: 50px;
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-@media screen and (max-width: 720px) {
-  .sponsor{
-      display: flex;
-			flex-direction: column;
-			align-items: center;
-			justify-content: center;
-  }
-  .your-logo{
-    max-width: 300px;
-    height: 100px;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-  }
-  .sponsor-logo{
-    max-width: 300px;
-    height: 100px;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-  }
+.footer-logo {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 40px; /* Space between the images */
+    color: #ccc;
+    font-size: 14px;
+    margin-top: -10px;
 }
 
-</style>
+.footer-logo img {
+    max-width: 100px;
+}
 
-<footer class="m-footer">
-  <div class="m-footer__content">
-    {{#if @site.secondary_navigation}}
-      <nav class="m-footer__nav-secondary" role="navigation" aria-label="{{t "Secondary menu in footer"}}">
-        {{navigation type="secondary"}}
-      </nav>
-    {{/if}}
-    <div class="sponsor">
- {{!-- <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnc6k3TxOhxOZud8bcUYKHOmNkSgdvqN_IXfpg4xym&s" alt="reload the page pls" class="sponsor-logo">--}}
-      <img src="{{asset "images/utcn-logo-alb.png"}}" alt="reload the page pls" class="your-logo">
+.footer-social a {
+    color: #ffffff;
+    font-size: 22px;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+.footer-social a:hover {
+    color: red;
+}
+
+hr {
+    color:#FFF840;
+    border: 0;
+    border-top: 1px solid #ffffff;
+    margin: 20px 0;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 30px;
+    color: #ccc;
+    font-size: 14px;
+    margin-top: -10px;
+}
+
+.footer-bottom img {
+    max-width: 140px;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 900px) {
+    .footer {
+        padding: 15px 0;
+    }
+
+    .footer-content {
+        align-items: center;
+        flex-direction: column; /* Stack content vertically on mobile */
+        gap: 15px;
+        padding: 10px 0;
+    }
+
+    .footer-logo {
+        gap: 30px; /* Slightly reduce gap between logos */
+    }
+
+    .footer-logo img {
+        max-width: 120px; /* Reduce logo size on mobile */
+    }
+
+    .footer-social a {
+        font-size: 22px; /* Reduce icon size on mobile */
+        margin: 0 8px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 20px;
+        margin-top: 0;
+    }
+
+    .footer-bottom img {
+        max-width: 100px; /* Reduce size for better fit on mobile */
+    }
+}
+
+@media (max-width: 1200px) {
+    .footer {
+        padding: 15px 0;
+    }
+
+    .footer-content {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}
+
+hr {
+      color:#FFF840;
+    border: none;  /* Remove any default border styles */
+    height: 2px;   /* Set height for the line */
+    background-color: #696969; /* Set the color of the line */
+    margin: 20px auto;  /* Center the hr and add space above and below */
+    width: 90%;  /* Set the width of the line to 90% */
+}
+    </style>
+
+<a id="Contact"></a>
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-logo">
+            <a href="https://www.utcluj.ro/"><img src="/assets/images/UTalb.png" alt="Logo" /></a>
+            
+        </div>
+        <div class="footer-social">
+            <a href="https://www.facebook.com/OSUTCJ"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/osutcluj/"><i class="fab fa-instagram"></i></a>
+            <a href="mailto:osutcluj@gmail.com"><i class="fas fa-envelope"></i></a>
+
+        </div>
     </div>
-    <p class="m-footer-copyright jslicense" style="margin-top: 0.5rem;">
-      Made with ❤️ by Serviciul IT  
-    </p>
-  </div>
+    <hr>
+    <div class="footer-bottom">
+        <a href="https://osut.org/"><img src="/assets/images/OSUT alb.png" alt="Logo" /></a>
+    <div class="footer-bottom-contact">
+        <h3 style="text-align: center; margin-left: 0px;">Contact:</h3>
+        <p><b>Organizația Studenților din Universitatea Tehnică din Cluj-Napoca</b></p>
+        <p>Email:<a href="osutcluj@gmail.com">	osutcluj@gmail.com</a></p>
+         <p><b>Timiș Traian - President</b></p>
+        <p>Phone Number: <i>0757332298</i></p>
+        <p>Email: <a href="mailto:osutcluj@gmail.com">	osutcluj@gmail.com</a></p>
+             </div>
+
 </footer>

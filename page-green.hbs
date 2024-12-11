@@ -7,13 +7,14 @@ This template is used for the posts that are marked as pages.
   <link rel="preload" href="{{asset "css/post.css"}}" as="style" />
   <link rel="preload" href="{{asset "js/page.js"}}" as="script" />
   <link rel="preload" href="{{asset "assets\css\green.css"}}" as="style"/>
+  <link rel="preload" href="{{asset "css/home.css"}}" as="style" />
 {{/contentFor}}
 
 {{!-- This block loads specific styles for the post page --}}
 {{#contentFor "styles"}}
   <link rel="stylesheet" type="text/css" href="{{asset "css/post.css"}}" media="screen" />
 {{/contentFor}}
-
+<link rel="stylesheet" type="text/css" href="{{asset "css/home.css"}}" media="screen" />
 {{!-- The tag below means: insert everything in this file
 into the {body} of the default.hbs template --}}
 {{!< default}}
@@ -24,8 +25,8 @@ into the {body} of the default.hbs template --}}
 {{/post}}
 
 <script>
+    // Function to open a tab
     function openTab(tab, tabName) {
-        // Declare all variables
         var i, tabcontent, tablinks;
 
         // Get all elements with class="tabcontent" and hide them
@@ -43,76 +44,108 @@ into the {body} of the default.hbs template --}}
         // Show the current tab, and add an "active" class to the button that opened the tab
         var currentTab = document.getElementById(tabName);
         currentTab.style.display = "flex";
-        currentTab.style.flexDirection = "column"; // Assuming you want a row layout
-        // Add more elements to the display flex class
-        currentTab.style.alignItems = "center"; // Example of adding more elements
+        currentTab.style.flexDirection = "column";
+        currentTab.style.alignItems = "center";
 
         tab.currentTarget.className += " active";
     }
+
+    // Function to initialize slideshows independently
+    function initializeSlideshows() {
+        // Get all slideshow containers
+        const slideshows = document.querySelectorAll(".slideshow-container");
+
+        slideshows.forEach((slideshow) => {
+            let slideIndex = 1;
+
+            // Store slideIndex in a closure for each slideshow
+            function showSlides(n) {
+                let slides = slideshow.getElementsByClassName("mySlides");
+                if (n > slides.length) { slideIndex = 1; }
+                if (n < 1) { slideIndex = slides.length; }
+                for (let i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                slides[slideIndex - 1].style.display = "block";
+            }
+
+            // Add navigation functions to buttons
+            const prevButton = slideshow.querySelector(".prev");
+            const nextButton = slideshow.querySelector(".next");
+
+            if (prevButton) {
+                prevButton.addEventListener("click", () => {
+                    slideIndex--;
+                    showSlides(slideIndex);
+                });
+            }
+
+            if (nextButton) {
+                nextButton.addEventListener("click", () => {
+                    slideIndex++;
+                    showSlides(slideIndex);
+                });
+            }
+
+            // Show the first slide initially
+            showSlides(slideIndex);
+        });
+    }
+
+    // Initialize slideshows when the window loads
     window.onload = function() {
-        showSlides(slideIndex);
+        initializeSlideshows();
     };
-
-    let slideIndex = 1;
-    showSlides(slideIndex);
-    
-    function plusSlides(n) {
-      showSlides(slideIndex += n);
-    }
-
-    
-// Thumbnail image controls
-    function currentSlide(n) {
-      showSlides(slideIndex = n);
-    }
-
-    function showSlides(n) {
-      let i;
-      let slides = document.getElementsByClassName("mySlides");
-      if (n > slides.length) {slideIndex = 1}
-      if (n < 1) {slideIndex = slides.length}
-      for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-      }
-      slides[slideIndex-1].style.display = "block";
-    }
 </script>
+
+<!-- Add similar containers for other slideshows -->
+
 
 <main class="main-wrap">
     {{!-- Everything inside the #post tags pulls data from the post --}}
     {{#post}}
         {{!-- Inject styles of the hero image to make it responsive --}}
-        {{> hero background=feature_image}}
-        <div class="m-hero__content" data-aos="fade-down">
-            <h1 class="m-hero-title bigger">Sustenabilitate</h1>
-                <a href="/assets/pdf/PLAN STRATEGIC DE DEZVOLTARE DURABILĂ 2022-2024.pdf" class="m-button filled js-newslette">Planul Strategic</a>
-        </div>
+        
+        <div style="margin:0 auto; width: 80%; ">
+   <div class="container">
+        <img src="/assets/images/OSUT_alb.svg" style="" class="image logo-infotech">
+
+        <div class="light"></div>
+      </div>
+  <script src="/assets/js/lumina.js"></script>
+  </div>
         </section>
         <article>
-            <div class="tab">
-                <button class="tablinks" onclick="openTab(event, 'Sustenabilitate')">Despre</button>
-                <button class="tablinks" onclick="openTab(event, 'Proiecte')">Proiecte</button>
-                <button class="tablinks" onclick="openTab(event, 'Poze')">Poze</button>
-            </div>
             <div id="Sustenabilitate" class="tabcontent">
-                <div class="l-content">
-                    <div class="l-post-content">
-                        <div class="pos-relative js-post-content">
-                            
-                            <h3>SCOP</h3>
-                            <p>Organizația Studenților din Universitatea Tehnică din Cluj-Napoca recunoaște și aplică valoarea principiilor dezvoltării durabile. Dezvoltarea durabilă reprezintă o serie de principii economice, sociale și de mediu ce permit realizarea activităților desfășurate de organizație, într-un mod în care cerințele prezentului sunt îndeplinite într-un mediu curat, echilibrat și integrat, Astfel, s-a redactat și implementat un Plan Strategic de dezvoltare durabilă în vederea realizării activităților specifice.</p>
-                            <h3>MISIUNE</h3>
-                            <p>Fiind conștienți de impactul pe care Organizația Studenților din Universitate Tehnică din Cluj-Napoca (OSUT Cluj) îl are în viața studenților, ne dorim să oferim acestora prilejul să construiască împreună un mediu sustenabil propice dezvoltării lor. Viziunea noastră este de a crește conștientizarea problemelor cu care ne confruntăm când vine vorba de sustenabilitate în rândul comunității studențești. Prin intermediul inițiativelor pe care le derulăm, ne angajăm să mobilizăm și să îndrumăm studenții cu privire la importanța abordării unor practici responsabile și sustenabile, atât în contextul academic, cât și în viața de zi cu zi.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                
 
+            <div class="rand">
+                                <div class="coloana" style="border-left: solid transparent;">
+                                    <h1>SCOP</h1>
+                                </div>
+                                <div class="coloana">
+                                    <h1>MISIUNE</h1>
+                                </div>
+                            </div>
+                            <div class="rand">
+                                <div class="coloana" style="border-right:solid;border-left:solid transparent; padding-right:2rem; padding-left:1rem">
+                                    <p>
+                                        Organizația Studenților din Universitatea Tehnică din Cluj-Napoca recunoaște și aplică valoarea principiilor dezvoltării durabile. Dezvoltarea durabilă reprezintă o serie de principii economice, sociale și de mediu ce permit realizarea activităților desfășurate de organizație, într-un mod în care cerințele prezentului sunt îndeplinite într-un mediu curat, echilibrat și integrat, Astfel, s-a redactat și implementat un Plan Strategic de dezvoltare durabilă în vederea realizării activităților specifice.
+                                    </p>
+                                </div>
+                                <div class="coloana"style="border-right:solid transparent;border-left: solid transparent; padding-right:1rem; padding-left:0.8rem">
+                                    <p>
+                                       Fiind conștienți de impactul pe care Organizația Studenților din Universitate Tehnică din Cluj-Napoca (OSUT Cluj) îl are în viața studenților, ne dorim să oferim acestora prilejul să construiască împreună un mediu sustenabil propice dezvoltării lor. Viziunea noastră este de a crește conștientizarea problemelor cu care ne confruntăm când vine vorba de sustenabilitate în rândul comunității studențești. Prin intermediul inițiativelor pe care le derulăm, ne angajăm să mobilizăm și să îndrumăm studenții cu privire la importanța abordării unor practici responsabile și sustenabile, atât în contextul academic, cât și în viața de zi cu zi.
+                                    </p>
+                                </div>
+                            </div>
+            </div>
+<br><br><br><br><br>
             <div id="Proiecte" class="tabcontent">
-                <div class="l-content">
-                    <div class="l-post-content">
-                        <div class="pos-relative js-post-content">
-                            
+                
+                            <h1 style="text-align: center">
+                                PROIECTE
+                            </h1>
                             <p>
                                 Încă din 2003, Organizația Studenților din Universitatea Tehnică din Cluj-Napoca (OSUT
                                 Cluj) își concentrează activitatea pe reprezentarea drepturilor studenților, apărarea intereselor
@@ -123,28 +156,84 @@ into the {body} of the default.hbs template --}}
                                 PoliSport etc.).
                             </p>
 
+<br><br><br><br>
+                            <h2 style="text-align: center">CROSUL UT</h2>
+                            <br><br>
+            <div class="flex-container3">
+                
+                            <div id="slideshow1" class="slideshow-container">
+                                <!-- Full-width images with number and caption text -->
+                                <div class="mySlides fade">
+                                    
+                                    <div class="flex-container3" style="background-image: url('/assets/images/Poze Sustenabilitate/crosulUT.png'); background-size:cover;" >
+                                    </div>
+                                </div>
+                                <div class="mySlides fade">
+                                    
+                                    <div class="flex-container3" style="background-image: url('/assets/images/Poze Sustenabilitate/Crosul UT/cros1.jpg'); background-size:cover;" >
+                                    </div>
+                                    
+                                    
+                                </div>
+                                <div class="mySlides fade">
+                                    
+                                    <div class="flex-container3" style="background-image: url('/assets/images/Poze Sustenabilitate/Crosul UT/cros2.jpg'); background-size:cover;" >
+                                    </div>
+                                    
+                                    
+                                </div>
+                                <div class="mySlides fade">
+                                    
+                                    <div class="flex-container3" style="background-image: url('/assets/images/Poze Sustenabilitate/Crosul UT/cros3.jpg'); background-size:cover;" >
+                                    </div>
+                                    
+                                    
+                                </div>
+                                <div class="mySlides fade">
+                                    
+                                    <div class="flex-container3" style="background-image: url('/assets/images/Poze Sustenabilitate/Crosul UT/cros4.jpg'); background-size:cover;" >
+                                    </div>
+                                    
+                                    
+                                </div>
+                                <div class="mySlides fade">
+                                    
+                                    <div class="flex-container3" style="background-image: url('/assets/images/Poze Sustenabilitate/Crosul UT/cros5.jpg'); background-size:cover;" >
+                                    </div>
 
-                            <h3>CROSUL UT</h3>
-                            <img src="https://images.pixieset.com/14741186/396247de9a5040e33b20ca73899c5afe-cover.jpg" style="height: 50%; width: 50%;">
+                                    
+                                </div>
+                                
+                                <!-- Next and previous buttons -->
+                                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                            </div>
+                            <br>
+                        
+            </div>
+                            
+                            <br><br>
                             <div class="rand">
-                                <div class="coloana">
-                                    <h4>Descriere</h4>
+                                <div class="coloana" style="border-left: solid transparent;">
+                                    <h3>Descriere</h3>
                                 </div>
                                 <div class="coloana">
-                                    <h4 style="padding-left:1rem">Ce am avut în vedere?</h4>
+                                    <h3>Ce am avut în vedere?</h3>
                                 </div>
                             </div>
                             <div class="rand">
-                                <div class="coloana" style="border-right:solid; padding-right:1rem">
-                                    <p style="font-size:1rem">Crosul UT reprezintă un proiect de tradiție OSUT Cluj aflat la cea de-a 17-a ediție și care
+                                <div class="coloana" style="border-right:solid;border-left:solid transparent; padding-right:2rem; padding-left:1rem">
+                                    <p>
+                                        Crosul UT reprezintă un proiect de tradiție OSUT Cluj aflat la cea de-a 17-a ediție și care
                                         promovează un stil de viață sănătos și activ pentru tinerii comunității clujene printr-o competiție
                                         de alergare de 6 km. Acest eveniment este mai mult decât o simplă inițiativă sportivă, scopul lui
                                         fiind dublat de componenta caritabilă. Taxele de participare se întorc în comunitatea clujeană,
                                         prin sprijinul cauzelor umanitare.
                                     </p>
                                 </div>
-                                <div class="coloana">
-                                    <p style="font-size:1rem; padding-left:1rem">În același timp, Crosul UT se angajează să fie un eveniment sustenabil, gestionând responsabil
+                                <div class="coloana"style="border-right:solid transparent;border-left: solid transparent; padding-right:1rem; padding-left:0.8rem">
+                                    <p>
+                                        În același timp, Crosul UT se angajează să fie un eveniment sustenabil, gestionând responsabil
                                         deșeurile prin containere de colectare selectivă și utilizând materiale reciclabile și
                                         biodegradabile. Pentru a întregi experiența participanților, tricourile oferite acestora vor fi
                                         confecționate din materiale organice și reciclabile, reflectând angajamentul nostru pentru
@@ -153,21 +242,74 @@ into the {body} of the default.hbs template --}}
                                     </p>
                                 </div>
                             </div>
-                            
 
-                            <h3>POLIHACK</h3>
-                            <img src="https://images.pixieset.com/18896096/bc5fcec398d345446e1b0a8750e417de-xlarge.jpg" style="height:50%; width: 50%;">
+<br><br><br><br><br><br><br>
+
+                            <h2 style="text-align: center">POLIHACK</h2>
+                            <br><br>
+                            
+            <div class="flex-container3">
+                
+                            <div id="slideshow2" class="slideshow-container">
+                                <!-- Full-width images with number and caption text -->
+                                <div class="mySlides fade">
+                                    
+                                    <div class="flex-container3" style="background-image: url('/assets/images/Poze Sustenabilitate/polihack.jpg'); background-size:cover;" >
+                                    </div>
+                                </div>
+                                <div class="mySlides fade">
+                                    
+                                    <div class="flex-container3" style="background-image: url('/assets/images/Poze Sustenabilitate/PoliHack/PoliHack 1.jpg'); background-size:cover;" >
+                                    </div>
+                                    
+                                    
+                                </div>
+                                <div class="mySlides fade">
+                                    <div class="flex-container3" style="background-image: url('/assets/images/Poze Sustenabilitate/PoliHack/PoliHack 2.jpg'); background-size:cover;" >
+                                    </div>
+                                    
+                                    
+                                </div>
+                                <div class="mySlides fade">
+                                    <div class="flex-container3" style="background-image: url('/assets/images/Poze Sustenabilitate/PoliHack/PoliHack 3.jpg'); background-size:cover;" >
+                                    </div>
+                                    
+                                    
+                                </div>
+                                <div class="mySlides fade">
+                                    <div class="flex-container3" style="background-image: url('/assets/images/Poze Sustenabilitate/PoliHack/PoliHack 4.jpg'); background-size:cover;" >
+                                    </div>
+                                    
+                                    
+                                </div>
+                                <div class="mySlides fade">
+                                    <div class="flex-container3" style="background-image: url('/assets/images/Poze Sustenabilitate/PoliHack/PoliHack 5.jpg'); background-size:cover;" >
+                                    </div>
+                                
+                                    
+                                </div>
+                                
+                                <!-- Next and previous buttons -->
+                                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                            </div>
+                            <br>
+                        
+            </div>
+                            
+                            <br><br>
                             <div class="rand">
-                                <div class="coloana">
-                                    <h4>Descriere</h4>
+                                <div class="coloana" style="border-left: solid transparent;">
+                                    <h3>Descriere</h3>
                                 </div>
                                 <div class="coloana">
-                                    <h4 style="padding-left:1rem">Ce am avut în vedere?</h4>
+                                    <h3>Ce am avut în vedere?</h3>
                                 </div>
                             </div>
                             <div class="rand">
-                                <div class="coloana" style="border-right:solid; padding-right:1rem">
-                                    <p style="font-size:1rem">Conceptul de PoliHack a luat naștere acum 13 ani, din nevoia de afirmare a studenților în fața
+                                <div class="coloana" style="border-right:solid;border-left:solid transparent; padding-right:2rem; padding-left:1rem">
+                                    <p>
+                                        Conceptul de PoliHack a luat naștere acum 13 ani, din nevoia de afirmare a studenților în fața
                                         companiilor. Scopul proiectului este de a ajuta tinerii studenți de pretutindeni să se facă
                                         remarcați în domeniul IT și să-i ajute să dezvolte skill-uri pe partea de antreprenoriat,
                                         reprezentând o rampă de lansare pe piața muncii pentru aceștia.Unul dintre obiectivele proiectului este crearea unei atmosfere competitiv-amicale timp de 48
@@ -180,11 +322,11 @@ into the {body} of the default.hbs template --}}
                                         participarea la hackathon, tinerii au oportunitatea de afla aspectele cheie căutate de angajatori,
                                         pot primi sfaturi despre cum se desfășoară activitatea în marile companii ce activează în mediul
                                         IT și tips&tricks de valoare din lumea antreprenorială.
-
                                     </p>
                                 </div>
-                                <div class="coloana">
-                                    <p style="font-size:1rem; padding-left:1rem">În cadrul proiectului, pentru a minimiza utilizarea hârtiei, se adoptă instrumente digitale
+                                <div class="coloana"style="border-right:solid transparent;border-left: solid transparent; padding-right:1rem; padding-left:0.8rem">
+                                    <p>
+                                        În cadrul proiectului, pentru a minimiza utilizarea hârtiei, se adoptă instrumente digitale
                                         pentru stocarea și transmiterea informațiilor și materialelor, iar gestionarea tuturor resurselor se
                                         va realiza exclusiv în mediul digital. Astfel, planificarea, monitorizarea și o parte din
                                         implementarea proiectului vor fi facilitate de instrumente digitale standardizate, asigurând o
@@ -202,23 +344,84 @@ into the {body} of the default.hbs template --}}
                             </div>
 
 
+
 <!--                             <h3>Be Better Do Better</h3>
                             <img src="/assets/images/Poze Sustenabilitate/Be better, do better/Be Better Do Better 1.jpg" style="height:30%; width: 30%;">
                             <p></p>
  -->
-                            <h3>Engineering Summer University (ESU)</h3>
-                            <img src="/assets/images/Poze Sustenabilitate/ESU/ESU 4.jpg" style="height: 50%; width:50%">
+
+ <br><br><br><br><br><br><br>
+
+                            <h2 style="text-align: center">Engineering Summer University (ESU)</h2>
+                            <br><br>
+                            
+            <div class="flex-container3">
+                
+                            <div id="slideshow3" class="slideshow-container">
+                                <!-- Full-width images with number and caption text -->
+                                <div class="mySlides fade">
+                                    
+                                    <div class="flex-container3" style="background-image: url('/assets/images/Poze Sustenabilitate/esu.jpg'); background-size:cover;" >
+                                    </div>
+                                </div>
+                                <div class="mySlides fade">
+                                    <div class="flex-container3" style="background-image: url('/assets/images/Poze Sustenabilitate/ESU/ESU 1.JPG'); background-size:cover;" >
+                                    </div>
+                                    
+                                    
+                                </div>
+                                <div class="mySlides fade">
+                                    <div class="flex-container3" style="background-image: url('/assets/images/Poze Sustenabilitate/ESU/ESU 2.JPG'); background-size:cover;" >
+                                    </div>
+                                    
+                                    
+                                </div>
+                                <div class="mySlides fade">
+                                    <div class="flex-container3" style="background-image: url('/assets/images/Poze Sustenabilitate/ESU/ESU 3.JPG'); background-size:cover;" >
+                                    </div>
+                                    
+                                    
+                                </div>
+                                <div class="mySlides fade">
+                                    <div class="flex-container3" style="background-image: url('/assets/images/Poze Sustenabilitate/ESU/ESU 4.JPG'); background-size:cover;" >
+                                    </div>
+                                    
+                                    
+                                </div>
+                                <div class="mySlides fade">
+                                    <div class="flex-container3" style="background-image: url('/assets/images/Poze Sustenabilitate/ESU/ESU 5.JPG'); background-size:cover;" >
+                                    </div>
+                                    
+                                    
+                                </div>
+                                <div class="mySlides fade">
+                                    <div class="flex-container3" style="background-image: url('/assets/images/Poze Sustenabilitate/ESU/ESU 6.JPG'); background-size:cover;" >
+                                    </div>
+                                    
+                                    
+                                </div>
+                                
+                                <!-- Next and previous buttons -->
+                                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                            </div>
+                            <br>
+                        
+            </div>
+                            
+                            <br><br>
                             <div class="rand">
-                                <div class="coloana">
-                                    <h4>Descriere</h4>
+                                <div class="coloana" style="border-left: solid transparent;">
+                                    <h3>Descriere</h3>
                                 </div>
                                 <div class="coloana">
-                                    <h4 style="padding-left:1rem">Ce am avut în vedere?</h4>
+                                    <h3>Ce am avut în vedere?</h3>
                                 </div>
                             </div>
                             <div class="rand">
-                                <div class="coloana" style="border-right:solid; padding-right:1rem">
-                                    <p style="font-size:1rem">ESU are ca prim obiectiv crearea unui context propice dezvoltării a 180 de elevi participanți pe
+                                <div class="coloana" style="border-right:solid;border-left:solid transparent; padding-right:2rem; padding-left:1rem">
+                                    <p>
+                                        ESU are ca prim obiectiv crearea unui context propice dezvoltării a 180 de elevi participanți pe
                                         parcursul celor 2 săptămâni de implementare prin informarea acestora cu privire la posibilitățile
                                         academice şi profesionale pe care Universitatea Tehnică din Cluj-Napoca (UTCN) și piața
                                         muncii le oferă. În această perioadă experimentează cursuri universitare, sesiuni de formare și
@@ -229,11 +432,11 @@ into the {body} of the default.hbs template --}}
                                         Universității Tehnice din Cluj-Napoca în termen de 2 ani de la finalizarea fiecărei edițiii, prin
                                         intermediul prezentării ofertei educaționale, sesiunilor de orientare și mentorat desfășurate pe
                                         parcursul taberei.
-
                                     </p>
                                 </div>
-                                <div class="coloana">
-                                    <p style="font-size:1rem; padding-left:1rem">Pentru a sublinia angajamentul față de sustenabilitate, participanții primesc la începutul
+                                <div class="coloana"style="border-right:solid transparent;border-left: solid transparent; padding-right:1rem; padding-left:0.8rem">
+                                    <p>
+                                        Pentru a sublinia angajamentul față de sustenabilitate, participanții primesc la începutul
                                         proiectului goodiebags cu materiale care să îi ajute pe parcursul activităților. Aceste goodiebags
                                         includ agende și pixuri fabricate din materiale ecologice, care pot fi utilizate în cadrul
                                         activităților didactice. De asemenea, în spiritul promovării unui stil de viață mai prietenos cu
@@ -255,20 +458,73 @@ into the {body} of the default.hbs template --}}
                                     </p>
                                 </div>
                             </div>
+                            
+<br><br><br><br><br><br><br>
 
-                            <h3>InfoTech</h3>
-                            <img src="/assets/images/Poze Sustenabilitate/infotech.jpg" style="height:80%; width:60%;">
+                            <h2 style="text-align: center">InfoTech</h2>
+                            <br><br>
+                            
+            <div class="flex-container3">
+                
+                            <div id="slideshow4" class="slideshow-container">
+                                <!-- Full-width images with number and caption text -->
+                                <div class="mySlides fade">
+                                    
+                                    <div class="flex-container3" style="background-image: url('/assets/images/Poze Sustenabilitate/InfoTech.png'); background-size:cover;" >
+                                    </div>
+                                </div>
+                                <div class="mySlides fade">
+                                    <div class="flex-container3" style="background-image: url('/assets/images/Poze Sustenabilitate/InfoTech/infotech1.jpg'); background-size:cover;" >
+                                    </div>
+                                    
+                                    
+                                </div>
+                                <div class="mySlides fade">
+                                    <div class="flex-container3" style="background-image: url('/assets/images/Poze Sustenabilitate/InfoTech/infotech2.jpg'); background-size:cover;" >
+                                    </div>
+                                    
+                                    
+                                </div>
+                                <div class="mySlides fade">
+                                    <div class="flex-container3" style="background-image: url('/assets/images/Poze Sustenabilitate/InfoTech/infotech3.jpg'); background-size:cover;" >
+                                    </div>
+                                    
+                                    
+                                </div>
+                                <div class="mySlides fade">
+                                    <div class="flex-container3" style="background-image: url('/assets/images/Poze Sustenabilitate/InfoTech/infotech4.jpg'); background-size:cover;" >
+                                    </div>
+                                    
+                                    
+                                </div>
+                                <div class="mySlides fade">
+                                    <div class="flex-container3" style="background-image: url('/assets/images/Poze Sustenabilitate/InfoTech/infotech5.jpg'); background-size:cover;" >
+                                    </div>
+                                    
+                                    
+                                </div>
+                                
+                                <!-- Next and previous buttons -->
+                                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                            </div>
+                            <br>
+                        
+            </div>
+                            
+                            <br><br>
                             <div class="rand">
-                                <div class="coloana">
-                                    <h4>Descriere</h4>
+                                <div class="coloana" style="border-left: solid transparent;">
+                                    <h3>Descriere</h3>
                                 </div>
                                 <div class="coloana">
-                                    <h4 style="padding-left:1rem">Ce am avut în vedere?</h4>
+                                    <h3>Ce am avut în vedere?</h3>
                                 </div>
                             </div>
                             <div class="rand">
-                                <div class="coloana" style="border-right:solid; padding-right:1rem">
-                                    <p style="font-size:1rem">Unul dintre cele mai mari proiecte marca OSUT Cluj este InfoTech, care, organizat sub forma
+                                <div class="coloana" style="border-right:solid;border-left:solid transparent; padding-right:2rem; padding-left:1rem">
+                                    <p>
+                                        Unul dintre cele mai mari proiecte marca OSUT Cluj este InfoTech, care, organizat sub forma
                                         unui târg de cariere, are ca scop crearea un mediu adecvat în care studenții pot avea o
                                         comunicare eficientă și optimă cu companiile din ariile de interes.
                                         Obiectivul principal al proiectului este de a oferi unui număr de peste 2000 de studenți
@@ -278,11 +534,11 @@ into the {body} of the default.hbs template --}}
                                         minimum 20 de firme din domeniul tehnic, cărora le pune la dispoziție un cadru oportun
                                         contactului cu studenții în cele 4 clădiri ale Universității Tehnice din Cluj-Napoca (UTCN),
                                         în care își pot prezenta domeniul de activitate și ofertele de angajare pe parcursul evenimentului.
-
                                     </p>
                                 </div>
-                                <div class="coloana">
-                                    <p style="font-size:1rem; padding-left:1rem">Partea de protocol prevăzută în cadrul evenimentului s-a concentrat pe     materiale reciclabile
+                                <div class="coloana"style="border-right:solid transparent;border-left: solid transparent; padding-right:1rem; padding-left:0.8rem">
+                                    <p>
+                                        Partea de protocol prevăzută în cadrul evenimentului s-a concentrat pe     materiale reciclabile
                                         astfel că s-au utilizat pahare biodegradabile pentru consumul de lichide iar în locațiile în care
                                         au avut loc evenimentele au fost amplasate containere pentru colectarea selectivă a deșeurilor
                                         reziduale și reciclabile cu scopul de a minimiza impactul asupra mediului.
@@ -290,116 +546,19 @@ into the {body} of the default.hbs template --}}
                                         competențelor profesionale și personale, cât și prin promovarea spiritului antreprenorial. În
                                         egală măsură, în mod indirect, tinerii au luat parte la o conștientizare cu privire la
                                         importanța grijii care trebuie purtată mediului înconjurător.
-
                                     </p>
                                 </div>
                             </div>
-
-
-                        </div>
-                    </div>
-                </div>
+     
             </div>
-
-            <div id="Poze" class="tabcontent">
-                <div class="l-content">
-                    <div class="l-post-content">
-                        <div class="pos-relative js-post-content">
-                            <div class="slideshow-container">
-                                <!-- Full-width images with number and caption text -->
-                                <div class="mySlides fade">
-                                    <div class="numbertext">1 / 16</div>
-                                    <img src="/assets/images/Poze Sustenabilitate/Be better, do better/Be Better Do Better 1.jpg" style="width:35%; display:block">
-                                    <div class="text">Be Better, Do Better</div>
-                                </div>
-                                <div class="mySlides fade">
-                                    <div class="numbertext">2 / 16</div>
-                                    <img src="/assets/images/Poze Sustenabilitate/Be better, do better/Be Better Do Better 2.jpg" style="width:35%">
-                                    <div class="text">Be Better, Do Better</div>
-                                </div>
-                                <div class="mySlides fade">
-                                    <div class="numbertext">3 / 16</div>
-                                    <img src="/assets/images/Poze Sustenabilitate/Be better, do better/Be Better Do Better 3.jpg" style="width:35%">
-                                    <div class="text">Be Better, Do Better</div>
-                                </div>
-                                <div class="mySlides fade">
-                                    <div class="numbertext">4 / 16</div>
-                                    <img src="/assets/images/Poze Sustenabilitate/Be better, do better/Be Better Do Better 4.jpg" style="width:55%">
-                                    <div class="text">Be Better, Do Better</div>
-                                </div>
-                                <div class="mySlides fade">
-                                    <div class="numbertext">5 / 16</div>
-                                    <img src="/assets/images/Poze Sustenabilitate/ESU/ESU 1.jpg" style="width:35%">
-                                    <div class="text">ESU</div>
-                                </div>
-                                <div class="mySlides fade">
-                                    <div class="numbertext">6 / 16</div>
-                                    <img src="/assets/images/Poze Sustenabilitate/ESU/ESU 2.JPG" style="width:55%">
-                                    <div class="text">ESU</div>
-                                </div>
-                                <div class="mySlides fade">
-                                    <div class="numbertext">7 / 16</div>
-                                    <img src="/assets/images/Poze Sustenabilitate/ESU/ESU 3.jpg" style="width:55%">
-                                    <div class="text">ESU</div>
-                                </div>
-                                <div class="mySlides fade">
-                                    <div class="numbertext">8 / 16</div>
-                                    <img src="/assets/images/Poze Sustenabilitate/ESU/ESU 4.jpg" style="width:55%">
-                                    <div class="text">ESU</div>
-                                </div>
-                                <div class="mySlides fade">
-                                    <div class="numbertext">9 / 16</div>
-                                    <img src="/assets/images/Poze Sustenabilitate/ESU/ESU 5.jpg" style="width:55%">
-                                    <div class="text">ESU</div>
-                                </div>
-                                <div class="mySlides fade">
-                                    <div class="numbertext">10 / 16</div>
-                                    <img src="/assets/images/Poze Sustenabilitate/ESU/ESU 6.jpg" style="width:55%">
-                                    <div class="text">ESU</div>
-                                </div>
-                                <div class="mySlides fade">
-                                    <div class="numbertext">11 / 16</div>
-                                    <img src="/assets/images/Poze Sustenabilitate/ESU/ESU 7.jpg" style="width:45%">
-                                    <div class="text">ESU</div>
-                                </div>
-                                <div class="mySlides fade">
-                                    <div class="numbertext">12 / 16</div>
-                                    <img src="/assets/images/Poze Sustenabilitate/PoliHack/PoliHack 1.jpg" style="width:65%">
-                                    <div class="text">PoliHack</div>
-                                </div>
-                                <div class="mySlides fade">
-                                    <div class="numbertext">13 / 16</div>
-                                    <img src="/assets/images/Poze Sustenabilitate/PoliHack/PoliHack 2.jpg" style="width:65%">
-                                    <div class="text">PoliHack</div>
-                                </div>
-                                <div class="mySlides fade">
-                                    <div class="numbertext">14 / 16</div>
-                                    <img src="/assets/images/Poze Sustenabilitate/PoliHack/PoliHack 3.jpg" style="width:65%">
-                                    <div class="text">PoliHack</div>
-                                </div>
-                                <div class="mySlides fade">
-                                    <div class="numbertext">15 / 16</div>
-                                    <img src="/assets/images/Poze Sustenabilitate/PoliHack/PoliHack 4.jpg" style="width:65%">
-                                    <div class="text">PoliHack</div>
-                                </div>
-                                <div class="mySlides fade">
-                                    <div class="numbertext">16 / 16</div>
-                                    <img src="/assets/images/Poze Sustenabilitate/PoliHack/PoliHack 5.jpg" style="width:65%">
-                                    <div class="text">PoliHack</div>
-                                </div>
-
-                                <!-- Next and previous buttons -->
-                                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                                <a class="next" onclick="plusSlides(1)">&#10095;</a>
-                            </div>
-                            <br>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<br><br><br><br><br>
         </article>
     {{/post}}
 </main>
+
+
+
+
 
 {{!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs --}}
 {{#contentFor "scripts"}}

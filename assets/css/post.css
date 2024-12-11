@@ -1860,14 +1860,42 @@
 .tabcontent {
     display: block;
     padding-top: 1%;
-    padding-left: 1.75rem;
-    padding-right: 1.75rem;
+    padding-left: 20rem;
+    padding-right: 20rem;
 }
 
+@media only screen and (max-width: 1200px) {
+    .tabcontent {
+        display: block;
+        padding-top: 1%;
+        padding-left: 3rem;
+        padding-right: 3rem;
+    }
+  }
+
+  @media only screen and (max-width: 1500px) {
+    .tabcontent {
+        display: block;
+        padding-top: 1%;
+        padding-left: 10rem;
+        padding-right: 10rem;
+    }
+  }
+
 .slideshow-container {
-    max-width: 1000px;
+    width: 100%;
     position: relative;
     margin: auto;
+  }
+
+  .slideshow-container img{
+    width: 50%;
+    height: 500px;
+    position: relative;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    border-radius: 20px;
   }
   
   /* Hide the images by default */
@@ -1956,16 +1984,73 @@
     
   }
 
-  .rand{
+  .rand {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
+    gap: 1rem; /* Add spacing between columns */
+}
+
+.coloana {
+    display: flex;
+    flex-direction: column;
+    flex-basis: calc(50% - 1rem); /* Each column takes 50% width minus the gap */
+    flex: 1;
+    box-sizing: border-box; /* Includes padding and border in width/height calculations */
+    padding: 1rem;
+}
+
+.coloana h3 {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.coloana h2 {
+    text-align: center;
+    font-size: 2.1rem;
+    margin-bottom: 1rem;
+}
+
+.coloana h1 {
+    text-align: center;
+    font-size: 3.6rem;
+    margin-bottom: 1rem;
+}
+
+.coloana p {
+    font-size: 1.1rem;
+    text-align: justify;
+}
+
+@media only screen and (max-width: 1200px) {
+    .tabcontent {
+        display: block;
+        padding-top: 1%;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    .coloana p {
+        text-align: justify;
+        font-size: 0.9rem;
+    }
+
+    .coloana h3 {
+        text-align: center;
+        font-size: 1.3rem;
+        
+    }
+
+    .coloana h2 {
+        text-align: center;
+        font-size: 1.8rem;
+    }
+
+    .coloana h1 {
+        text-align: center;
+        font-size: 2rem;
+        
+    }
   }
 
-  .coloana{
-    display: flex;
-  flex-direction: column;
-  flex-basis: 100%;
-  flex: 1;
-  }

@@ -1,0 +1,83 @@
+{{!--
+This template is used for the posts that are marked as pages.
+--}}
+
+{{!-- This block preloads specific assets for the post page --}}
+{{#contentFor "preload"}}
+  <link rel="preload" href="{{asset "css/contact.css"}}" as="style" />
+
+  <link rel="preload" href="{{asset "js/home.js"}}" as="script" />
+{{/contentFor}}
+
+{{#contentFor "styles"}}
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          spacing: {
+            '128': '32rem',
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" type="text/css" href="{{asset "css/contact.css"}}" media="screen" />
+{{/contentFor}}
+
+{{!< default}} {{!-- Special header.hbs partial to generate the <header> tag --}}
+{{#post}}
+{{> header background=feature_image}}
+{{/post}}
+
+<style>
+
+.container1{
+  background-color: white;
+  align-items: center;
+  height: 50%;
+  width: 60%;
+}
+</style>
+<main class="main-wrap" >
+<body>
+    <div class="container">
+        <div class="form-section">
+            <h1>Contact Us</h1>
+            <p>Feel free to contact us any time. We will get back to you as soon as we can!</p>
+           <iframe src="https://forms.gle/NbXugjLwq5y89vAMA?embedded=true"   frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+    
+        </div>
+      
+        <div class="info-section" >
+            <h2>Info</h2>
+            <p>Email: osutcluj@gmail.com</p>
+             <p>Address: Ceahlau nr 72</p>
+            <h3>Timiș Traian</h3>
+            <p>Phone: 0757 332 298</p>
+           
+            
+        </div>
+    </div>
+    <h1 style="text-align: center; margin-bottom:5vh;">WE ARE HERE FOR YOU!!</h1>
+</body>
+ 
+  </section>
+ 
+
+
+</main>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const iframe = document.getElementById("google-form");
+        iframe.onload = function () {
+            iframe.contentWindow.scrollTo(0, 200); // Ajustează valoarea scroll-ului după nevoi
+        };
+    });
+</script>
+
+{{!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in
+default.hbs --}}
+{{#contentFor "scripts"}}
+<script defer src="{{asset " js/page.js"}}"></script>
+{{/contentFor}}

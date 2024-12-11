@@ -174,17 +174,16 @@
 
     {{!-- The footer --}}
     {{> footer}}
-
-    {{!-- Common scripts shared between pages --}}
+<body>
+   
     <script defer src="{{asset "js/manifest.js"}}"></script>
     <script defer src="{{asset "js/vendor/content-api.min.js"}}"></script>
     <script defer src="{{asset "js/vendor.js"}}"></script>
     <script defer src="{{asset "js/app.js"}}"></script>
 
-    {{!-- The #block helper will pull in data from the #contentFor other template files --}}
-    {{{block "scripts"}}}
+      {{{block "scripts"}}}
 
-    {{!-- Ghost outputs important scripts and data with this tag --}}
-    {{ghost_foot}}
+       {{ghost_foot}}
+
   </body>
 </html>

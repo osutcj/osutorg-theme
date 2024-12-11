@@ -21,32 +21,127 @@ into the {body} of the default.hbs template --}}
 {{#post}}
   {{> header background=feature_image}}
 {{/post}}
+<style>
+.contact-container {
+    display: flex;
+    height: 90vh; /* Full viewport height */
+    color: white;
+    background-image: url('/assets/images/map.png'); /* Shared background image */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
 
+.map-section {
+    flex: 2; /* Take up more space on the right */
+    position: relative;
+}
+
+.map-overlay {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.form-section {
+    flex: 1; /* Form takes up less space on the left */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    border-radius: 8px;
+    width: 70%; /* Normal width */
+    max-width: 90%; /* Prevents overflow on smaller screens */
+}
+
+.form-section iframe {
+    width: 50vw;
+    height: 100%;
+    border: none;
+}
+
+.help-text {
+    text-align: center;
+    margin: 20px 0;
+    color: red;
+    background-color: rgba(255, 255, 255, 0.6);
+    font-size: 24px;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 40vh;
+}
+
+@media (max-width: 768px) {
+    .contact-container {
+        flex-direction: column; /* Stacks the sections vertically */
+        align-items: center; /* Centers the content horizontally */
+        justify-content: flex-start; /* Aligns content at the top */
+    }
+
+    .help-text {
+        order: 1; /* Ensure the text appears first */
+        width: 100%; /* Make it responsive */
+        font-size: 20px; /* Adjust font size for smaller screens */
+        margin-top: 0;
+        
+    }
+
+    .form-section {
+        order: 2; /* Form appears after the text */
+        width: 90%; /* Takes almost full width on smaller screens */
+        align-self: center; /* Centers the form section */
+    }
+
+    .form-section iframe {
+        width: 100%; /* Makes iframe responsive */
+        height: 80vh; /* Adjust height based on content */
+    }
+
+    .map-section {
+        order: 3;
+        width: 100%; /* Adjust map-section to take full width */
+        height: 50%; /* Optional: Adjust height of map-section */
+        
+    }
+}
+
+
+</style>
 <main class="main-wrap">
-  {{!-- Everything inside the #post tags pulls data from the post --}}
-  {{#post}}
-    {{!-- Inject styles of the hero image to make it responsive --}}
-    {{> hero background=feature_image}}
-    <div class="m-hero__content" data-aos="fade-down">
-      <h1 class="m-hero-title bigger">Butonul roșu </h1>
-      {{#if custom_excerpt}}
-        <p class="m-hero-description">{{custom_excerpt}}</p>
-      {{/if}}
-    </div>
-    </section>
-    <article>
-      <div class="l-content">
-        <div class="l-wrapper in-post" data-aos="fade-up" data-aos-delay="300">
-          <div class="l-post-content">
-            <div class="pos-relative js-post-content">
-              {{content}}
+    <br>
+    <br>
+    <br>
+    <br>
+    <body>
+        <div class="contact-container">
+           
+            <div class="map-section">
+                 <h1 class="help-text">We Want To Help!
+                  <BR>
+                  Let Us Do It!
+                 </h1>
+                <div class="map-overlay">
+                 
+                    <a href="https://www.google.com/maps/place/OSUT+Cluj-Napoca/@46.7564001,23.5883981,17z/data=!4m6!3m5!1s0x47490dd37411dee7:0x37af0fc996d79c6e!8m2!3d46.7561754!4d23.5883412!16s%2Fg%2F11c2km93dk?entry=ttu&g_ep=EgoyMDI0MTIwNC4wIKXMDSoASAFQAw%3D%3D" target="_blank">
+                        <p>Look at Google Maps →</p>
+                    </a>
+                </div>
             </div>
-          </div>
+             <div class="form-section">
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSehM0INGphPT-FWfki5BWW9x4OVpqT_oLeXTv_jTy-jH1RDZg/viewform?embedded=true" class="google-form"></iframe>
+            </div>
         </div>
-      </div>
-    </article>
-  {{/post}}
+    </body>
 </main>
+
 
 {{!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs --}}
 {{#contentFor "scripts"}}
