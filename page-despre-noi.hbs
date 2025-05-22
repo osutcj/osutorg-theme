@@ -2,547 +2,356 @@
 This template is used for the posts that are marked as pages.
 --}}
 
-{{!-- This block preloads specific assets for the post page --}}
 {{#contentFor "preload"}}
-  <link rel="preload" href="{{asset "css/post.css"}}" as="style" />
-  <link rel="preload" href="{{asset "js/page.js"}}" as="script" />
+<link rel="preload" href="{{asset " css/post.css"}}" as="style" />
+<link rel="preload" href="{{asset " js/page.js"}}" as="script" />
 {{/contentFor}}
 
-{{!-- This block loads specific styles for the post page --}}
 {{#contentFor "styles"}}
-  <link rel="stylesheet" type="text/css" href="{{asset "css/post.css"}}" media="screen" />
+<link rel="stylesheet" type="text/css" href="{{asset " css/post.css"}}" media="screen" />
 {{/contentFor}}
 
-{{!-- The tag below means: insert everything in this file
-into the {body} of the default.hbs template --}}
-{{!< default}}
+{{!< default}} {{#post}} {{> header background=feature_image}}
+  {{/post}}
 
-{{!-- Special header.hbs partial to generate the <header> tag --}}
-{{#post}}
-  {{> header background=feature_image}}
-{{/post}}
-<style>
+  <style>
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+    }
+
+    body {
+      background-image: url("{{asset 'images/sky.jpg'}}");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    .main-wrap {
+      background: none;
+    }
+
+    .img-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 90%;
+      margin-top: 10vh;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .img-center {
+      display: block;
+      width: 100%;
+      height: auto;
+      filter: drop-shadow(0px 0px 9px white);
+      border-radius: 5%;
+    }
+
+    .container {
+      text-align: center;
+      width: 90%;
+      margin: 10px auto;
+    }
+
+    .text-outline {
+      font-size: 54px;
+      font-weight: bold;
+      color: transparent;
+      -webkit-text-stroke: 1px white;
+      text-transform: uppercase;
+      text-align: center;
+      display: block;
+      width: 100%;
+    }
+
+    .highlight {
+      font-size: 54px;
+      font-weight: bold;
+      color: transparent;
+      -webkit-text-stroke: 1px RED;
+      text-transform: uppercase;
+      text-align: center;
+      display: block;
+      width: 100%;
+    }
+
+    .table-fixed {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      border-collapse: collapse;
+      table-layout: fixed;
+    }
+
+    .table-fixed td {
+      width: 33%;
+      vertical-align: middle;
+      text-align: center;
+      padding: 10px;
+    }
+
+    .table-fixed img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 5%;
+    }
+      .gradient-box-r {
+      background: linear-gradient(to right, #000000, #a50000, #000000);
+      border-radius: 20px;
+      color: white;
+      font-weight: bold;
+      font-family: Arial, sans-serif;
+      width: 100%;
+      height: 80px;
+      text-align: center;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .gradient-box-l {
+      background: linear-gradient(to right, #000000, #a50000, #000000);
+      border-radius: 20px;
+      color: white;
+      font-weight: bold;
+      font-family: Arial, sans-serif;
+      width: 100%;
+      height: 80px;
+      text-align: center;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .button-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      margin-bottom: 10vh;
+    }
+
+    .button-download {
+      background-color: #a50000;
+      color: black;
+      font-size: 18px;
+      font-weight: bold;
+      text-align: center;
+      padding: 15px 40px;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      display: inline-block;
+      width: 300px;
+      transition: 0.3s ease-in-out;
+    }
+
+    .button-download:hover {
+      background-color: #800000;
+    }
+
+    .partners-logos {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 5vw;
+      background-color: rgba(255, 255, 255, 0.5);
+      flex-wrap: wrap;
+      padding: 20px;
+    }
+
+    .partners-logos img {
+      max-height: 100px;
+      height: auto;
+      width: auto;
+      object-fit: contain;
+    }
+
   
-.counter{
-    font-size: 32px;
-    font-weight: bold;
-    color: #ffffff; /* Culoarea textului */
-    text-align: center;
-    margin: 20px 0;
-}
 
-.counter2{
-    font-size: 32px;
-    font-weight: bold;
-    color: #ffffff; /* Culoarea textului */
-    text-align: center;
-    margin: 20px 0;
-}
-
-.counter3{
-    font-size: 32px;
-    font-weight: bold;
-    color: #ffffff; /* Culoarea textului */
-    text-align: center;
-    margin: 20px 0;
-}
-
-.counter4{
-    font-size: 32px;
-    font-weight: bold;
-    color: #ffffff; /* Culoarea textului */
-    text-align: center;
-    margin: 20px 0;
-}
-.counter5{
-    font-size: 32px;
-    font-weight: bold;
-    color: #ffffff; /* Culoarea textului */
-    text-align: center;
-    margin: 20px 0;
-}
-
-.counter6{
-    font-size: 32px;
-    font-weight: bold;
-    color: #ffffff; /* Culoarea textului */
-    text-align: center;
-    margin: 20px 0;
-}
-
-.counter7{
-    font-size: 32px;
-    font-weight: bold;
-    color: #ffffff; /* Culoarea textului */
-    text-align: center;
-    margin: 20px 0;
-}
-
-.counter8{
-    font-size: 32px;
-    font-weight: bold;
-    color: #ffffff; /* Culoarea textului */
-    text-align: center;
-    margin: 20px 0;
-}
-
-
-.counter-text{
-    font-size: 24px;
-   
-    color: #ffffff;
-    text-align: center;
-    margin: 10px 0;
-}
-
-.counter-flex{
-    margin: 0 auto;
-    display: flex;
-    text-align: center;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px;   
-    width: 60%;
-}
-/* Large Screens */
-@media (min-width: 1200px) {
-    table td:first-child {
-        width: 60vw; /* Text occupies the full width */
-        text-align: justify; /* Justify the text */
-        font-size: 1.2rem; /* Slightly larger font size for readability */
+    .external-link-icon {
+      height: 24px;
+      width: 24px;
+      display: inline-block;
+      vertical-align: middle;
+      margin-left: 5px;
     }
 
-       table {
-        display: block; /* Makes the table behave as a block element */
-        width: 90%; /* Table will take the full width */
-        padding: 2%;
-    }
+    @media (max-width: 768px) {
 
+      .text-outline,
+      .highlight {
+        font-size: 32px;
+      }
 
-  
-}
+      .table-fixed td {
+        display: block;
+        width: 100%;
+      }
 
-@media (max-width: 1200px) and (min-width: 769px) {
-    table td:first-child {
-        width: 59vw; /* Set text width to 55% of viewport width */
-        text-align: justify; /* Keep the text justified */
-        font-size: 1rem; /* Maintain readability with responsive font size */
-    }
+      .table-fixed {
+        table-layout: auto;
+      }
 
-    table td:last-child {
-        width: 45vw; /* Adjust the counter section to fit the remaining space */
-    }
-      table {
-        display: block; /* Makes the table behave as a block element */
-        width: 90%; /* Table will take the full width */
-        padding: 3%;
-    }
-}
-table {
-    border-spacing: 20px; /* Spațiu între celulele din tabel */
-}
+      .button-download {
+        width: 80%;
+        padding: 10px 20px;
+        font-size: 16px;
+      }
 
-@media (max-width: 768px) {
-    table {
-        display: block; /* Makes the table behave as a block element */
-        width: 90%; /* Table will take the full width */
-        padding: 3%;
-        border-spacing: 10px;
-    }
+      .img-container {
+        margin-top: 5vh;
+      }
 
-    table tr {
-        display: block; /* Makes rows stack on top of each other */
-        width: 100%; /* Ensures each row takes full width */
-    }
+      .container {
+        width: 95%;
+      }
 
-    table td {
-        display: block; /* Stack each cell vertically */
-        width: 100%; /* Cells take full width */
-        text-align: center; /* Center align the content */
-    }
+      .main-wrap img {
+        max-width: 100%;
+        height: auto;
+      }
 
-    .counter-flex-text {
-        margin-top: 20px; /* Adds space above counters */
-        width: 100%; /* Full width for counters */
-        display: flex;
-        flex-direction: column; /* Stack text vertically */
-        align-items: center; /* Center align text */
-        justify-content: center; /* Center align vertically */
-    }
+      .partners-logos img {
+        max-height: 70px;
+      }
 
-    .counter-flex {
-        flex-direction: column; /* Stack counters vertically */
-        align-items: center; /* Center the counters */
-        width: 100%; /* Full width for the container */
-    }
-
-    .counter {
-        font-size: 5vw; /* Adjust font size for counters */
-        margin: 10px 0; /* Add spacing between counters */
-    }
-
-    .counter-text {
-        font-size: 4vw; /* Adjust font size for counter text */
-        margin: 5px 0; /* Add spacing below text */
-        color: #f56868; /* Counter text color */
-    }
-}
-
-
-@media (max-width: 900px){
-   .counter{
-        font-size: 4.2vw; /* Increase font size for mobile */
-        margin: 1vw 0;
-    }
-    .counter2{
-        font-size: 4.2vw; /* Increase font size for mobile */
-        margin: 1vw 0;
-    }
-    .counter3{
-        font-size: 4.2vw; /* Increase font size for mobile */
-        margin: 1vw 0;
-    }
-      .counter4{
-        font-size: 4.2vw; /* Increase font size for mobile */
-        margin: 1vw 0;
-    }
-      .counter5{
-        font-size: 4.2vw; /* Increase font size for mobile */
-        margin: 1vw 0;
-    }
-      .counter6{
-        font-size: 4.2vw; /* Increase font size for mobile */
-        margin: 1vw 0;
-    }
-      .counter7{
-        font-size: 4.2vw; /* Increase font size for mobile */
-        margin: 1vw 0;
-    }
-      .counter8{
-        font-size: 4.2vw; /* Increase font size for mobile */
-        margin: 1vw 0;
+      .external-link-icon {
+        height: 18px;
+        width: 18px;
+      }
+      .footer {
+        padding: 15px 1rem !important;
+      }
     }
     
-    .counter-text{
-        font-size: 3vw; /* Increase font size for mobile */
-        margin: 1vw 0;
-    }
-   
-}
-  /* Style buttons */
-    .btn {
-        background-color: #f56868;
-        border: none;
-        color: #ffffff;
-        cursor: pointer;
-        margin-bottom: 2vh;
-        font-size: 24px;
-        padding: 0.5vh;
+  </style>
 
-    }
+  <main class="main-wrap">
+    <div class="img-container">
+      <img src="/assets/images/despre.png" class="img-center">
+    </div>
 
-    /* Darker background on mouse-over */
-    .btn:hover {
-        background-color: #1e1e1e;
-        color: #761114;
-    }
-</style>
-<main class="main-wrap" style="">
-  <h1 style="background-color: rgba(0,0,0,0.5); border-radius:13px; margin:0 auto; text-align:center; margin-top:10vh; text-align:justify;">Despre noi</h1>
- <br>
- <br>
- <table style="margin: 0 auto; background-image: url('/assets/images/Poza DESPRE NOI.jpeg'); background-size:cover; border-radius:13px;">
-        <tr style="align-items: center; ">
-            <td style="text-align:justify; font-size:1rem; heigh:50vh;">
-                <b>
-                    <p>Organizația Studenților din Universitatea Tehnică din Cluj-Napoca (OSUT Cluj) a fost înființată în anul 2003 și are drept obiectiv principal reprezentarea tuturor studenților din Universitatea Tehnică din Cluj-Napoca și militarea pentru drepturile acestora. OSUT Cluj este singura organizație reprezentativă din Universitatea Tehnică din Cluj-Napoca și una din cele mai mari organizații studențești din țară.</p>
-                    <p> De asemenea, OSUT Cluj vine către comunitatea de tineret clujeană prin proiecte pe diverse arii, acestea variind de antreprenoriat și dezvoltare personală, până la latura sportivă și culturală, răspunzând nevoilor studenților, toate cu scopul de a-i dezvolta multilateral. Mai mult, facilităm prin intermediul evenimentelor organizate de noi, o comunicare directă între companii și studenți.</p>
-                 
-                    <p> Ne remarcăm atât prin anvergura proiectelor demarate, cât și prin premiile pe care le câștigăm cu acestea an de an.</p>
-                    <h1 style="color: #f56868;">Biroul de Conducere</h1>
-                    <p>Biroul de Conducere al OSUT Cluj reprezintă structura principală de coordonare a activității organizației. Aceștia sunt aleși de către Adunarea Generală OSUT Cluj pe durata de un an, cu responsabilitatea de a gestiona proiectele organizației și inițiativele de reprezentare studențească ale acesteia.</p>
-                   
-                    <h1 style="color: #f56868;">Biroul de Conducere Extins</h1>
-                    <p>Biroul de Conducere Extins al OSUT Cluj este compus din coordonatorii departamentelor organizației, clasificate în servicii, direcții și proiecte. Departamentele sunt structuri de voluntari cu obiective bine delimitate, iar membrii BCE sunt principalii actori ai activității OSUT Cluj, în strânsă legătură cu responsabilii din Biroul de Conducere.</p>
-                    {{!--<h1 style="color: #f56868;">Raportul organizației semestrul 1 2024-2025</h1>
-                    <a href="/assets/pdf/Raportul organizatiei semestrul 1 2024-2025.pdf" download class="btn">
-                    <i class="fa fa-download"></i>
-                    Download 
-                    </a>--}}
-                </b>
-            </td>
-            <td style="">
-                <div class="counter-flex-text">
-                    <div id="counter4" class="counter4">1.120</div>
-                    <p class="counter-text" style="color: #f56868;">VOLUNTARI</p>
-                </div>
-                <div class="counter-flex-text">
-                    <div id="counter5" class="counter5">21.000</div>
-                    <p class="counter-text" style="color: #f56868;">STUDENȚI</p>
-                </div>
-                <div class="counter-flex-text">
-                    <div id="counter6" class="counter6">12</div>
-                    <p class="counter-text" style="color: #f56868;">FACULTĂȚI</p>
-                </div>
-                <div class="counter-flex-text">
-                    <div id="counter7" class="counter7">20</div>
-                    <p class="counter-text" style="color: #f56868;">ANI DE ACTIVITATE</p>
-                </div>
-                <div class="counter-flex-text">
-                    <div id="counter8" class="counter8">50</div>
-                    <p class="counter-text" style="color: #f56868;">PREMII</p>
-                </div>
-            </td>
-        </tr>
+    <div class="container">
+      <h2 class="text-outline">VALORILE<span class="highlight">ORGANIZAȚIEI</span></h2>
+    </div>
+
+    <table class="table-fixed">
+      <tr>
+        <td>
+          <div class="gradient-box-r">RESPECT</div>
+        </td>
+        <td>
+          <div class="gradient-box-r">AMBIȚIE</div>
+        </td>
+        <td>
+          <div class="gradient-box-r">ONOARE</div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="gradient-box-l">PRIETENIE</div>
+        </td>
+        <td>
+          <div class="gradient-box-l">CREATIVITATE</div>
+        </td>
+        <td>
+          <div class="gradient-box-l">INIȚIATIVĂ</div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="gradient-box-r">PERFORMANȚĂ</div>
+        </td>
+        <td>
+          <div class="gradient-box-r">RESPONSABILITATE</div>
+        </td>
+        <td>
+          <div class="gradient-box-r">ADAPTABILITATE</div>
+        </td>
+      </tr>
     </table>
 
-<br><br>
-
-  <H1 style="text-align: center;color: #f56868;">REACH ONLINE</H1>
- <div class="counter-flex">
-
-        <div class="counter-flex-text">
-         <div id="counter" class="counter">90000</div>
-        <p class="counter-text" style="color: #f56868;">INSTAGRAM</p>
-        </div>
-         <div class="counter-flex-text">
-         <div id="counter2" class="counter2">70000</div>
-        <p class="counter-text" style="color: #f56868;">FACEBOOK</p>
-         </div>
-          <div class="counter-flex-text">
-         <div id="counter3" class="counter3">10000</div>
-        <p class="counter-text" style="color: #f56868;">SITE</p>
-        </div>
+    <div class="container">
+      <h2 class="text-outline">BIROUL DE<span class="highlight">CONDUCERE</span></h2>
     </div>
-    
 
+    <table class="table-fixed">
+      <tr>
+        <td>
+          <img src="/assets/images/bc/BCBAANNER.jpg">
+        </td>
+        <td>
+          <p style="text-align: justify;">Biroul de Conducere al OSUT Cluj reprezintă structura principală de coordonare
+            a activității organizației. Aceștia sunt aleși de către Adunarea Generală OSUT Cluj pe durata de un an, cu
+            responsabilitatea de a gestiona proiectele organizației și inițiativele de reprezentare studențească ale
+            acesteia.</p>
+        </td>
+      </tr>
+    </table>
 
+    <div style="display: flex; justify-content: center; align-items: center; gap: 10px; flex-wrap: wrap;">
+      <h3 style="margin: 0;"><u>See more</u></h3>
+      <a href="http://localhost:2368/biroul-de-conducere/"><img src="/assets/images/newwindow.png"
+          class="external-link-icon" alt="icon"></a>
+    </div>
 
+    <div class="container">
+      <h2 class="text-outline">BIROUL DE<span class="highlight">CONDUCERE EXTINS</span></h2>
+    </div>
 
-    
-</main>
-{{!script pentru primul counter}}
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-    const counterElement = document.getElementById("counter");
+    <table class="table-fixed">
+      <tr>
+        <td>
+          <img src="/assets/images/bc/BCEBANNER.jpg">
+        </td>
+        <td>
+          <p style="text-align: justify;">Biroul de Conducere Extins al OSUT Cluj este compus din coordonatorii
+            departamentelor organizației, clasificate în servicii, direcții și proiecte. Departamentele sunt structuri
+            de voluntari cu obiective bine delimitate, iar membrii BCE sunt principalii actori ai activității OSUT Cluj,
+            în strânsă legătură cu responsabilii din Biroul de Conducere.</p>
+        </td>
+      </tr>
+    </table>
 
+    <div style="display: flex; justify-content: center; align-items: center; gap: 10px; flex-wrap: wrap;">
+      <h3 style="margin: 0;"><u>See more</u></h3>
+      <a href="http://localhost:2368/biroul-de-conducere-extins/"><img src="/assets/images/newwindow.png"
+          class="external-link-icon" alt="icon"></a>
+    </div>
 
-    // Phase 1: From 2200 to 2490 in 5 seconds
-    const startNumber1 = 90000;
-    const targetNumber1 = 100000;
-    const duration1 = 5000;           // 5 seconds
-    const incrementTime1 = 20;        // Interval in ms for Phase 1
-    const totalIncrements1 = duration1 / incrementTime1;
-    const increment1 = (targetNumber1 - startNumber1) / totalIncrements1;
+    <div class="container">
+      <h2 class="text-outline">Raportul de<span class="highlight">activitate</span></h2>
+    </div>
 
-    let currentNumber = startNumber1;
+    <div class="button-container">
+      <a href="/assets/pdf/Raportul organizatiei semestrul 1 2024-2025.pdf" download class="button-download">
+        <i class="fa fa-download"></i> DOWNLOAD HERE</a>
+    </div>
 
-    // Phase 1 Counter Function
-    function updateCounterPhase1() {
-        currentNumber += increment1;
+    <div class="container">
+      <h2 class="text-outline">MEMBRII<span class="highlight">ÎN</span></h2>
+    </div>
 
-        if (currentNumber >= targetNumber1) {
-            counterElement.textContent = targetNumber1 + "+"; // End at 2500+
-        } else {
-            counterElement.textContent = Math.floor(currentNumber);
-            setTimeout(updateCounterPhase1, incrementTime1);
-        }
-    }
+    <div class="partners-logos">
+      <img src="/assets/images/anosr.png" alt="icon">
+      <img src="/assets/images/ftc.png" alt="icon">
+      <img src="/assets/images/cos.png" alt="icon">
+    </div>
+  </main>
 
-    // Start the first phase
-    updateCounterPhase1();
-});
-</script>
-
-{{!script pentru al doilea counter}}
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-    const counterElement = document.getElementById("counter2");
-    const startNumber = 70000;      // Numărul de început
-    const targetNumber = 80000;     // Numărul final
-    const duration = 5000;        // Durata în milisecunde (5 secunde)
-    const intervalTime = 20;       // Timpul între incrementări (20 ms)
-    
-    let currentNumber = startNumber;
-    const increment = (targetNumber - startNumber) / (duration / intervalTime);
-
-    function updateCounter() {
-        currentNumber += increment;
-        
-        if (currentNumber >= targetNumber) {
-            counterElement.textContent = targetNumber + "+";
-        } else {
-            counterElement.textContent = Math.floor(currentNumber);  // Arătăm doar partea întreagă
-            setTimeout(updateCounter, intervalTime);                 // Continuăm incrementarea la fiecare 20ms
-        }
-    }
-
-    updateCounter();
-});
-</script>
-
-{{!script pentru al treilea counter}}
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-    const counterElement = document.getElementById("counter3");
-    const startNumber = 10000;      // Numărul de început
-    const targetNumber = 20000;     // Numărul final
-    const duration = 5000;        // Durata în milisecunde (5 secunde)
-    const intervalTime = 20;       // Timpul între incrementări (20 ms)
-    
-    let currentNumber = startNumber;
-    const increment = (targetNumber - startNumber) / (duration / intervalTime);
-
-    function updateCounter() {
-        currentNumber += increment;
-        
-        if (currentNumber >= targetNumber) {
-            counterElement.textContent = targetNumber+"+";
-        } else {
-            counterElement.textContent = Math.floor(currentNumber);  // Arătăm doar partea întreagă
-            setTimeout(updateCounter, intervalTime);                 // Continuăm incrementarea la fiecare 20ms
-        }
-    }
-
-    updateCounter();
-});
-</script>
-
-{{!script pentru al 4 counter}}
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-    const counterElement = document.getElementById("counter4");
-    const startNumber = 900;      // Numărul de început
-    const targetNumber = 1120;     // Numărul final
-    const duration = 5000;        // Durata în milisecunde (5 secunde)
-    const intervalTime = 20;       // Timpul între incrementări (20 ms)
-    
-    let currentNumber = startNumber;
-    const increment = (targetNumber - startNumber) / (duration / intervalTime);
-
-    function updateCounter() {
-        currentNumber += increment;
-        
-        if (currentNumber >= targetNumber) {
-            counterElement.textContent = targetNumber+"+";
-        } else {
-            counterElement.textContent = Math.floor(currentNumber);  // Arătăm doar partea întreagă
-            setTimeout(updateCounter, intervalTime);                 // Continuăm incrementarea la fiecare 20ms
-        }
-    }
-
-    updateCounter();
-});
-</script>
-
-{{!script pentru al 5 counter}}
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-    const counterElement = document.getElementById("counter5");
-    const startNumber = 21000;      // Numărul de început
-    const targetNumber = 22000;     // Numărul final
-    const duration = 5000;        // Durata în milisecunde (5 secunde)
-    const intervalTime = 20;       // Timpul între incrementări (20 ms)
-    
-    let currentNumber = startNumber;
-    const increment = (targetNumber - startNumber) / (duration / intervalTime);
-
-    function updateCounter() {
-        currentNumber += increment;
-        
-        if (currentNumber >= targetNumber) {
-            counterElement.textContent = targetNumber+"+";
-        } else {
-            counterElement.textContent = Math.floor(currentNumber);  // Arătăm doar partea întreagă
-            setTimeout(updateCounter, intervalTime);                 // Continuăm incrementarea la fiecare 20ms
-        }
-    }
-
-    updateCounter();
-});
-</script>
-
-{{!script pentru al 6 counter}}
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-    const counterElement = document.getElementById("counter6");
-    const startNumber = 0;      // Numărul de început
-    const targetNumber = 9;     // Numărul final
-    const duration = 5000;        // Durata în milisecunde (5 secunde)
-    const intervalTime = 20;       // Timpul între incrementări (20 ms)
-    
-    let currentNumber = startNumber;
-    const increment = (targetNumber - startNumber) / (duration / intervalTime);
-
-    function updateCounter() {
-        currentNumber += increment;
-        
-        if (currentNumber >= targetNumber) {
-            counterElement.textContent = targetNumber;
-        } else {
-            counterElement.textContent = Math.floor(currentNumber);  // Arătăm doar partea întreagă
-            setTimeout(updateCounter, intervalTime);                 // Continuăm incrementarea la fiecare 20ms
-        }
-    }
-
-    updateCounter();
-});
-</script>
-
-{{!script pentru al 7 counter}}
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-    const counterElement = document.getElementById("counter7");
-    const startNumber = 0;      // Numărul de început
-    const targetNumber = 20;     // Numărul final
-    const duration = 5000;        // Durata în milisecunde (5 secunde)
-    const intervalTime = 20;       // Timpul între incrementări (20 ms)
-    
-    let currentNumber = startNumber;
-    const increment = (targetNumber - startNumber) / (duration / intervalTime);
-
-    function updateCounter() {
-        currentNumber += increment;
-        
-        if (currentNumber >= targetNumber) {
-            counterElement.textContent = targetNumber+"+";
-        } else {
-            counterElement.textContent = Math.floor(currentNumber);  // Arătăm doar partea întreagă
-            setTimeout(updateCounter, intervalTime);                 // Continuăm incrementarea la fiecare 20ms
-        }
-    }
-
-    updateCounter();
-});
-</script>
-
-{{!script pentru al 8 counter}}
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-    const counterElement = document.getElementById("counter8");
-    const startNumber = 0;      // Numărul de început
-    const targetNumber = 60;     // Numărul final
-    const duration = 5000;        // Durata în milisecunde (5 secunde)
-    const intervalTime = 20;       // Timpul între incrementări (20 ms)
-    
-    let currentNumber = startNumber;
-    const increment = (targetNumber - startNumber) / (duration / intervalTime);
-
-    function updateCounter() {
-        currentNumber += increment;
-        
-        if (currentNumber >= targetNumber) {
-            counterElement.textContent = targetNumber+"+";
-        } else {
-            counterElement.textContent = Math.floor(currentNumber);  // Arătăm doar partea întreagă
-            setTimeout(updateCounter, intervalTime);                 // Continuăm incrementarea la fiecare 20ms
-        }
-    }
-
-    updateCounter();
-});
-</script>
-{{!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs --}}
-{{#contentFor "scripts"}}
-  <script defer src="{{asset "js/page.js"}}"></script>
-{{/contentFor}}
+  {{#contentFor "scripts"}}
+  <script defer src="{{asset " js/page.js"}}"></script>
+  {{/contentFor}}

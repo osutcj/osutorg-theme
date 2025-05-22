@@ -1,20 +1,9 @@
-{{!--
-This template is used for the index page.
-It can be used also as the home page or the default page.
---}}
 
-{{!-- Training IT --}}
-
-{{!-- This block preloads specific assets for the index page --}}
 {{#contentFor "preload"}}
   <link rel="preload" href="{{asset "css/home.css"}}" as="style" />
-  <link rel="preload" href="{{asset "css/listing.css"}}" as="style" />
-   <link rel="preload" href="{{asset "js/lumina.js"}}" as="script" />
-   <link rel="preload" href="{{asset "js/mousemove.js"}}" as="script" />
-  <link rel="preload" href="{{asset "js/home.js"}}" as="script" />
 {{/contentFor}}
 
-{{!-- This block loads specific styles for the index page --}}
+
 {{#contentFor "styles"}}
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -30,50 +19,249 @@ It can be used also as the home page or the default page.
   </script>
   <link rel="stylesheet" type="text/css" href="{{asset "css/home.css"}}" media="screen" />
 
-  <link rel="stylesheet" type="text/css" href="{{asset "css/listing.css"}}" media="screen" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/font-awesome.min.css">
-  {{!-- <link rel="stylesheet" type="text/css" href="{{asset "css/anunt.css"}}" media="screen"> --}}
-{{/contentFor}}
+  {{/contentFor}}
 
-{{!-- The tag below means: insert everything in this file
-into the {body} of the default.hbs template --}}
 {{!< default}}
 
-{{!-- Special header.hbs partial to generate the <header> tag --}}
 {{> header background=@site.cover_image}}
-
 <style>
-  .homepage .m-hero__picture {
-    opacity: 1;
+.homepage .m-hero__picture {
+  opacity: 1;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background-image: url("{{asset 'images/sky.jpg'}}");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.main-wrap {
+  background: none;
+}
+
+.featured-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 2rem;
+    justify-items: center;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    grid: unset;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.m-article-card {
+    width: 100% !important;
+}
+
+.h-95 {
+  height: 95% !important;
+}
+
+.homepage-text {
+  font-size: 1.2rem;
+}
+
+.stats {
+  margin-top: 0;
+}
+
+.layout-table {
+  min-width: 20rem;
+}
+
+.table-image {
+  min-width: 100% !important;
+  width: 100% !important;
+}
+
+.m-pagination {
+  align-content: center;
+  display: flex;
+  flex-direction: row;
+  font-size: x-large;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 1024px and min-width: 768px) {
+  .footer {
+    min-width: 100% !important;
+  }
+}
+@media screen and (max-width: 768px) {
+
+  html, body {
+    overflow-x: hidden;
+  }
+  .d-sm-none {
+    display: none !important;
+  }
+  .featured-grid {
+    grid-template-columns: repeat(1, 1fr) !important;
+    padding: 0 !important;
+  }
+  
+  .content {
+    width: 48% !important;
+    margin: 0;
+    padding: 0;
   }
 
+  .stats {
+    margin-top: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: fit-content;
+    width: auto;
+    margin-left: 1rem; /**/
+  }
+
+  .mobile-layout {
+    padding: 0;
+  }
+  .counter-flex-text {
+    max-height: 5rem;
+    margin: auto !important;
+  }
+  .table-mobile {
+    margin-bottom: 0;
+  }
+  .container {
+    width: auto;
+    margin-left: 0rem;
+  }
+  .homepage-text {
+      font-size: 1.2rem;
+  }
+  .l-wrapper {
+    /* padding-right: 6.5rem; */
+  }
+  .swiper {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .footer {
+    padding: 15px 1rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .content {
+    width: 35.8% !important; /*32rem*/
+  }
+}
+@media (max-width: 480px) {
+  .content {
+    width: 34% !important; /*32rem*/
+  }
+}
+@media (max-width: 390px) {
+  .content {
+    width: 32% !important; /*32rem*/
+  }
+}
+@media (max-width: 390px) {
+  .content {
+    width: 30% !important; /*32rem*/
+  }
+}
 </style>
 
 
-<main class="main-wrap homepage">
 
- <div style="margin:0 auto; width: 80%; ">
-   <div class="container">
-        <img src="/assets/images/OSUT_alb.svg" style="" class="image logo-infotech">
+<main class="main-wrap homepage" style=" margin:0 auto;">
+ <div class="content">
+      <table class="table-mobile">
+        <tr>
+          <td class="mobile-layout">
+            <h1 style="text-align: left;">WE ARE <br> <span class="highlight">OSUT</span> CLUJ</h1>
 
-        <div class="light"></div>
+            <p class="homepage-text">
+              Organizația Studenților din Universitatea Tehnică din Cluj-Napoca (<span class="highlight">OSUT
+                Cluj</span>) a fost
+              înființată în anul 2003 și are drept obiectiv principal reprezentarea tuturor studenților din
+              Universitatea Tehnică
+              din Cluj-Napoca și militarea pentru drepturile acestora. <span class="highlight">OSUT Cluj</span> este
+              singura organizație
+              reprezentativă din Universitatea Tehnică din Cluj-Napoca și una din cele mai mari organizații studențești
+              din țară.
+            </p>
+            <br>
+            <p class="homepage-text">
+              De asemenea, <span class="highlight">OSUT Cluj</span> vine către comunitatea de tineret clujeană prin
+              proiecte pe diverse arii,
+              de la antreprenoriat și dezvoltare personală, până la latura sportivă și culturală, răspunzând nevoilor
+              studenților,
+              toate cu scopul de a-i dezvolta multilateral. Mai mult, facilităm prin intermediul evenimentelor
+              organizate de noi, o comunicare directă între companii și studenți.
+            </p>
+            <br>
+            <p>
+              Ne remarcăm atât prin anvergura proiectelor demarate, cât și prin premiile pe care le câștigăm cu acestea
+              an de an.
+            </p>
+          </td>
+          <td class="layout-table d-sm-none">
+            <img class="table-image" src="/assets/images/cometa2.png">
+          </td>
+        </tr>
+      </table>
+
+       <div class="stats">
+        <div class="counter-flex-text">
+          <div id="counter4" class="counter">1.120</div>
+          <p class="counter-text" style="color: red;">VOLUNTARI</p>
+        </div>
+        <div class="counter-flex-text">
+          <div id="counter5" class="counter">21.000</div>
+          <p class="counter-text" style="color: red;">STUDENȚI</p>
+        </div>
+        <div class="counter-flex-text">
+          <div id="counter6" class="counter">12</div>
+          <p class="counter-text" style="color: red;">FACULTĂȚI</p>
+        </div>
+        <div class="counter-flex-text">
+          <div id="counter7" class="counter">20</div>
+          <p class="counter-text" style="color: red;">ANI DE ACTIVITATE</p>
+        </div>
+        <div class="counter-flex-text">
+          <div id="counter8" class="counter">50</div>
+          <p class="counter-text" style="color: red;">PREMII</p>
+        </div>
       </div>
-  <script src="/assets/js/lumina.js"></script>
-  </div>
-  {{!-- For counters --}}
-  {{!-- {{> counters}} --}}
-<div class="submenu">
-        <button id="btn1" class="active" onclick="showContent('content1')">OSUT te informează</button>
-        <button id="btn2" onclick="showContent('content2')">Proiecte</button>
-        <button id="btn3" onclick="showContent('content3')">Inițiative</button>
-        <button id="btn4" onclick="showContent('content4')">OSUT la ...</button>
-</div>
-<div id="content">
 
+      <br>
+      <br>
+
+
+      
+
+
+<div class="container">
+  <h2 class="text-outline">OSUT TE INFORMEAZĂ</h2>
+</div>
+
+
+      
 <div class="l-content mobile-layout">
     <div class="l-wrapper" data-aos="fade-up" data-aos-delay="300">
       {{!-- {{> anunt title="OSUT te informeaza"}} --}}
-      <div class="l-grid centered">
+      <div class="l-grid centered featured-grid">
         {{#get "posts" filter="featured:true" include="authors,tags" limit="5" as |featured|}}
           {{#if featured}}
             <div class="m-featured-slider swiper js-featured-slider">
@@ -141,734 +329,785 @@ into the {body} of the default.hbs template --}}
     </div>
     {{!-- Links to Previous/Next posts --}}
     {{pagination}}
-  </div>
-<script>
-    // Function to update content based on the clicked submenu item
-    function showContent(section) {
-        const content = document.getElementById('content');
-        const buttons = document.querySelectorAll('.submenu button');
+    </div>
 
-        // Remove 'active' class from all buttons
-        buttons.forEach(button => button.classList.remove('active'));
+      <div class="container">
+        <h2 class="text-outline">PROIECTE</h2>
+      </div>
 
-        // Set content based on the selected section
-        if (section === 'content1') {
-            content.innerHTML = `
-                                <div class="l-content mobile-layout">
-    <div class="l-wrapper" data-aos="fade-up" data-aos-delay="300">
-      {{!-- {{> anunt title="OSUT te informeaza"}} --}}
-      <div class="l-grid centered">
-        {{#get "posts" filter="featured:true" include="authors,tags" limit="5" as |featured|}}
-          {{#if featured}}
-            <div class="m-featured-slider swiper js-featured-slider">
-              <div class="m-featured-slider__list swiper-wrapper">
-                {{#foreach featured}}
-                  <div class="m-featured-slider_list_item swiper-slide">
-                    <article class="m-featured-article {{#unless feature_image}}no-picture{{/unless}}">
-                      <div class="m-featured-article__picture">
-                        {{#if feature_image}}
-                          <style>
-                            #featured-bg-{{id}} {
-                              background-image: url('assets/images/infocafe2024.png');
-                            }
-                            @media(max-width: 768px) {
-                              #featured-bg-{{id}} {
-                                background-image: url('assets/images/infocafe2024.png');
-                              }
-                            }
-                          </style>
-                          <div id="featured-bg-{{id}}"></div>
-                        {{/if}}
-                      </div>
-                      <div class="m-featured-article__meta">
-                        <a href="{{primary_author.url}}" class="m-featured-article__author js-tooltip" aria-label="{{primary_author.name}}" data-tippy-content="{{t "Posted by"}} {{primary_author.name}} {{authors autolink="false" from="2" prefix=(t "Among with") separator=" , "}}">
-                          {{#if primary_author.profile_image}}
-                            <div style="background-image: url({{img_url primary_author.profile_image size="xs"}});"></div>
-                          {{else}}
-                            <div style="background-image: url({{asset "images/default-avatar-square-small.jpg"}});"></div>
-                          {{/if}}
-                        </a>
-                        {{#if primary_tag}}
-                          <a href="{{primary_tag.url}}" class="m-featured-article__tag">{{primary_tag.name}}</a>
-                        {{/if}}
-                      </div>
-                      <div class="m-featured-article__ribbon">
-                        <span class="icon-star"></span>
-                        <span>{{t "Featured"}}</span>
-                      </div>
-                      <a href="{{url}}" class="m-featured-article__content">
-                        <h2 class="m-featured-article__title js-featured-article-title" title="{{title}}">
-                          {{title}}
-                        </h2>
-                        <div class="m-featured-article__timestamp">
-                          <span>{{date published_at timeago="true"}}</span>
-                          <span>&bull;</span>
-                          <span>{{reading_time minute=(t "1 min read") minutes=(t "% min read")}}</span>
-                        </div>
-                      </a>
-                    </article>
-                  </div>
-                {{/foreach}}
+      <div class="project-carousel">
+        <div class="swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img src="/assets/images/Proiecte/viitoringiner.PNG" alt="Viitor Inginer">
+              <div class="overlay">
+                <div class="text">Viitor Inginer este un proiect desfășurat de OSUT Cluj, care facilitează întâlnirea
+                  între studenții UTCN și elevii de liceu, prin vizite organizate în întreaga țară. În cadrul
+                  prezentărilor, elevii au ocazia să afle direct de la colegii lor mai mari ce înseamnă viața de student
+                  la Universitatea Tehnică din Cluj-Napoca. Proiectul urmărește combaterea abandonului școlar și
+                  sprijinirea adolescenților în alegerea facultății, oferindu-le informații esențiale pentru viitorul
+                  lor academic.
+
+                  Dacă vrei să afli mai multe despre aceste subiecte, te așteptăm cu drag să ne întâlnim atunci când vom
+                  vizita liceul tău!</div>
               </div>
-              <button class="m-icon-button in-featured-articles swiper-button-prev js-featured-slider-button" aria-label="{{t "Previous"}}">
-                <span class="icon-arrow-left" aria-hidden="true"></span>
-              </button>
-              <button class="m-icon-button in-featured-articles swiper-button-next js-featured-slider-button" aria-label="{{t "Next"}}">
-                <span class="icon-arrow-right" aria-hidden="true"></span>
-              </button>
             </div>
-          {{/if}}
-        {{/get}}
-        {{!-- The tag below iterates over all the posts --}}
-        {{> "loop"}}
-      </div>
-    </div>
-    {{!-- Links to Previous/Next posts --}}
-    {{pagination}}
-  </div>
-            `;
-            document.getElementById('btn1').classList.add('active');
-        } else if (section === 'content2') {
-            content.innerHTML = `
-               <div id="myModal" class="modal">
-        <span class="close">&times;</span>
-        <h2 class="modal-content" id="img01" style="width:50%;" ></h2>
-        <h1 id="modalTitle" style="text-align: center; margin-top:2vh; "></h1>
-       <h2 id="modalSubtitle" style="display: flex; flex-direction: column; align-items: center; text-align: center; margin: 0 auto;"></h2>
-       <div id="caption"></div>
-    </div>
+            <div class="swiper-slide">
+              <img src="/assets/images/Proiecte/proiect-polihack.jpg" alt="PoliHack">
+              <div class="overlay">
+                <div class="text">Ajuns la cea de-a 16-a ediție, PoliHack este un hackathon semestrial care provoacă
+                  studenții și elevii de liceu să își depășească limitele creativității și abilităților tehnice prin
+                  dezvoltarea de soluții inovatoare într-una dintre cele patru categorii: Embedded, AppDev, Web și
+                  Junior.
 
-  <div class="flex-container2" style="background-image: url('./assets/images/Proiecte/viitoringiner.png'); background-size:cover;" >
-      
-          
-        <div class="container5" style="opacity:100%;">
-          <h2><b>Viitor Inginer este un proiect desfășurat de OSUT Cluj, care facilitează întâlnirea între studenții UTCN și elevii de liceu, prin vizite organizate în întreaga țară. În cadrul prezentărilor, elevii au ocazia să afle direct de la colegii lor mai mari ce înseamnă viața de student la Universitatea Tehnică din Cluj-Napoca. Proiectul urmărește combaterea abandonului școlar și sprijinirea adolescenților în alegerea facultății, oferindu-le informații esențiale pentru viitorul lor academic. <br><br>
-             Dacă vrei să afli mai multe despre aceste subiecte, te așteptăm cu drag să ne întâlnim atunci când vom vizita liceul tău!  
-              <br><br><br>
-             </b>
-          </h2>
-        </div>
-        <div class="container-img" >
-          <img src="./assets/images/logo_vi.svg">
-        </div>
- </div>
- <br><br>
-  <div class="flex-container2" style="background-image: url('./assets/images/Proiecte/proiect-polihack.jpg'); background-size:cover;" >
-      
-          
-        <div class="container5" style="opacity:100%;">
-          <h2><b>Ajuns la cea de-a 16-a ediție, PoliHack este un hackathon semestrial care provoacă studenții și elevii de liceu să își depășească limitele creativității și abilităților tehnice prin dezvoltarea de soluții inovatoare într-una dintre cele patru categorii: Embedded, AppDev, Web și Junior.
-          <br><br>
-              Organizat de Organizația Studenților din Universitatea Tehnică din Cluj-Napoca, PoliHack își propune să încurajeze participanții să colaboreze cu mentori apreciați din industrie și din mediul academic, oferindu-le o experiență autentică, similară cu cea din marile companii.
-          <br><br><br>
-              PoliHack. The.Future.Is.Now.
-          </b></h2>
-        </div>
-        <div class="container-img" >
-          <img src="./assets/images/proiecte/logo-uri/logo-polihack.png">
-        </div>
- </div>
- <br><br>
- <div class="flex-container2" style="background-image: url('./assets/images/Proiecte/proiect-balul_bobocilor.png'); background-size:cover;" >
-      
-          
-        <div class="container5" style="opacity:100%;">
-          <h2><b>An de an, OSUT Cluj pune în scenă Balul Bobocilor Universității Tehnice din Cluj-Napoca, un moment special care marchează începutul vieții de student. Acest eveniment, asemănător cu balurile din perioada liceului, oferă bobocilor ocazia de a-și demonstra abilitățile și de a lega prietenii noi, creând amintiri de neuitat. Spre deosebire de un bal obișnuit, noi ne străduim să transformăm această seară într-un adevărat spectacol, plin de momente artistice, momente inedite și surprize fascinante. 
-          <br><br>
-                 Fiecare Bal al Bobocilor spune o poveste aparte, iar bobocii și organizatorii depun eforturi pentru a oferi o experiență unică tuturor celor prezenți.
-          </b></h2>
-        </div>
-        <div class="container-img" >
-          <img src="./assets/images/proiecte/logo-uri/logo-balul_bobocilor.png" style="width: 80%">
-        </div>
- </div>
- <br><br>
-<div class="flex-container2" style="background-image: url('./assets/images/Proiecte/sah.png'); background-size:cover;" >
-      
-          
-        <div class="container5" style="opacity:100%;">
-          <h2><b>UT Chess Wars este un campionat de șah dedicat studenților, organizat cu scopul de a promova jocul de șah în rândul tinerilor și de a crea o comunitate de pasionați ai acestui joc strategic. Acesta reunește studenți din diverse domenii academice, oferindu-le oportunitatea de a-și testa abilitățile într-o competiție prietenoasă și provocatoare. 😄🪄
-            <br><br>
-              Formatul campionatului variază, dar de obicei include partide de șah în sistem eliminatoriu, cu scopul de a premia cei mai buni jucători. 🏆♟️
-            <br><br>
-              Pe lângă competiția sportivă, UT Chess Wars are și un rol educativ, încurajând gândirea strategică, dezvoltarea abilităților de rezolvare a problemelor și stimularea colaborării între studenți. De asemenea, este și un eveniment social, în care participanții se întâlnesc și interacționează în lumea misterioasă a șahului, creând legături între colegii din diferite facultăți sau universități. 🤝
-            <br><br>
-              Acest campionat poate atrage atât jucători experimentați, cât și începători, oferind șansa fiecăruia să-și îmbunătățească jocul și să învețe din experiențele celorlalți. 😆🔝
-          </b></h2>
-        </div>
-        <div class="container-img" >
-             </div>
- </div>
- <br><br>
- <div class="flex-container2" style="background-image: url('./assets/images/Proiecte/polisport.png'); background-size:cover;" >
-      
-          
-        <div class="container5" style="opacity:100%;">
-          <h2><b>PoliSport este un proiect de tradiție marca OSUT Cluj, care se desfășoară de peste 38 de ediții și continuă să atragă un număr tot mai mare de studenți pasionați de sport. Acesta implică organizarea de competiții sportive destinate amatorilor, derulate în Cluj-Napoca, și reprezintă o oportunitate excelentă pentru studenți de a-și demonstra talentul și aptitudinile sportive într-un mediu organizat și prietenos.
-          <br><br>
-            Interesul pentru PoliSport a crescut constant, fiecare ediție înregistrând un număr tot mai mare de participanți înscriși. Acest lucru reflectă succesul proiectului în a aduce studenții împreună, încurajând interacțiunea, socializarea și un stil de viață activ. Competițiile nu doar că oferă o pauză binemeritată de la stresul cotidian, dar contribuie și la dezvoltarea personală a participanților, prin promovarea fair-play-ului și a spiritului de echipă.
-          <br><br>
-            Astfel, PoliSport rămâne unul dintre cele mai apreciate proiecte studențești marca OSUT Cluj, îmbinând beneficiile sportului asupra sănătății cu cele ale unei comunități unite și implicate.
-          </b></h2>
-        </div>
-        <div class="container-img" >
-          <img src="./assets/images/Proiecte/Logo-uri/logo-polisport.png">
-        </div>
- </div>
- <br><br>
- <div class="flex-container2" style="background-image: url('./assets/images/Proiecte/proiect-poliart.png'); background-size:cover;" >
-      
-          
-        <div class="container5" style="opacity:100%;">
-          <h2><b>PoliArt este un proiect prin care studenții au ocazia de a lua o pauză de la viața academică și de a-și valorifica înclinațiile artistice prin operele lor. Acestea sunt expuse pe holurile facultăților din  Universitatea Tehnică și, ulterior, într-o locație finală, pentru a le oferi ocazia să fie admirate de cât mai multe persoane.
-            <br><br>
-              PoliArt este ocazia perfectă pentru iubitorii de artă să iasă din zona lor de confort, să treacă peste frici și să lege legături prețioase cu alți pasionați ca ei. Este momentul perfect în care își pot exprima stările și emoțiile prin cele mai creative moduri, indiferent de nivelul de experiență.
-          </b></h2>
-        </div>
-        <div class="container-img" >
-          <img src="./assets/images/Proiecte/Logo-uri/logo_poliart.png">
-        </div>
- </div>
- <br><br>
+                  Organizat de Organizația Studenților din Universitatea Tehnică din Cluj-Napoca, PoliHack își propune
+                  să încurajeze participanții să colaboreze cu mentori apreciați din industrie și din mediul academic,
+                  oferindu-le o experiență autentică, similară cu cea din marile companii.
 
 
-<div class="flex-container2" style="background-image: url('./assets/images/Proiecte/cros.png'); background-size:cover;" >
-      
-          
-        <div class="container5" style="opacity:100%;">
-          <h2><b>Crosul Universității Tehnice este un eveniment sportiv cu o puternică latură comunitară și caritabilă, care aduce împreună participanți de toate vârstele, de la cei mai tineri, copii de 6-7 ani, până la adulți și seniori, toți uniți de dorința de a promova un stil de viață sănătos și de a susține o cauză nobilă. Cu o distanță accesibilă de 6 km, evenimentul își propune să fie atât o competiție, cât și o oportunitate de socializare și solidaritate.
-          <br><br>
-            În ultimii ani, crosul a devenit tot mai diversificat, organizatorii aducând în fiecare ediție elemente noi pentru a menține interesul participanților. De exemplu, ultimele două ediții au fost tematice, oferind o experiență aparte: „Bring the Lights” și „Light Up the Night”. Aceste concepte au transformat crosul într-un spectacol vizual, desfășurat într-o atmosferă animată, cu iluminări speciale și decoruri care au dat un plus de farmec evenimentului.
-          <br><br>
-            Pe lângă latura sportivă, Crosul Universității Tehnice păstrează o puternică componentă caritabilă, direcționând fondurile strânse către inițiative umanitare importante. Acest aspect reușește să mobilizeze nu doar studenții, ci și întreaga comunitate clujeană, transformând alergarea într-un gest concret de sprijin pentru cei care au nevoie.
-          </b></h2>
-        </div>
-        <div class="container-img" >
-          <img src="./assets/images/Proiecte/Logo-uri/logo-cros.png">
-        </div>
- </div>
- <br><br>
- <div class="flex-container2" style="background-image: url('./assets/images/Proiecte/proiect-infotech.png'); background-size:cover;" >
-      
-          
-        <div class="container5" style="opacity:100%;">
-          <h2><b>
-Bine ați venit la InfoTech, poarta voastră către dezvoltare profesională și învățare practică în lumea ingineriei! Susținut de OSUT Cluj (Organizația Studenților din Universitatea Tehnică), InfoTech este dedicat să ofere studenților de la UTCN cunoștințele, abilitățile și conexiunile necesare pentru a prospera în industria IT.
-          <br><br>
-           La InfoTech, creăm un mediu de sprijin și implicare pentru studenți, cu activități practice, sesiuni de formare orientate către carieră și evenimente precum ContestNight, InfoNight și Open Days la companii de top. Organizăm workshopuri susținute de profesioniști din industrie, oferind îndrumare pe teme esențiale, cum ar fi redactarea unui CV, pregătirea pentru interviuri și explorarea oportunităților de carieră.
-          <br><br>
-           Fie că ești aici pentru a-ți dezvolta abilitățile tehnice, pentru a-ți extinde rețeaua de contacte sau pur și simplu pentru a explora noi posibilități, InfoTech este alături de tine la fiecare pas. Alătură-te nouă și fă următorul pas către îndeplinirea aspirațiilor tale profesionale!   </b></h2>
-        </div>
-        <div class="container-img" >
-          <img src="./assets/images/proiecte/logo-uri/logo-infotech.png">
-        </div>
- </div>
- <br><br>
+                  PoliHack. The.Future.Is.Now.</div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <img src="/assets/images/Proiecte/proiect-balul_bobocilor.png" alt="Balul Bobocilor">
+              <div class="overlay">
+                <div class="text">An de an, OSUT Cluj pune în scenă Balul Bobocilor Universității Tehnice din
+                  Cluj-Napoca, un moment special care marchează începutul vieții de student. Acest eveniment, asemănător
+                  cu balurile din perioada liceului, oferă bobocilor ocazia de a-și demonstra abilitățile și de a lega
+                  prietenii noi, creând amintiri de neuitat. Spre deosebire de un bal obișnuit, noi ne străduim să
+                  transformăm această seară într-un adevărat spectacol, plin de momente artistice, momente inedite și
+                  surprize fascinante.
 
-  <div class="flex-container2" style="background-image: url('./assets/images/Proiecte/ppp.jpg'); background-size:cover;" >
-      
-          
-        <div class="container5" style="opacity:100%;">
-          <h2><b>Private Poli Party este cel mai așteptat party semestrial de către studenții Universității Tehnice și nu numai. Cu peste 1200 de bilete vândute în ultimele 3 ediții, Private Poli Party reprezintă începutul perfect de semestru alături de colegi și de prieteni. Te așteptăm și pe tine să petreci până dimineața pe muzică pentru toate gusturile în Club Noa!
-          <BR>
-          <BR>
-          Ne vedem la party?
-           </b></h2>
-        </div>
-        <div class="container-img" >
-          <img src="./assets/images/Proiecte/Logo-uri/logo-ppp.png">
-        </div>
- </div>
- <br><br>
+                  Fiecare Bal al Bobocilor spune o poveste aparte, iar bobocii și organizatorii depun eforturi pentru a
+                  oferi o experiență unică tuturor celor prezenți.</div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <img src="/assets/images/Proiecte/sah.png" alt="UT Chess Wars">
+              <div class="overlay">
+                <div class="text">
+
+                  UT Chess Wars este un campionat de șah dedicat studenților, organizat cu scopul de a promova jocul de
+                  șah în rândul tinerilor și de a crea o comunitate de pasionați ai acestui joc strategic. Acesta
+                  reunește studenți din diverse domenii academice, oferindu-le oportunitatea de a-și testa abilitățile
+                  într-o competiție prietenoasă și provocatoare. 😄🪄
+
+                  Formatul campionatului variază, dar de obicei include partide de șah în sistem eliminatoriu, cu scopul
+                  de a premia cei mai buni jucători. 🏆♟️
+
+                  Pe lângă competiția sportivă, UT Chess Wars are și un rol educativ, încurajând gândirea strategică,
+                  dezvoltarea abilităților de rezolvare a problemelor și stimularea colaborării între studenți. De
+                  asemenea, este și un eveniment social, în care participanții se întâlnesc și interacționează în lumea
+                  misterioasă a șahului, creând legături între colegii din diferite facultăți sau universități. 🤝
+
+                  Acest campionat poate atrage atât jucători experimentați, cât și începători, oferind șansa fiecăruia
+                  să-și îmbunătățească jocul și să învețe din experiențele celorlalți. 😆🔝</div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <img src="/assets/images/Proiecte/polisport.png" alt="PoliSport">
+              <div class="overlay">
+                <div class="text">PoliSport este un proiect de tradiție marca OSUT Cluj, care se desfășoară de peste 38
+                  de ediții și continuă să atragă un număr tot mai mare de studenți pasionați de sport. Acesta implică
+                  organizarea de competiții sportive destinate amatorilor, derulate în Cluj-Napoca, și reprezintă o
+                  oportunitate excelentă pentru studenți de a-și demonstra talentul și aptitudinile sportive într-un
+                  mediu organizat și prietenos.
+
+                  Interesul pentru PoliSport a crescut constant, fiecare ediție înregistrând un număr tot mai mare de
+                  participanți înscriși. Acest lucru reflectă succesul proiectului în a aduce studenții împreună,
+                  încurajând interacțiunea, socializarea și un stil de viață activ. Competițiile nu doar că oferă o
+                  pauză binemeritată de la stresul cotidian, dar contribuie și la dezvoltarea personală a
+                  participanților, prin promovarea fair-play-ului și a spiritului de echipă.
+
+                  Astfel, PoliSport rămâne unul dintre cele mai apreciate proiecte studențești marca OSUT Cluj, îmbinând
+                  beneficiile sportului asupra sănătății cu cele ale unei comunități unite și implicate.</div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <img src="/assets/images/Proiecte/proiect-poliart.png" alt="PoliArt">
+              <div class="overlay">
+                <div class="text">PoliArt este un proiect prin care studenții au ocazia de a lua o pauză de la viața
+                  academică și de a-și valorifica înclinațiile artistice prin operele lor. Acestea sunt expuse pe
+                  holurile facultăților din Universitatea Tehnică și, ulterior, într-o locație finală, pentru a le oferi
+                  ocazia să fie admirate de cât mai multe persoane.
+
+                  PoliArt este ocazia perfectă pentru iubitorii de artă să iasă din zona lor de confort, să treacă peste
+                  frici și să lege legături prețioase cu alți pasionați ca ei. Este momentul perfect în care își pot
+                  exprima stările și emoțiile prin cele mai creative moduri, indiferent de nivelul de experiență.</div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <img src="/assets/images/Proiecte/proiect-crosulUT.png" alt="Crosul UTCN">
+              <div class="overlay">
+                <div class="text">Crosul Universității Tehnice este un eveniment sportiv cu o puternică latură
+                  comunitară și caritabilă, care aduce împreună participanți de toate vârstele, de la cei mai tineri,
+                  copii de 6-7 ani, până la adulți și seniori, toți uniți de dorința de a promova un stil de viață
+                  sănătos și de a susține o cauză nobilă. Cu o distanță accesibilă de 6 km, evenimentul își propune să
+                  fie atât o competiție, cât și o oportunitate de socializare și solidaritate.
+
+                  În ultimii ani, crosul a devenit tot mai diversificat, organizatorii aducând în fiecare ediție
+                  elemente noi pentru a menține interesul participanților. De exemplu, ultimele două ediții au fost
+                  tematice, oferind o experiență aparte: „Bring the Lights” și „Light Up the Night”. Aceste concepte au
+                  transformat crosul într-un spectacol vizual, desfășurat într-o atmosferă animată, cu iluminări
+                  speciale și decoruri care au dat un plus de farmec evenimentului.
+
+                  Pe lângă latura sportivă, Crosul Universității Tehnice păstrează o puternică componentă caritabilă,
+                  direcționând fondurile strânse către inițiative umanitare importante. Acest aspect reușește să
+                  mobilizeze nu doar studenții, ci și întreaga comunitate clujeană, transformând alergarea într-un gest
+                  concret de sprijin pentru cei care au nevoie.</div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <img src="/assets/images/Proiecte/infotech.png" alt="InfoTech">
+              <div class="overlay">
+                <div class="text">Bine ați venit la InfoTech, poarta voastră către dezvoltare profesională și învățare
+                  practică în lumea ingineriei! Susținut de OSUT Cluj (Organizația Studenților din Universitatea
+                  Tehnică), InfoTech este dedicat să ofere studenților de la UTCN cunoștințele, abilitățile și
+                  conexiunile necesare pentru a prospera în industria IT.
+
+                  La InfoTech, creăm un mediu de sprijin și implicare pentru studenți, cu activități practice, sesiuni
+                  de formare orientate către carieră și evenimente precum ContestNight, InfoNight și Open Days la
+                  companii de top. Organizăm workshopuri susținute de profesioniști din industrie, oferind îndrumare pe
+                  teme esențiale, cum ar fi redactarea unui CV, pregătirea pentru interviuri și explorarea
+                  oportunităților de carieră.
+
+                  Fie că ești aici pentru a-ți dezvolta abilitățile tehnice, pentru a-ți extinde rețeaua de contacte sau
+                  pur și simplu pentru a explora noi posibilități, InfoTech este alături de tine la fiecare pas.
+                  Alătură-te nouă și fă următorul pas către îndeplinirea aspirațiilor tale profesionale!</div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <img src="/assets/images/Proiecte/ppp.jpg" alt="Private Poli Party">
+              <div class="overlay">
+                <div class="text">Private Poli Party este cel mai așteptat party semestrial de către studenții
+                  Universității Tehnice și nu numai. Cu peste 1200 de bilete vândute în ultimele 3 ediții, Private Poli
+                  Party reprezintă începutul perfect de semestru alături de colegi și de prieteni. Te așteptăm și pe
+                  tine să petreci până dimineața pe muzică pentru toate gusturile în Club Noa!
+
+                  Ne vedem la party?</div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <img src="/assets/images/Proiecte/css.png" alt="Ce Spun Studenții">
+              <div class="overlay">
+                <div class="text">Te-ai întrebat mereu cum gândesc colegii și prietenii tăi? Acum este șansa ta să aflii
+                  răspunsul lor la cele mai amuzante și interesante situații.
+                  O adaptare a emisiunii “Family Feud” este cea mai bună ocazie să vezi cum unele dintre cele mai simple
+                  întrebări te pot pune în dificultate și cum evenimentele uzuale din viața oricărei persoane au o
+                  rezolvare complet diferită de la om la om. Cu reflexe bune, intuiție și cel mai important, un strop de
+                  noroc poți chiar tu să fi câștigătorul acestui joc!
+                  Cele două echipe se află puse față în față cu un set de întrebări neașteptate la care trebuie să
+                  răspundă cu cele mai comune variante, în cel mai scurt timp. Fiecare rundă câștigată te duce tot mai
+                  aproape de marele premiu, dar nu uita că o mică greșeală te poate scoate din competiție. Entuziasmul
+                  și adrenalina își pot spune cuvântul, ducând atât emoțiile participanților, cât și pe cele ale
+                  spectatorilor la cele mai înalte nivele. Un concurs perfect daca ești o fire competitivă, dar și dacă
+                  ești doar în cătare de distracție și voie bună alături de persoanele tale preferate.</div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <img src="/assets/images/Proiecte/zut.png" alt="ZUT">
+              <div class="overlay">
+                <div class="text">Zilele Universității Tehnice (ZUT) este un proiect marca OSUT Cluj dedicat întregii
+                  comunități studențești din Cluj-Napoca, cu precădere celor 20.000 din UTCN. Proiectul se desfășoară
+                  anual pe parcursul primei săptămâni a anului universitar și include atât activități culturale, cât și
+                  activități de divertisment. ZUT este unul dintre cele mai mari festivale studențești, gratuitatea
+                  evenimentului, cât și plasarea activităților în facultăți și în campusurile noastre asigură o
+                  participare diversificată.
+
+                  Cu peste 5000 de participanți la toate activitățile, ultima ediție a inclus diverse activități
+                  captivante pentru studenți, precum “Ce spun studenții?”, Silent Party, campionate de e-sports sau un
+                  concert, avându-i în line-up pe DJ David Aquilla, Emeric Imre și pe Mira!
+
+                  Te așteptăm și la următoarea ediție pentru a descoperi viața studențească petrecută la Cluj!</div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <img src="/assets/images/Proiecte/esucoverbun.jpg" alt="ESU">
+              <div class="overlay">
+                <div class="text">Engineering Summer University este o tabără de vară de două săptămâni destinată
+                  elevilor de clasa a XI-a care doresc să descopere fascinantul domeniu al ingineriei și să
+                  experimenteze viața de student universitar într-un mediu dinamic și prietenos.
+
+                  Cu un program interactiv și intens, participanții vor fi implicați în activități distractive și
+                  educative, care vor cuprinde cursuri teoretice, dar și o varietate de laboratoare care le vor permite
+                  să aplice cunoștințele învățate. Cursurile de inginerie sunt susținute de profesori de top din cadrul
+                  Universității Tehnice din Cluj-Napoca și sunt structurate într-un mod interactiv și practic.</div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <img src="/assets/images/Proiecte/proiect-infocafe.png" alt="InfoCafe">
+              <div class="overlay">
+                <div class="text">InfoCafe este un proiect inițiat de OSUT Cluj, având ca obiectiv evaluarea respectării
+                  drepturilor și obligațiilor studenților din Universitatea Tehnică din Cluj-Napoca, în conformitate cu
+                  Codul Drepturilor și Obligațiilor Studenților (CDOS), precum și a gradului de informare al acestora cu
+                  privire la aceste aspecte. Procesul se desfășoară prin completarea unui formular online, anonim, de
+                  către studenți.
+
+                  Proiectul se află într-o continuă creștere în ceea ce privește atât numărul studenților respondenți,
+                  cât și al voluntarilor implicați. Pe parcursul unei săptămâni, InfoCafe își propune să interacționeze
+                  direct cu studenții prin organizarea de standuri cu băuturi calde în clădirile și campusurile UTCN.
+                  Voluntarii promovează completarea formularului anonim, iar ca semn de apreciere, participanții primesc
+                  o cafea, ciocolată caldă sau un ceai.
 
 
- <div class="flex-container2" style="background-image: url('./assets/images/Proiecte/css.png'); background-size:cover;" >
-      
-          
-        <div class="container5" style="opacity:100%;">
-          <h2><b> Te-ai întrebat mereu cum gândesc colegii și prietenii tăi? Acum este șansa ta să aflii răspunsul lor la cele mai 
-amuzante și interesante situații. 
-<br>
-O adaptare a emisiunii “Family Feud” este cea mai bună ocazie să vezi cum unele dintre cele mai simple întrebări te pot pune în dificultate și cum evenimentele uzuale din viața oricărei persoane au o rezolvare complet diferită de la om la om. 
-Cu reflexe bune, intuiție și cel mai important, un strop de noroc poți chiar tu să fi câștigătorul acestui joc!
-<br>
-Cele două echipe se află puse față în față cu un set de întrebări neașteptate la care trebuie să răspundă cu cele mai comune variante, în cel mai scurt timp. Fiecare rundă câștigată te duce tot mai aproape de marele premiu, dar nu uita că o mică greșeală te poate scoate din competiție. Entuziasmul și adrenalina își pot spune cuvântul, ducând atât emoțiile participanților, cât și pe cele ale spectatorilor la cele mai înalte nivele. 
-Un concurs perfect daca ești o fire competitivă, dar și dacă ești doar în cătare de distracție și voie bună alături de persoanele tale preferate.
-</b>
-          </h2> 
-        </div>
-        <div class="container-img" >
-          <img src="./assets/images/Proiecte/Logo-uri/logo_css.png">
-        </div>
- </div>
- <br><br>
-
- <div class="flex-container2" style="background-image: url('./assets/images/Proiecte/zut.png'); background-size:cover;" >
-      
-          
-        <div class="container5" style="opacity:100%;">
-          <h2><b>Zilele Universității Tehnice (ZUT) este un proiect marca OSUT Cluj dedicat întregii comunități studențești din Cluj-Napoca, cu precădere celor 20.000 din UTCN. Proiectul se desfășoară anual pe parcursul primei săptămâni a anului universitar și include atât activități culturale, cât și activități de divertisment. ZUT este unul dintre cele mai mari festivale studențești, gratuitatea evenimentului, cât și plasarea activităților în facultăți și în campusurile noastre asigură o participare diversificată.
-          <BR><BR>
-          Cu peste 5000 de participanți la toate activitățile, ultima ediție a inclus diverse activități captivante pentru studenți, precum “Ce spun studenții?”, Silent Party, campionate de e-sports sau un concert, avându-i în line-up pe DJ David Aquilla, Emeric Imre și pe Mira!
-<BR>
-<BR>
-Te așteptăm și la următoarea ediție pentru a descoperi viața studențească petrecută la Cluj!
-
-
-          </b>
-          </h2>
-        </div>
-        <div class="container-img" >
-          <img src="./assets/images/logo_zut.png">
-        </div>
- </div>
- <br><br>
-
-
-
-
-
-
-
- <div class="flex-container2" style="background-image: url('./assets/images/Proiecte/esucoverbun.jpg'); background-size:cover;" >
-      
-          
-        <div class="container5" style="opacity:100%;">
-          <h2><b>Engineering Summer University este o tabără de vară de două săptămâni destinată elevilor de clasa a XI-a care doresc să descopere fascinantul domeniu al ingineriei și să experimenteze viața de student universitar într-un mediu dinamic și prietenos.
-          <br><br>
+                  La finalul campaniei, răspunsurile colectate sunt centralizate într-un raport transmis conducerii
+                  universității, pentru a sprijini luarea de măsuri menite să îmbunătățească calitatea procesului
+                  educațional.</div>
+              </div>
+            </div>
             
-Cu un program interactiv și intens, participanții vor fi implicați în activități distractive și educative, care vor cuprinde cursuri teoretice, dar și o varietate de laboratoare care le vor permite să aplice cunoștințele învățate. Cursurile de inginerie sunt susținute de profesori de top din cadrul Universității Tehnice din Cluj-Napoca și sunt structurate într-un mod interactiv și practic. 
-          <br><br>
-            
-          </b></h2>
+          </div>
         </div>
-        <div class="container-img" >
-          <img src="./assets/images/Proiecte/Logo-uri/esu_logo.png">
-        </div>
- </div>
-
- <br><br>
-
- 
- 
- 
-
- <div class="flex-container2" style="background-image: url('./assets/images/Proiecte/proiect-infocafe.png'); background-size:cover;" >
-      
-          
-        <div class="container5" style="opacity:100%;">
-          <h2><b>InfoCafe este un proiect inițiat de OSUT Cluj, având ca obiectiv evaluarea respectării drepturilor și obligațiilor studenților din Universitatea Tehnică din Cluj-Napoca, în conformitate cu Codul Drepturilor și Obligațiilor Studenților (CDOS), precum și a gradului de informare al acestora cu privire la aceste aspecte. Procesul se desfășoară prin completarea unui formular online, anonim, de către studenți.
-          <br><br>
-              Proiectul se află într-o continuă creștere în ceea ce privește atât numărul studenților respondenți, cât și al voluntarilor implicați. Pe parcursul unei săptămâni, InfoCafe își propune să interacționeze direct cu studenții prin organizarea de standuri cu băuturi calde în clădirile și campusurile UTCN. Voluntarii promovează completarea formularului anonim, iar ca semn de apreciere, participanții primesc o cafea, ciocolată caldă sau un ceai.
-          <br><br><br>
-              La finalul campaniei, răspunsurile colectate sunt centralizate într-un raport transmis conducerii universității, pentru a sprijini luarea de măsuri menite să îmbunătățească calitatea procesului educațional.
-          </b></h2>
-        </div>
-        <div class="container-img" >
-          
- <img src="./assets/images/Proiecte/Logo-uri/logo-infocafe.png">
-
-        </div>
- </div>
- <br><br>
-
-
-<br><br>
-            `;
-            document.getElementById('btn2').classList.add('active');
-        } else if (section === 'content3') {
-            content.innerHTML = `
-      
-
- <br><br>
-
- 
- <div class="flex-container2" style="background-image: url('./assets/images/Proiecte/infonight.jpg'); background-size:cover;" >
-      
-          
-        <div class="container5" style="opacity:100%;">
-        <div>
-        <h1>InfoNight</h1>
-          <h2><b>Ești de neînlocuit. Abilitățile tale sunt de neegalat. Suntem aici pentru a te ajuta să găsești locul în care chiar îți aparții. Aici intervine InfoNight - un eveniment interesant de networking în care studenții interacționează cu diverse companii care prezintă oportunitățile pe care le au de oferit într-un mod captivant. Este o modalitate excelentă pentru participanți de a-și extinde rețeaua profesională, de a dobândi cunoștințe despre diferite industrii și de a explora căi către viitoarele lor cariere, totul într-un singur loc!  <br><br>
-              </b></h2>
-        </div>
-        </div>
-       
- </div>
- <br><br>
- 
- <div class="flex-container2" style="background-image: url('./assets/images/training/cn.png'); background-size:cover;" >
-      
-          
-        <div class="container5" style="opacity:100%;">
-        <div>
-        <h1>ContestNight</h1>
-          <h2><b>Pășește într-o lume unde inovația, creativitatea și ambiția se întâlnesc! ContestNight este poarta ta de acces către o gamă diversă de oportunități pentru studenți, de la hackathoane și competiții, la echipe de voluntari, conferințe, sporturi și activități artistice. Fie că ești un student la primul an sau unul din anii superiori care dorește să-și lărgească orizonturile, acest eveniment este conceput pentru a te conecta cu căi de carieră interesante, în timp ce te bucuri de spectacole live și o zonă de relaxare. Ești pregătit să explorezi ce este posibil? </b></h2>
-        </div>
-        </div>
-       
- </div>
- <br><br>
- 
- <div class="flex-container2" style="background-image: url('./assets/images/training/cv.png'); background-size:cover;" >
-      
-          
-        <div class="container5" style="opacity:100%;">
-        <div>
-        <h1>How to CV </h1>
-          <h2><b>Un CV bine realizat este adesea primul punct de contact cu potențialii angajatori, fiind o parte crucială a procesului de aplicare pentru un loc de muncă. În cadrul acestui workshop, condus de Mariana Irimia, vei învăța cum să structurezi și să prezinți CV-ul tău pentru a evidenția cele mai importante abilități și experiențe ale tale. Sesiunea va aborda greșelile comune de evitat, sfaturi pentru personalizarea CV-ului în funcție de diferite industrii și cum să te faci remarcat într-o piață de muncă competitivă. Expertiza Marianei te va ajuta să te asiguri că CV-ul tău lasă o impresie puternică și comunică eficient calificările tale angajatorilor.  </div>
-      
-        </div>
- </div>
- <br><br>
- <div class="flex-container2" style="background-image: url('./assets/images/training/sas.png'); background-size:cover;" >
-      
-          
-        <div class="container5" style="opacity:100%;">
-        <div>
-        <h1> How to Start a Startup </h1>
-          <h2><b>Începerea propriei afaceri poate fi atât palpitantă, cât și descurajantă. Această formare, condusă de Georgina Lupu, te va ghida prin elementele fundamentale ale lansării unei startup. Vei învăța cum să identifici idei de afaceri viabile, cum să dezvolți un plan de afaceri, să asiguri finanțare și care sunt principalele provocări cu care se confruntă noii antreprenori. Fie că lucrezi deja la un startup sau doar explorezi ideea de antreprenoriat, această sesiune îți va oferi instrumentele și mentalitatea necesare pentru a reuși. </b></h2>
-        </div>
-        
-        </div>
- </div>
- <br><br>
- <div class="flex-container2" style="background-image: url('./assets/images/training/int.png'); background-size:cover;" >
-      
-          
-        <div class="container5" style="opacity:100%;">
-        <div>
-        <h1>How to Interview </h1>
-          <h2><b>Un interviu de angajare reușit poate face toată diferența atunci când vine vorba de obținerea poziției dorite. În cadrul acestui workshop, Cristina Gogozan te va ajuta să stăpânești arta interviului de angajare. Vei învăța cum să te pregătești eficient pentru interviuri, inclusiv cum să cercetezi compania, să anticipezi întrebările comune și să dezvolți răspunsuri bine gândite. Cristina va împărtăși și strategii pentru a construi o relație bună cu intervievatorii, pentru a-ți comunica punctele forte cu încredere și pentru a face față întrebărilor dificile sau neașteptate. Această sesiune interactivă îți va oferi abilitățile practice și încrederea necesare pentru a lăsa o impresie pozitivă și pentru a te remarca într-un interviu. </h2>
-        </div>
-       
-        </div>
- </div>
- <br><br>
- <div class="flex-container2" style="background-image: url('./assets/images/training/wlb.png'); background-size:cover;" >
-      
-          
-        <div class="container5" style="opacity:100%;">
-        <div>
-        <h1>Work-Life Balance</h1>
-          <h2><b>Echilibrarea bunăstării personale cu aspirațiile profesionale este esențială pentru succes și împlinire. În cadrul acestei sesiuni de formare, Denisa Niță, psiholog cu experiență, te va ghida prin strategii pentru a crea un echilibru mai sănătos între viața personală și profesională și pentru a naviga provocările comune. Vei învăța instrumente practice pentru a-ți gestiona prioritățile, a reduce stresul și a îmbunătăți productivitatea. Denisa va explora, de asemenea, sindromul impostorului—o experiență cu care se confruntă mulți studenți atunci când trec în câmpul muncii—și va împărtăși modalități eficiente de a depăși îndoielile de sine și de a construi încredere. Această sesiune interactivă este concepută pentru a te echipa cu abilitățile și mentalitatea necesare pentru a-ți echilibra cariera cu viața personală, asigurându-ți bunăstarea și succesul pe termen lung. Alătură-te nouă și fă primul pas către o viață mai echilibrată și împlinită! </b></h2>
-        </div>
-        
-        </div>
- </div>
- <br><br>
- <div class="flex-container2" style="background-image: url('./assets/images/training/fe.png'); background-size:cover;" >
-      
-          
-        <div class="container5" style="opacity:100%;">
-        <div>
-        <h1>Financial Education</h1>
-          <h2><b>Gestionarea eficientă a finanțelor tale este un pas critic în atingerea stabilității și în realizarea obiectivelor tale pe termen lung. În cadrul acestui training, Olimpia Pop te va ghida prin elementele esențiale ale finanțelor personale, oferindu-ți instrumente practice pentru a prelua controlul asupra banilor tăi. Vei învăța cum să creezi un buget realist, să îți gestionezi cheltuielile cu înțelepciune și să stabilești obiceiuri inteligente de economisire. Olimpia va discuta, de asemenea, strategii pentru stabilirea obiectivelor financiare, evitarea capcanelor financiare comune și construirea unei fundații sigure pentru viitor. Această sesiune interactivă este concepută pentru a-ți oferi cunoștințele și încrederea necesare pentru a lua decizii financiare informate, fie că gestionezi primul tău salariu, fie că planifici pentru repere financiare mai mari. Participă și începe-ți călătoria către independența financiară! </b></h2>
-        </div>
-      
-        </div>
- </div>
- <br><br>
-
- 
-  <div class="flex-container2" style="background-image: url('./assets/images/training/it1.jpg'); background-size:cover;" >
-      
-      
-        <div class="container5" style="opacity:100%;">
-        <div>
-          <h1>Java&JavaScript</h1>
-          <h2><b> Pe data de 19 noiembrie, în sala OA5 din cadrul Facultății de Căi Ferate, Drumuri și Poduri, serviciul IT a organizat un training interactiv dedicat învățării bazelor celor două limbaje de programare fundamentale Java și JavaScript, susținut de către Andreea Răutescu. Participanții au aflat informații noi despre concepte esențiale precum crearea și utilizarea claselor și obiectelor în Java, lucrul cu variabile și metode, manipularea DOM în JavaScript și nu în ultimul rând care este adevărata diferență dintre cele două limbaje. Exercițiile practice și discuțiile interactive au făcut ca experiența să fie utilă și antrenantă, oferind o bază solidă pentru dezvoltarea ulterioară.
-          </b></h2>
-        </div>
-     
       </div>
- </div>
- <br><br>
- <div class="flex-container2" style="background-image: url('./assets/images/training/it2.jpg'); background-size:cover;" >
-      
-          
-          
-        <div class="container5" style="opacity:100%;">
-        <div>
-          <h1>Cybersecurity</h1>
-          <h2><b> Ce este cybersecurity-ul?
-Securitatea cibernetică, cunoscută și ca tehnologia informației sau securitate informatică, implică stabilirea de măsuri care protejează sistemele și rețelele împotriva dezvăluirii de informații, furtului sau daunelor cu privire la hardware, software sau date electronice.
-<br><br>
 
-De ce ți-ar fi de folos?
-Training-ul acesta de cybersecurity, sisținut de Romeo Andreica, este o introducere în domeniu. Se vorbeste despre recunoașterea unor atacuri cibernetice, spre exemplu, un e-mail de la o companie care spune că cineva a intrat in contul tau,
-despre cum să îți protejezi datele de la aceste atacuri și multe altele.
+      <br>
+      <br>
 
-<br><br>
-          </b></h2>
-        </div>
-      
+      <div class="container">
+        <h2 class="text-outline">INIȚIATIVE</h2>
       </div>
- </div>
- <br><br>
- <div class="flex-container2" style="background-image: url('./assets/images/training/IT3.jpg'); background-size:cover;" >
-      
-          
-      
-        <div class="container5" style="opacity:100%;">
-        <div>
-          <h1>AI</h1>
-          <h2><b>Trainingul de AI a adus în prim-plan unul dintre cele mai actuale subiecte, inteligența artificială, oferind participanților o experiență captivantă. Evenimentul a reunit studenți dornici să înțeleagă mai bine acest domeniu revoluționar și a avut loc marți, 10 decembrie, începând cu ora 19:00, la CFDP.
-<br><br>
-                Participanții au descoperit ce înseamnă inteligența artificială, cum funcționează și în ce domenii poate fi aplicată. Prin exemple clare și o abordare interactivă, trainingul a transformat un subiect complex într-unul accesibil și interesant. Atmosfera deschisă a încurajat întrebările și schimbul de idei, oferind tuturor șansa de a explora viitorul tehnologiei într-un mod practic și util.
-          </b></h2>
+
+      <div class="project-carousel">
+        <div class="swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img src="/assets/images/Proiecte/infonight.jpg" alt="Viitor Inginer">
+              <div class="overlay">
+                <div class="text">Ești de neînlocuit. Abilitățile tale sunt de neegalat. Suntem aici pentru a te ajuta
+                  să găsești locul în care chiar îți aparții. Aici intervine InfoNight - un eveniment interesant de
+                  networking în care studenții interacționează cu diverse companii care prezintă oportunitățile pe care
+                  le au de oferit într-un mod captivant. Este o modalitate excelentă pentru participanți de a-și extinde
+                  rețeaua profesională, de a dobândi cunoștințe despre diferite industrii și de a explora căi către
+                  viitoarele lor cariere, totul într-un singur loc!
+
+                </div>
+              </div>
+            </div>
+
+
+            <div class="swiper-slide">
+              <img src="/assets/images/Proiecte/ContestNight.png" alt="PoliHack">
+              <div class="overlay">
+                <div class="text">Pășește într-o lume unde inovația, creativitatea și ambiția se întâlnesc! ContestNight
+                  este poarta ta de acces către o gamă diversă de oportunități pentru studenți, de la hackathoane și
+                  competiții, la echipe de voluntari, conferințe, sporturi și activități artistice. Fie că ești un
+                  student la primul an sau unul din anii superiori care dorește să-și lărgească orizonturile, acest
+                  eveniment este conceput pentru a te conecta cu căi de carieră interesante, în timp ce te bucuri de
+                  spectacole live și o zonă de relaxare. Ești pregătit să explorezi ce este posibil?
+
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <img src="/assets/images/training/cv.png" alt="Balul Bobocilor">
+              <div class="overlay">
+                <div class="text">Un CV bine realizat este adesea primul punct de contact cu potențialii angajatori,
+                  fiind o parte crucială a procesului de aplicare pentru un loc de muncă. În cadrul acestui workshop,
+                  condus de Mariana Irimia, vei învăța cum să structurezi și să prezinți CV-ul tău pentru a evidenția
+                  cele mai importante abilități și experiențe ale tale. Sesiunea va aborda greșelile comune de evitat,
+                  sfaturi pentru personalizarea CV-ului în funcție de diferite industrii și cum să te faci remarcat
+                  într-o piață de muncă competitivă. Expertiza Marianei te va ajuta să te asiguri că CV-ul tău lasă o
+                  impresie puternică și comunică eficient calificările tale angajatorilor.
+
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <img src="/assets/images/training/sas.png" alt="UT Chess Wars">
+              <div class="overlay">
+                <div class="text">
+
+                  Începerea propriei afaceri poate fi atât palpitantă, cât și descurajantă. Această formare, condusă de
+                  Georgina Lupu, te va ghida prin elementele fundamentale ale lansării unei startup. Vei învăța cum să
+                  identifici idei de afaceri viabile, cum să dezvolți un plan de afaceri, să asiguri finanțare și care
+                  sunt principalele provocări cu care se confruntă noii antreprenori. Fie că lucrezi deja la un startup
+                  sau doar explorezi ideea de antreprenoriat, această sesiune îți va oferi instrumentele și mentalitatea
+                  necesare pentru a reuși.</div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <img src="/assets/images/training/int.png" alt="PoliSport">
+              <div class="overlay">
+                <div class="text">Un interviu de angajare reușit poate face toată diferența atunci când vine vorba de
+                  obținerea poziției dorite. În cadrul acestui workshop, Cristina Gogozan te va ajuta să stăpânești arta
+                  interviului de angajare. Vei învăța cum să te pregătești eficient pentru interviuri, inclusiv cum să
+                  cercetezi compania, să anticipezi întrebările comune și să dezvolți răspunsuri bine gândite. Cristina
+                  va împărtăși și strategii pentru a construi o relație bună cu intervievatorii, pentru a-ți comunica
+                  punctele forte cu încredere și pentru a face față întrebărilor dificile sau neașteptate. Această
+                  sesiune interactivă îți va oferi abilitățile practice și încrederea necesare pentru a lăsa o impresie
+                  pozitivă și pentru a te remarca într-un interviu.</div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <img src="/assets/images/training/wlb.png" alt="PoliArt">
+              <div class="overlay">
+                <div class="text">Echilibrarea bunăstării personale cu aspirațiile profesionale este esențială pentru
+                  succes și împlinire. În cadrul acestei sesiuni de formare, Denisa Niță, psiholog cu experiență, te va
+                  ghida prin strategii pentru a crea un echilibru mai sănătos între viața personală și profesională și
+                  pentru a naviga provocările comune. Vei învăța instrumente practice pentru a-ți gestiona prioritățile,
+                  a reduce stresul și a îmbunătăți productivitatea. Denisa va explora, de asemenea, sindromul
+                  impostorului—o experiență cu care se confruntă mulți studenți atunci când trec în câmpul muncii—și va
+                  împărtăși modalități eficiente de a depăși îndoielile de sine și de a construi încredere. Această
+                  sesiune interactivă este concepută pentru a te echipa cu abilitățile și mentalitatea necesare pentru
+                  a-ți echilibra cariera cu viața personală, asigurându-ți bunăstarea și succesul pe termen lung.
+                  Alătură-te nouă și fă primul pas către o viață mai echilibrată și împlinită!</div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <img src="/assets/images/training/fe.png" alt="Crosul UTCN">
+              <div class="overlay">
+                <div class="text">Gestionarea eficientă a finanțelor tale este un pas critic în atingerea stabilității
+                  și în realizarea obiectivelor tale pe termen lung. În cadrul acestui training, Olimpia Pop te va ghida
+                  prin elementele esențiale ale finanțelor personale, oferindu-ți instrumente practice pentru a prelua
+                  controlul asupra banilor tăi. Vei învăța cum să creezi un buget realist, să îți gestionezi
+                  cheltuielile cu înțelepciune și să stabilești obiceiuri inteligente de economisire. Olimpia va
+                  discuta, de asemenea, strategii pentru stabilirea obiectivelor financiare, evitarea capcanelor
+                  financiare comune și construirea unei fundații sigure pentru viitor. Această sesiune interactivă este
+                  concepută pentru a-ți oferi cunoștințele și încrederea necesare pentru a lua decizii financiare
+                  informate, fie că gestionezi primul tău salariu, fie că planifici pentru repere financiare mai mari.
+                  Participă și începe-ți călătoria către independența financiară!</div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <img src="/assets/images/training/it1.jpg" alt="InfoTech">
+              <div class="overlay">
+                <div class="text">Pe data de 19 noiembrie, în sala OA5 din cadrul Facultății de Căi Ferate, Drumuri și
+                  Poduri, serviciul IT a organizat un training interactiv dedicat învățării bazelor celor două limbaje
+                  de programare fundamentale Java și JavaScript, susținut de către Andreea Răutescu. Participanții au
+                  aflat informații noi despre concepte esențiale precum crearea și utilizarea claselor și obiectelor în
+                  Java, lucrul cu variabile și metode, manipularea DOM în JavaScript și nu în ultimul rând care este
+                  adevărata diferență dintre cele două limbaje. Exercițiile practice și discuțiile interactive au făcut
+                  ca experiența să fie utilă și antrenantă, oferind o bază solidă pentru dezvoltarea ulterioară.</div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <img src="/assets/images/training/it2.jpg" alt="Private Poli Party">
+              <div class="overlay">
+                <div class="text">Ce este cybersecurity-ul? Securitatea cibernetică, cunoscută și ca tehnologia
+                  informației sau securitate informatică, implică stabilirea de măsuri care protejează sistemele și
+                  rețelele împotriva dezvăluirii de informații, furtului sau daunelor cu privire la hardware, software
+                  sau date electronice.
+
+                  De ce ți-ar fi de folos? Training-ul acesta de cybersecurity, sisținut de Romeo Andreica, este o
+                  introducere în domeniu. Se vorbeste despre recunoașterea unor atacuri cibernetice, spre exemplu, un
+                  e-mail de la o companie care spune că cineva a intrat in contul tau, despre cum să îți protejezi
+                  datele de la aceste atacuri și multe altele.</div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <img src="/assets/images/training/IT3.jpg" alt="Ce Spun Studenții">
+              <div class="overlay">
+                <div class="text">Trainingul de AI a adus în prim-plan unul dintre cele mai actuale subiecte,
+                  inteligența artificială, oferind participanților o experiență captivantă. Evenimentul a reunit
+                  studenți dornici să înțeleagă mai bine acest domeniu revoluționar și a avut loc marți, 10 decembrie,
+                  începând cu ora 19:00, la CFDP.
+
+                  Participanții au descoperit ce înseamnă inteligența artificială, cum funcționează și în ce domenii
+                  poate fi aplicată. Prin exemple clare și o abordare interactivă, trainingul a transformat un subiect
+                  complex într-unul accesibil și interesant. Atmosfera deschisă a încurajat întrebările și schimbul de
+                  idei, oferind tuturor șansa de a explora viitorul tehnologiei într-un mod practic și util.</div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <img src="/assets/images/training/polisport1.jpg" alt="ZUT">
+              <div class="overlay">
+                <div class="text">Aceste sesiuni interactive au fost dedicate menținerii echilibrului între viața
+                  academică și personală, oferind participanților instrumente utile pentru gestionarea stresului,
+                  importanța unei alimentații sănătoase și crearea unor obiceiuri care să sprijine atât sănătatea
+                  fizică, cât și cea mentală.
+                  Susținute de Ionuț Rada și Marius Berbecuț, atelierele au furnizat strategii practice pentru
+                  optimizarea energiei, organizarea timpului și abordarea provocărilor zilnice, oferind participanților
+                  șansa de a îmbunătăți atât performanța academică, cât și starea generală de bine.</div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <img src="/assets/images/adapost.jpeg" alt="ESU">
+              <div class="overlay">
+                <div class="text">Arca lui Noe este locul perfect unde te poți refugia atunci când ai nevoie de o pauză
+                  de la agitația cotidiană. Imaginați-vă o oază de liniște, unde fiecare colț emană energie pozitivă,
+                  iar fiecare zâmbet este însoțit de lăbuțe jucăușe și priviri pline de iubire. În această „mică lume
+                  paralelă” a cățeilor, timpul pare să stea în loc, iar grijile dispar imediat ce te afli în mijlocul
+                  lor.🐶
+
+                  Fiecare câine are povestea sa, iar tu ai oportunitatea să le oferi nu doar iubire, ci și un strop de
+                  speranță. E un loc unde inimile se deschid și se vindecă, iar fiecare moment petrecut acolo este o
+                  lecție despre afecțiune necondiționată și conexiuni pure.💫</div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <img src="/assets/images/Proiecte/casutabucuriei.jpg" alt="InfoCafe">
+              <div class="overlay">
+                <div class="text">Asociația Căsuța Bucuriei este o instituție non-guvernamentală din Cluj-Napoca care le
+                  oferă găzduire copiilor și tinerilor din sistemul de protecție până la finalul studiilor și îi ajută
+                  să să își croiască un nou drum în viață cu curaj și bunătate în suflet. În cadrul asociației sunt
+                  implicate mai multe grupuri de voluntari, printre care și voluntarii OSUT-Cluj. Împreună cu voluntarii
+                  noștrii vizităm Căsuța în fiecare semestru, bucurându-ne de diverse activități împreună!</div>
+              </div>
+            </div>
+          </div>
         </div>
-     
       </div>
- </div>
- <br><br>
 
- 
- <div class="flex-container2" style="background-image: url('./assets/images/training/polisport1.jpg'); background-size:cover;" >
+      <br>
+      <br>
+
+
+      <div class="container">
+
+        <h2 class="text-outline">OSUT LA ...</h2>
+      </div>
+
+
+      <div class="project-carousel">
+        <div class="swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img src="/assets/images/Proiecte/gtc.jpg" alt="Viitor Inginer">
+              <div class="overlay">
+                <div class="text">Gala Tineretului Clujean este un eveniment ce aduce în lumina reflectoarelor
+                  inițiativele tinerilor, cu și despre comunitatea pe care o reprezintă, a căror rezultate contribui
+                  activ la dezvoltarea ecosistemului ca întreg.
+                  Precum în fiecare an, voluntarii OSUT Cluj au reprezentat proiectele organizației și am reușit să
+                  câștigăm următoarele premii:
+                  PoliSport - Premiul al III-lea
+                  DeBattle - Premiul al II-lea
+                </div>
+              </div>
+            </div>
+
+
+            <div class="swiper-slide">
+              <img src="/assets/images/Proiecte/vot.jpg" alt="PoliHack">
+              <div class="overlay">
+                <div class="text">Data de 24 noiembrie a reprezentat o zi importantă pentru democrația din România și
+                  pentru dreptul studenților de a-și alege viitorul președinte care să ne reprezinte țara. 📍
+
+                  Îndemnând toți studenții Universității Tehnice din Cluj-Napoca să își exercite dreptul la vot în
+                  cadrul primului scrutin de alegeri prezidențiale, am participat și noi, la rândul nostru, în număr
+                  mare la Facultatea de Inginerie Civilă CFDP (Căi ferate, drumuri și poduri) pentru a spera la un
+                  viitor care să se alinieze cu valorile și pretențiile studenților. ✉️
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <img src="/assets/images/Proiecte/drumetie.jpg" alt="Balul Bobocilor">
+              <div class="overlay">
+                <div class="text">În data de 19 octombrie 2024, Direcția Sport și Sănătate din cadrul organizației
+                  noastre a organizat o drumeție memorabilă la Cheile Turzii. Această activitate a avut ca scop
+                  promovarea unui stil de viață sănătos, consolidarea relațiilor dintre studenți și reconectarea cu
+                  natura. Fiecare pas pe traseu a fost o ocazie de a învăța, de a socializa și de a descoperi frumusețea
+                  și importanța mediului înconjurător. Ne dorim să continuăm să organizăm astfel de evenimente, care
+                  inspiră și aduc bucurie.
+
+                  Rămâi alături de noi pentru a descoperi următoarele destinații ale OSUT Cluj!
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <img src="/assets/images/Proiecte/fosr.jpg" alt="UT Chess Wars">
+              <div class="overlay">
+                <div class="text">
+                  Forumul Organizațiilor Studențești din România, eveniment care, începând cu anul 2006, reunește anual
+                  liderii studenților din întreaga țară. Timp de câteva zile, în câte un centru universitar din țară, la
+                  rotație în fiecare an, studenți din toată țara se adună pentru a se consolida relațiile dintre
+                  organizațiile studențești și, implicit, membrii participanți ai acestora.
+
+                  În cadrul evenimentului au loc atât dezbateri și ateliere pe teme educaționale, privind îmbunătățirea
+                  vieții studențești sub toate aspectele sale, cât și ateliere pe diverse domenii, ce au scopul de a
+                  sprijinii activitatea organizațiilor studențești participante și de stabili prioritățile studenților
+                  pentru următorul an.
+
+                  OSUT Cluj a reprezentat cu mândrie comunitatea studențească din Universitatea Tehnică din Cluj-Napoca
+                  la FOSR 2024 la Suceava, voluntarii noștri având ocazia să își aducă punctele de vedere în diferite
+                  teme educaționale din viața studențească.
+                </div>
+              </div>
+            </div>
+      </div>
+      </div>
       
           
-        <div class="container5" style="opacity:100%;">
-          <h2><b>Aceste sesiuni interactive au fost dedicate menținerii echilibrului între viața academică și personală, oferind participanților instrumente utile pentru gestionarea stresului, importanța unei alimentații sănătoase și crearea unor obiceiuri care să sprijine atât sănătatea fizică, cât și cea mentală.  
-<br>
-Susținute de Ionuț Rada și Marius Berbecuț, atelierele au furnizat strategii practice pentru optimizarea energiei, organizarea timpului și abordarea provocărilor zilnice, oferind participanților șansa de a îmbunătăți atât performanța academică, cât și starea generală de bine.</b>
-          </h2>
-        </div>
-    
- </div>
- <br><br>
-
-
-
-  <div class="flex-container2" style="background-image: url('./assets/images/adapost.jpeg'); background-size:cover; " >
-      
-          
-        <div class="container5" style="opacity:100%;">
-          <h2><b>
-          Arca lui Noe este locul perfect unde te poți refugia atunci când ai nevoie de o pauză de la agitația cotidiană. Imaginați-vă o oază de liniște, unde fiecare colț emană energie pozitivă, iar fiecare zâmbet este însoțit de lăbuțe jucăușe și priviri pline de iubire. În această „mică lume paralelă” a cățeilor, timpul pare să stea în loc, iar grijile dispar imediat ce te afli în mijlocul lor.🐶
-          <br><br>
-          Fiecare câine are povestea sa, iar tu ai oportunitatea să le oferi nu doar iubire, ci și un strop de speranță. E un loc unde inimile se deschid și se vindecă, iar fiecare moment petrecut acolo este o lecție despre afecțiune necondiționată și conexiuni pure.💫
-          </b></h2>
-        </div>
-      
- </div>
-
- <br><br>
- 
- 
- <div class="flex-container2" style="background-image: url('./assets/images/Proiecte/casutabucuriei.jpg'); background-size:cover;" >
-      
-          
-        <div class="container5" style="opacity:100%;">
-          <h2><b>Asociația Căsuța Bucuriei este o instituție non-guvernamentală din Cluj-Napoca care le oferă găzduire copiilor și tinerilor din sistemul de protecție până la finalul studiilor și îi ajută să să își croiască un nou drum în viață cu curaj și bunătate în suflet. În cadrul asociației sunt implicate mai multe grupuri de voluntari, printre care și voluntarii OSUT-Cluj. Împreună cu voluntarii noștrii vizităm Căsuța în fiecare semestru, bucurându-ne de diverse activități împreună!</b></h2>
-        </div>
-      
- </div>
- <br><br><br><br>
-   
-      
-
-            `;
-            document.getElementById('btn3').classList.add('active');
-        } else if (section === 'content4') {
-            content.innerHTML = `
-
-
- <div class="flex-container2" style="background-image: url('./assets/images/Proiecte/gtc.jpg'); background-size:cover;" >
-      
-          
-        <div class="container5" style="opacity:100%;">
-          <h2><b>Gala Tineretului Clujean este un eveniment ce aduce în lumina reflectoarelor inițiativele tinerilor, cu și despre comunitatea pe care o reprezintă, a căror rezultate contribui activ la dezvoltarea ecosistemului ca întreg.
-          <br>
-          <br>
-          
-Precum în fiecare an, voluntarii OSUT Cluj au reprezentat proiectele organizației și am reușit să câștigăm următoarele premii:
-<br>
-PoliSport - Premiul al III-lea
-<br>
-DeBattle - Premiul al II-lea
-
-
- </b></h2>
-        </div>
-      
- </div>
- <br><br>
- <div class="flex-container2" style="background-image: url('./assets/images/Proiecte/vot.jpg'); background-size:cover;" >
-      
-          
-        <div class="container5" style="opacity:100%;">
-          <h2><b>Data de 24 noiembrie a reprezentat o zi importantă pentru democrația din România și pentru dreptul studenților de a-și alege viitorul președinte care să ne reprezinte țara. 📍
-    <br><br>
-            
-Îndemnând toți studenții Universității Tehnice din Cluj-Napoca să își exercite dreptul la vot în cadrul primului scrutin de alegeri prezidențiale, am participat și noi, la rândul nostru, în număr mare la Facultatea de Inginerie Civilă CFDP (Căi ferate, drumuri și poduri) pentru a spera la un viitor care să se alinieze cu valorile și pretențiile studenților. ✉️    <br><br>
-                </b></h2>
-        </div>
-      
- </div>
- <br><br>
-  <div class="flex-container2" style="background-image: url('./assets/images/Proiecte/drumetie.jpg'); background-size:cover;" >
-      
-          
-        <div class="container5" style="opacity:100%;">
-          <h2><b>În data de 19 octombrie 2024, Direcția Sport și Sănătate din cadrul organizației noastre a organizat o drumeție memorabilă la Cheile Turzii. Această activitate a avut ca scop promovarea unui stil de viață sănătos, consolidarea relațiilor dintre studenți și reconectarea cu natura. Fiecare pas pe traseu a fost o ocazie de a învăța, de a socializa și de a descoperi frumusețea și importanța mediului înconjurător. Ne dorim să continuăm să organizăm astfel de evenimente, care inspiră și aduc bucurie. 
- 
-          <br><br>           
-Rămâi alături de noi pentru a descoperi următoarele destinații ale OSUT Cluj!🌲⛰️        </b></h2>
-        </div>
- </div>
- <br><br>
-
-   <div class="flex-container2" style="background-image: url('./assets/images/Proiecte/fosr.jpg'); background-size:cover;" >
-      
-          
-        <div class="container5" style="opacity:100%;">
-          <h2><b>Forumul Organizațiilor Studențești din România, eveniment care, începând cu anul 2006, reunește anual liderii studenților din întreaga țară. Timp de câteva zile, în câte un centru universitar din țară, la rotație în fiecare an, studenți din toată țara se adună pentru a se consolida relațiile dintre organizațiile studențești și, implicit, membrii participanți ai acestora. 
-          <br><br>    În cadrul evenimentului au loc atât dezbateri și ateliere pe teme educaționale, privind îmbunătățirea vieții studențești sub toate aspectele sale, cât și ateliere pe diverse domenii, ce au scopul de a sprijinii activitatea organizațiilor studențești participante și de stabili prioritățile studenților pentru următorul an.
-          <br><br>
-             OSUT Cluj a reprezentat cu mândrie comunitatea studențească din Universitatea Tehnică din Cluj-Napoca la FOSR 2024 la Suceava, voluntarii noștri având ocazia să își aducă punctele de vedere în diferite teme educaționale din viața studențească.   </b></h2>
-        </div>
- </div>
- <br><br>
-
-            `;
-            document.getElementById('btn4').classList.add('active');
-        }
-    }
-</script>
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const modal = document.getElementById("myModal");
-  const closeBtn = modal.querySelector(".close");
-
-  // Open modal
-  document.querySelectorAll(".myImg").forEach((img) => {
-    img.addEventListener("click", function () {
-      const modalTitle = document.getElementById("modalTitle");
-      const modalSubtitle = document.getElementById("modalSubtitle");
-      const captionText = document.getElementById("caption");
-
-      modal.style.display = "block";
-      modalTitle.textContent = img.getAttribute("data-title");
-      modalSubtitle.innerHTML = img.getAttribute("data-subtitle").replace(/\n/g, "<br>");
-      captionText.textContent = img.getAttribute("data-caption");
-    });
-  });
-
-  // Close modal
-  closeBtn.addEventListener("click", function () {
-    modal.style.display = "none";
-  });
-
-  // Close modal on outside click
-  window.addEventListener("click", function (e) {
-    if (e.target === modal) {
-      modal.style.display = "none";
-    }
-  });
-
-  // Close modal on Esc key
-  document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape" && modal.style.display === "block") {
-      modal.style.display = "none";
-    }
-  });
-});
-
-
-</script>
-
-<script>
-  const logo = document.querySelector('.logo-infotech');
-const light = document.querySelector('.light');
-
-function logoLogic() {
-    if (window.innerWidth > 900) {
-        logo.style.filter = 'brightness(30%)';
-        light.style.display = '';
-
-        // Your desktop-only script here
-        const container = document.querySelector('.container');
-
-        container.addEventListener('mousemove', (e) => {
-        const rect = container.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-
-        light.style.top = `${y}px`;
-        light.style.left = `${x}px`;
-        });
-    }
-    else {
-        logo.style.filter = 'brightness(100%)';
-        light.style.display = 'none';
-    }
-}
-
-logoLogic()
-
-window.addEventListener('resize', () => {
-    logoLogic()
-});
-
-logo.addEventListener('mouseover', () => {
-    if (window.innerWidth > 900) {
-        logo.style.filter = 'brightness(100%)';
-    }
-});
-
-logo.addEventListener('mouseout', () => {
-    if (window.innerWidth > 900) {
-        logo.style.filter = 'brightness(30%)';
-    }
-});
-
-</script>
-
-<script>
   
-    // Run script only if the viewport width is greater than 768 pixels (commonly used breakpoint)
-    if (window.innerWidth >  900) {
-        document.addEventListener('DOMContentLoaded', () => {
-            const containers = document.querySelectorAll('.container, .container1, .container2, .container3, .container4, .card'); 
-            
-            containers.forEach(container => {
-                const image = container.querySelector('.image');
-                const light = container.querySelector('.light');
-        
-                container.addEventListener('mousemove', (e) => {
-                    const rect = container.getBoundingClientRect();
-                    const x = e.clientX - rect.left;
-                    const y = e.clientY - rect.top;
-        
-                    if (light) {
-                        light.style.left = `${x}px`;
-                        light.style.top = `${y}px`;
-                        light.style.opacity = 1;
-                    }
-        
-                    if (image) {
-                        image.style.transform = `scale(1) translate(${(x - rect.width / 2) / 20}px, ${(y - rect.height / 2) / 20}px)`;
-                    }
-                });
-        
-                container.addEventListener('mouseleave', () => {
-                    if (image) {
-                        image.style.transform = `scale(1) translate(0, 0)`;
-                    }
-        
-                    if (light) {
-                        light.style.opacity = 0;
-                    }
-                });
-            });
-        });
-    }
 
-</script>
- </main>
 
-{{!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs --}}
-{{#contentFor "scripts"}}
-  <script defer src="{{asset "js/home.js"}}"></script>
-{{/contentFor}}
+
+
+            <br>
+            <br>
+
+            <br>
+            <br>
+
+
+
+            <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+            <script>
+              const swiper = new Swiper(".swiper", {
+                loop: true,
+                autoplay: {
+                  delay: 6000,
+                  disableOnInteraction: true,
+                  pauseOnMouseEnter: true,
+                },
+                slidesPerView: 1,
+                spaceBetween: 0,
+                centeredSlides: true,
+
+                on: {
+                  init: function () {
+                    const swiperEl = this.el;
+                    
+                    swiperEl.addEventListener('mouseenter', () => {
+                      this.autoplay.stop();
+                    });
+
+                    swiperEl.addEventListener('mouseleave', () => {
+                      this.autoplay.start();
+                    });
+
+                    swiperEl.addEventListener('click', () => {
+                      if (this.autoplay.running) {
+                        this.autoplay.stop();
+                      } else {
+                        this.autoplay.start();
+                      }
+                    });
+                  }
+                }
+              });
+            </script>
+
+            <script>
+              document.addEventListener("DOMContentLoaded", function () {
+                const counterElement = document.getElementById("counter");
+
+
+                // Phase 1: From 2200 to 2490 in 5 seconds
+                const startNumber1 = 90000;
+                const targetNumber1 = 100000;
+                const duration1 = 5000;           // 5 seconds
+                const incrementTime1 = 20;        // Interval in ms for Phase 1
+                const totalIncrements1 = duration1 / incrementTime1;
+                const increment1 = (targetNumber1 - startNumber1) / totalIncrements1;
+
+                let currentNumber = startNumber1;
+
+                // Phase 1 Counter Function
+                function updateCounterPhase1() {
+                  currentNumber += increment1;
+
+                  if (currentNumber >= targetNumber1) {
+                    counterElement.textContent = targetNumber1 + "+"; // End at 2500+
+                  } else {
+                    counterElement.textContent = Math.floor(currentNumber);
+                    setTimeout(updateCounterPhase1, incrementTime1);
+                  }
+                }
+
+                // Start the first phase
+                updateCounterPhase1();
+              });
+            </script>
+
+            {{!script pentru al doilea counter}}
+            <script>
+              document.addEventListener("DOMContentLoaded", function () {
+                const counterElement = document.getElementById("counter2");
+                const startNumber = 70000;      // Numărul de început
+                const targetNumber = 80000;     // Numărul final
+                const duration = 5000;        // Durata în milisecunde (5 secunde)
+                const intervalTime = 20;       // Timpul între incrementări (20 ms)
+
+                let currentNumber = startNumber;
+                const increment = (targetNumber - startNumber) / (duration / intervalTime);
+
+                function updateCounter() {
+                  currentNumber += increment;
+
+                  if (currentNumber >= targetNumber) {
+                    counterElement.textContent = targetNumber + "+";
+                  } else {
+                    counterElement.textContent = Math.floor(currentNumber);  // Arătăm doar partea întreagă
+                    setTimeout(updateCounter, intervalTime);                 // Continuăm incrementarea la fiecare 20ms
+                  }
+                }
+
+                updateCounter();
+              });
+            </script>
+
+            {{!script pentru al treilea counter}}
+            <script>
+              document.addEventListener("DOMContentLoaded", function () {
+                const counterElement = document.getElementById("counter3");
+                const startNumber = 10000;      // Numărul de început
+                const targetNumber = 20000;     // Numărul final
+                const duration = 5000;        // Durata în milisecunde (5 secunde)
+                const intervalTime = 20;       // Timpul între incrementări (20 ms)
+
+                let currentNumber = startNumber;
+                const increment = (targetNumber - startNumber) / (duration / intervalTime);
+
+                function updateCounter() {
+                  currentNumber += increment;
+
+                  if (currentNumber >= targetNumber) {
+                    counterElement.textContent = targetNumber + "+";
+                  } else {
+                    counterElement.textContent = Math.floor(currentNumber);  // Arătăm doar partea întreagă
+                    setTimeout(updateCounter, intervalTime);                 // Continuăm incrementarea la fiecare 20ms
+                  }
+                }
+
+                updateCounter();
+              });
+            </script>
+
+            {{!script pentru al 4 counter}}
+            <script>
+              document.addEventListener("DOMContentLoaded", function () {
+                const counterElement = document.getElementById("counter4");
+                const startNumber = 900;      // Numărul de început
+                const targetNumber = 1120;     // Numărul final
+                const duration = 5000;        // Durata în milisecunde (5 secunde)
+                const intervalTime = 20;       // Timpul între incrementări (20 ms)
+
+                let currentNumber = startNumber;
+                const increment = (targetNumber - startNumber) / (duration / intervalTime);
+
+                function updateCounter() {
+                  currentNumber += increment;
+
+                  if (currentNumber >= targetNumber) {
+                    counterElement.textContent = targetNumber + "+";
+                  } else {
+                    counterElement.textContent = Math.floor(currentNumber);  // Arătăm doar partea întreagă
+                    setTimeout(updateCounter, intervalTime);                 // Continuăm incrementarea la fiecare 20ms
+                  }
+                }
+
+                updateCounter();
+              });
+            </script>
+
+            {{!script pentru al 5 counter}}
+            <script>
+              document.addEventListener("DOMContentLoaded", function () {
+                const counterElement = document.getElementById("counter5");
+                const startNumber = 21000;      // Numărul de început
+                const targetNumber = 22000;     // Numărul final
+                const duration = 5000;        // Durata în milisecunde (5 secunde)
+                const intervalTime = 20;       // Timpul între incrementări (20 ms)
+
+                let currentNumber = startNumber;
+                const increment = (targetNumber - startNumber) / (duration / intervalTime);
+
+                function updateCounter() {
+                  currentNumber += increment;
+
+                  if (currentNumber >= targetNumber) {
+                    counterElement.textContent = targetNumber + "+";
+                  } else {
+                    counterElement.textContent = Math.floor(currentNumber);  // Arătăm doar partea întreagă
+                    setTimeout(updateCounter, intervalTime);                 // Continuăm incrementarea la fiecare 20ms
+                  }
+                }
+
+                updateCounter();
+              });
+            </script>
+
+            {{!script pentru al 6 counter}}
+            <script>
+              document.addEventListener("DOMContentLoaded", function () {
+                const counterElement = document.getElementById("counter6");
+                const startNumber = 0;      // Numărul de început
+                const targetNumber = 12;     // Numărul final
+                const duration = 5000;        // Durata în milisecunde (5 secunde)
+                const intervalTime = 20;       // Timpul între incrementări (20 ms)
+
+                let currentNumber = startNumber;
+                const increment = (targetNumber - startNumber) / (duration / intervalTime);
+
+                function updateCounter() {
+                  currentNumber += increment;
+
+                  if (currentNumber >= targetNumber) {
+                    counterElement.textContent = targetNumber;
+                  } else {
+                    counterElement.textContent = Math.floor(currentNumber);  // Arătăm doar partea întreagă
+                    setTimeout(updateCounter, intervalTime);                 // Continuăm incrementarea la fiecare 20ms
+                  }
+                }
+
+                updateCounter();
+              });
+            </script>
+
+            {{!script pentru al 7 counter}}
+            <script>
+              document.addEventListener("DOMContentLoaded", function () {
+                const counterElement = document.getElementById("counter7");
+                const startNumber = 0;      // Numărul de început
+                const targetNumber = 20;     // Numărul final
+                const duration = 5000;        // Durata în milisecunde (5 secunde)
+                const intervalTime = 20;       // Timpul între incrementări (20 ms)
+
+                let currentNumber = startNumber;
+                const increment = (targetNumber - startNumber) / (duration / intervalTime);
+
+                function updateCounter() {
+                  currentNumber += increment;
+
+                  if (currentNumber >= targetNumber) {
+                    counterElement.textContent = targetNumber + "+";
+                  } else {
+                    counterElement.textContent = Math.floor(currentNumber);  // Arătăm doar partea întreagă
+                    setTimeout(updateCounter, intervalTime);                 // Continuăm incrementarea la fiecare 20ms
+                  }
+                }
+
+                updateCounter();
+              });
+            </script>
+
+            {{!script pentru al 8 counter}}
+            <script>
+              document.addEventListener("DOMContentLoaded", function () {
+                const counterElement = document.getElementById("counter8");
+                const startNumber = 0;      // Numărul de început
+                const targetNumber = 60;     // Numărul final
+                const duration = 5000;        // Durata în milisecunde (5 secunde)
+                const intervalTime = 20;       // Timpul între incrementări (20 ms)
+
+                let currentNumber = startNumber;
+                const increment = (targetNumber - startNumber) / (duration / intervalTime);
+
+                function updateCounter() {
+                  currentNumber += increment;
+
+                  if (currentNumber >= targetNumber) {
+                    counterElement.textContent = targetNumber + "+";
+                  } else {
+                    counterElement.textContent = Math.floor(currentNumber);  // Arătăm doar partea întreagă
+                    setTimeout(updateCounter, intervalTime);                 // Continuăm incrementarea la fiecare 20ms
+                  }
+                }
+
+                updateCounter();
+              });
+
+
+            </script>
+
+  </main>
+
+  {{!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs
+  --}}
+  {{#contentFor "scripts"}}
+  <script defer src="{{asset " js/home.js"}}"></script>
+  {{/contentFor}}

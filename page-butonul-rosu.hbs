@@ -1,149 +1,239 @@
-{{!--
-This template is used for the posts that are marked as pages.
---}}
-
-{{!-- This block preloads specific assets for the post page --}}
 {{#contentFor "preload"}}
-  <link rel="preload" href="{{asset "css/post.css"}}" as="style" />
-  <link rel="preload" href="{{asset "js/page.js"}}" as="script" />
+<link rel="preload" href="{{asset "css/post.css"}}" as="style" />
+<link rel="preload" href="{{asset "js/page.js"}}" as="script" />
 {{/contentFor}}
 
-{{!-- This block loads specific styles for the post page --}}
 {{#contentFor "styles"}}
-  <link rel="stylesheet" type="text/css" href="{{asset "css/post.css"}}" media="screen" />
+<link rel="stylesheet" type="text/css" href="{{asset "css/post.css"}}" media="screen" />
 {{/contentFor}}
 
-{{!-- The tag below means: insert everything in this file
-into the {body} of the default.hbs template --}}
-{{!< default}}
+{{!< default}} 
+{{> header background=feature_image}}
 
-{{!-- Special header.hbs partial to generate the <header> tag --}}
-{{#post}}
-  {{> header background=feature_image}}
-{{/post}}
 <style>
-.contact-container {
-    display: flex;
-    height: 90vh; /* Full viewport height */
-    color: white;
-    background-image: url('/assets/images/map.png'); /* Shared background image */
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    background-image: url("{{asset 'images/sky.jpg'}}");
     background-size: cover;
+    background-repeat: no-repeat;
     background-position: center;
-    position: relative;
-}
-
-.map-section {
-    flex: 2; /* Take up more space on the right */
-    position: relative;
-}
-
-.map-overlay {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    color: #fff;
-    background: rgba(0, 0, 0, 0.6);
-    padding: 10px;
-    border-radius: 5px;
-    font-size: 14px;
-    cursor: pointer;
-}
-
-.form-section {
-    flex: 1; /* Form takes up less space on the left */
-    padding: 20px;
+    background-attachment: fixed;
+    color: white;
+    font-family: Arial, sans-serif;
+    padding: 40px;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* 🆕 Centrare verticală */
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  .main-wrap {
+    background: none;
+    width: 100%;
+  }
+
+ .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px; /* 🆕 Spațiu între text și formular */
+  padding: 50px;
+  margin-top: 20rem !important;
+  width: 100%;
+  max-width: 1200px;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  border-radius: 10px;
+  margin: 40px auto; /* 🆕 Centrare orizontală */
+  margin-top: 20vh;
+}
+
+  .text-column {
+    flex: 1 1 45%;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
-    color: #000;
-    border-radius: 8px;
-    width: 70%; /* Normal width */
-    max-width: 90%; /* Prevents overflow on smaller screens */
-}
+    text-align: justify;
+  }
 
-.form-section iframe {
-    width: 50vw;
-    height: 100%;
-    border: none;
-}
+  .text-column h1 {
+    font-size: 26px;
+    font-weight: normal;
+    margin: 0;
+  }
 
-.help-text {
-    text-align: center;
-    margin: 20px 0;
-    color: red;
-    background-color: rgba(255, 255, 255, 0.6);
-    font-size: 24px;
+  .text-column h2 {
+    font-size: 48px;
+    color: #c40000;
+    margin: 0 0 30px;
+  }
+
+  .text-column p {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 5px 0;
+    word-break: break-word;
+  }
+
+  .form-container {
+    flex: 1 1 45%;
+    background-color: #444;
+    border-radius: 20px;
     padding: 10px;
-    border-radius: 5px;
-    margin-top: 40vh;
-}
+    box-shadow: 0 0 10px #222;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 500px;
+  }
 
-@media (max-width: 768px) {
-    .contact-container {
-        flex-direction: column; /* Stacks the sections vertically */
-        align-items: center; /* Centers the content horizontally */
-        justify-content: flex-start; /* Aligns content at the top */
+  iframe {
+    border: none;
+    width: 100%;
+    height: 500px;
+    border-radius: 10px;
+  }
+
+  .footer {
+    width: 100% !important;
+  }
+
+  /* Add navbar styles */
+  .custom-navbar {
+    background-color: rgba(68, 68, 68, 0.7);
+    border-radius: 50px;
+    width: 80%;
+    margin: 20px auto;
+    padding: 10px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+  }
+
+  .nav-logo img {
+    height: 50px;
+  }
+
+  .nav-menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-menu li {
+    margin: 0 15px;
+  }
+
+  .nav-menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  .nav-menu a:hover {
+    color: #c40000;
+  }
+
+  @media (max-width: 900px) {
+    .container {
+      flex-direction: column;
+      padding: 1rem;
     }
 
-    .help-text {
-        order: 1; /* Ensure the text appears first */
-        width: 100%; /* Make it responsive */
-        font-size: 20px; /* Adjust font size for smaller screens */
-        margin-top: 0;
-        
+    .text-column,
+    .form-container {
+      width: 100%;
     }
 
-    .form-section {
-        order: 2; /* Form appears after the text */
-        width: 90%; /* Takes almost full width on smaller screens */
-        align-self: center; /* Centers the form section */
+    .text-column h2 {
+      font-size: 36px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+      padding: 1rem;
+    }
+    .custom-navbar {
+      width: 95%;
+      padding: 10px 15px;
     }
 
-    .form-section iframe {
-        width: 100%; /* Makes iframe responsive */
-        height: 80vh; /* Adjust height based on content */
+    .nav-menu {
+      display: none;
+    }
+    .main-wrap {
+      position: relative;
+      margin-top: 52rem !important;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .container {
+      flex-direction: column;
+      padding: 1rem;
+    }
+    .text-column h1 {
+      font-size: 20px;
     }
 
-    .map-section {
-        order: 3;
-        width: 100%; /* Adjust map-section to take full width */
-        height: 50%; /* Optional: Adjust height of map-section */
-        
+    .text-column h2 {
+      font-size: 28px;
     }
-}
 
+    .text-column p {
+      font-size: 16px;
+    }
 
+    iframe {
+      height: 400px;
+    }
+    .main-wrap {
+      position: relative;
+      margin-top: 52rem !important;
+    }
+  }
 </style>
+
+
+
 <main class="main-wrap">
-    <br>
-    <br>
-    <br>
-    <br>
-    <body>
-        <div class="contact-container">
-           
-            <div class="map-section">
-                 <h1 class="help-text">We Want To Help!
-                  <BR>
-                  Let Us Do It!
-                 </h1>
-                <div class="map-overlay">
-                 
-                    <a href="https://www.google.com/maps/place/OSUT+Cluj-Napoca/@46.7564001,23.5883981,17z/data=!4m6!3m5!1s0x47490dd37411dee7:0x37af0fc996d79c6e!8m2!3d46.7561754!4d23.5883412!16s%2Fg%2F11c2km93dk?entry=ttu&g_ep=EgoyMDI0MTIwNC4wIKXMDSoASAFQAw%3D%3D" target="_blank">
-                        <p>Look at Google Maps →</p>
-                    </a>
-                </div>
-            </div>
-             <div class="form-section">
-                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSehM0INGphPT-FWfki5BWW9x4OVpqT_oLeXTv_jTy-jH1RDZg/viewform?embedded=true" class="google-form"></iframe>
-            </div>
-        </div>
-    </body>
+  <div class="container">
+    <div class="text-column">
+      <h1>LET US</h1>
+      <h2>HELP YOU</h2>
+      <p>Ai o problemă în facultate pe care nu știi cum să o rezolvi? Poate un profesor îți încalcă un drept, poate există probleme în căminul în care ești cazat sau poate nu știi cum să procedezi atunci când ai de făcut o sesizare?</p>
+      <p>OSUT Cluj vine în ajutorul tău cu Butonul Roșu, un mecanism simplu prin care ne poți sesiza rapid orice problemă pe care o întâmpini!</p>
+      <p>Fă-ți vocea auzită! Împreună, luptăm pentru studenți!</p>
+      <p>#OSUTCJ #weAreUTCN #ButonulRosu</p>
+     
+    </div>
+
+    <div class="form-container">
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSehM0INGphPT-FWfki5BWW9x4OVpqT_oLeXTv_jTy-jH1RDZg/viewform?embedded=true">Loading…</iframe>
+    </div>
+  </div>
+  <!-- John a fost aici -->
 </main>
 
-
-{{!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs --}}
 {{#contentFor "scripts"}}
-  <script defer src="{{asset "js/page.js"}}"></script>
+<script defer src="{{asset "js/page.js"}}"></script>
 {{/contentFor}}

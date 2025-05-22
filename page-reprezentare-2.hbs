@@ -4,277 +4,919 @@ This template is used for the posts that are marked as pages.
 
 {{!-- This block preloads specific assets for the post page --}}
 {{#contentFor "preload"}}
-  <link rel="preload" href="{{asset "css/post.css"}}" as="style" />
-  <link rel="preload" href="{{asset "js/page.js"}}" as="script" />
+<link rel="preload" href="{{asset " css/post.css"}}" as="style" />
+<link rel="preload" href="{{asset " js/page.js"}}" as="script" />
 {{/contentFor}}
 
 {{!-- This block loads specific styles for the post page --}}
 {{#contentFor "styles"}}
-  <link rel="stylesheet" type="text/css" href="{{asset "css/post.css"}}" media="screen" />
+<link rel="stylesheet" type="text/css" href="{{asset " css/post.css"}}" media="screen" />
 {{/contentFor}}
 
 <style>
-    .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 100vw;
-    max-width: 1024px;
-    margin: 0 auto;
-    }
 
-    .card-grid {
-    margin-top: 3em;
-    --auto-grid-min-size: 300px;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(var(--auto-grid-min-size), 1fr));
-    grid-gap: 2rem 0rem;
-    grid-auto-rows: 1fr;
-    }
+</style>
 
-    .card {
-    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
-    width: 300px;
-    margin: auto;
-    text-align: center;
-    border-radius: 10px;
-    transition-duration: 400ms;
-    height: 100%;
-    }
-
-    .card img {
-    max-width: 300px;
-    width: 100%;
-    height: 225px;
-    object-fit: cover;
-    border-radius: 10px;
-    object-position: center;
-    }
-
-    .card .card-body {
-    text-align: center;
-    padding: 1em 2em;
-    }
-
-    .card .card-body h2 {
-    margin: 0 0 .5em;
-    font-weight: 700;
-    font-size: 2rem;
-    }
-
-    .card .card-body p.role {
-        color: #B50000;
-    }
-
-    .icon:hover {
-        color: #B50000;
-    }
-    </style>
-    
 {{!-- The tag below means: insert everything in this file
 into the {body} of the default.hbs template --}}
-{{!< default}}
+{{!< default}} {{!-- Special header.hbs partial to generate the <header> tag --}}
+    {{#post}}
+    {{> header background=feature_image}}
+    {{/post}}
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+        }
 
-{{!-- Special header.hbs partial to generate the <header> tag --}}
-{{#post}}
-  {{> header background=feature_image}}
-{{/post}}
+        body {
+            background-image: url("{{asset 'images/sky.jpg'}}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+        }
 
-<main class="main-wrap">
-    <article class="article {{post_class}}">
+        .main-wrap {
+            background: none;
+        }
 
-            <header class="article-header gh-canvas">
-                {{#if feature_image}}
-                <figure class="article-image">
-                    {{!-- This is a responsive image, it loads different sizes depending on device
-                    https://medium.freecodecamp.org/a-guide-to-responsive-images-with-ready-to-use-templates-c400bd65c433
-                    --}}
-                    <img srcset="{{img_url feature_image size=" s"}} 300w, {{img_url feature_image size="m" }} 600w,
-                        {{img_url feature_image size="l" }} 1000w, {{img_url feature_image size="xl" }} 2000w"
-                        sizes="(min-width: 1400px) 1400px, 92vw" src="{{img_url feature_image size=" xl"}}"
-                        alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}" />
-                    {{#if feature_image_caption}}
-                    <figcaption>{{feature_image_caption}}</figcaption>
-                    {{/if}}
-                </figure>
-                {{/if}}
-            </header>
-
-            <section class="container">
+        .container {
+            text-align: center;
+            width: 90%;
+            margin: 10px auto;
+        }
 
 
-                <div class="article-title" style="text-align: center;">
-                    <h1>Studenții reprezentanți</h1>
-                </div>
+        .text-outline {
+            font-size: 54px;
+            font-weight: bold;
+            color: transparent;
+            -webkit-text-stroke: 1px white;
+            text-transform: uppercase;
+            text-align: center;
+            display: block;
+            width: 100%;
+        }
 
-           
+        .highlight {
+            font-size: 54px;
+            font-weight: bold;
+            color: transparent;
+            -webkit-text-stroke: 1px RED;
+            text-transform: uppercase;
+            text-align: center;
+            display: block;
+            width: 100%;
+        }
 
-                <h2 style="text-align: center">Senat</h2>
+        .scroll-container {
+            overflow-x: auto;
+            overflow-y: hidden;
+            white-space: nowrap;
+            width: 90%;
+            max-width: 100%;
+            margin: 0 auto;
+            display: flex;
+            scrollbar-width: none;
+        }
 
-                <div class="card-grid" style="margin-bottom: 15px;">
-                    <div class="card">
-                        <img src="/assets/images/default-avatar-square-normal.jpg">
-                        <div class="card-body">
-                            <h2>Filip Cristian-Mihai</h2>
-                            <p class="role">0760993125</p>
-                            <div>
-                                <a class="icon" href="mailto:cristifilip200@gmail.com"><i class="fa fa-envelope"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="/assets/images/default-avatar-square-normal.jpg">
-                        <div class="card-body">
-                            <h2>Dăian Petre-Mihai</h2>
-                            <p class="role">0747953337</p>
-                            <div>
-                                <a class="icon" href="mailto:mihaidaian024@gmail.com"><i class="fa fa-envelope"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="/assets/images/default-avatar-square-normal.jpg">
-                        <div class="card-body">
-                            <h2>Ihoș Iarina-Valentina</h2>
-                            <p class="role">0744216598</p>
-                            <div>
-                                <a class="icon" href="mailto:iarinaihos@gmail.com"><i class="fa fa-envelope"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="/assets/images/default-avatar-square-normal.jpg" >
-                        <div class="card-body">
-                            <h2>Vasile Maria Lorena</h2>
-                            <p class="role">0754637917</p>
-                            <div>
-                                <a class="icon" href="mailto:vasilemarialorena@gmail.com"><i class="fa fa-envelope"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="/assets/images/default-avatar-square-normal.jpg">
-                        <div class="card-body">
-                            <h2>Olaru Constantin-Alexandru</h2>
-                            <p class="role">0760583326</p>
-                            <div>
-                                <a class="icon" href="mailto:alexolaru131@gmail.com"><i class="fa fa-envelope"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        .scroll-container::-webkit-scrollbar {
+            display: none;
+        }
 
-                <h2 style="text-align: center">Consiliu</h2>
+        .scroll-container img {
+            height: 50vh;
+            object-fit: cover;
+        }
 
-                <div class="card-grid" style="margin-bottom: 15px;">
-                    <div class="card">
-                        <img src="/assets/images/default-avatar-square-normal.jpg">
-                        <div class="card-body">
-                            <h2>Nechita Florina-Elena</h2>
-                            <p class="role">0725534103</p>
-                            <div>
-                                <a class="icon" href="mailto:nechitaflorina2002@gmail.com"><i class="fa fa-envelope"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="/assets/images/default-avatar-square-normal.jpg" >
-                        <div class="card-body">
-                            <h2>Dăian Petre-Mihai</h2>
-                            <p class="role">0747953337</p>
-                            <div>
-                                <a class="icon" href="mailto:mihaidaian024@gmail.com"><i class="fa fa-envelope"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="/assets/images/default-avatar-square-normal.jpg">
-                        <div class="card-body">
-                            <h2>Filip Cristian-Mihai</h2>
-                            <p class="role">0760993125</p>
-                            <div>
-                                <a class="icon" href="mailto:cristifilip2002@gmail.com"><i class="fa fa-envelope"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="/assets/images/default-avatar-square-normal.jpg">
-                        <div class="card-body">
-                            <h2>Bălănescu Rareș-Ioan</h2>
-                            <p class="role">0786825333</p>
-                            <div>
-                                <a class="icon" href="mailto:raresbalanescu@gmail.com"><i class="fa fa-envelope"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="/assets/images/default-avatar-square-normal.jpg">
-                        <div class="card-body">
-                            <h2>Demean Vlad</h2>
-                            <p class="role">0736353111</p>
-                            <div>
-                                <a class="icon" href="mailto:demeanvlad8@gmail.com"><i class="fa fa-envelope"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="/assets/images/default-avatar-square-normal.jpg">
-                        <div class="card-body">
-                            <h2>Duțulescu Aurelia-Georgiana</h2>
-                            <p class="role">0746532877</p>
-                            <div>
-                                <a class="icon" href="mailto:dutulescureli14@gmail.com"><i class="fa fa-envelope"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="/assets/images/default-avatar-square-normal.jpg">
-                        <div class="card-body">
-                            <h2>Șeulean Dragoș Oliviu</h2>
-                            <p class="role">0758026098</p>
-                            <div>
-                                <a class="icon" href="mailto:dragosseuo@gmail.com"><i class="fa fa-envelope"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="/assets/images/default-avatar-square-normal.jpg">
-                        <div class="card-body">
-                            <h2>Miclea Rareș</h2>
-                            <p class="role">0734223650</p>
-                            <div>
-                                <a class="icon" href="mailto:miclearares@gmail.com"><i class="fa fa-envelope"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="/assets/images/default-avatar-square-normal.jpg">
-                        <div class="card-body">
-                            <h2>Boncea Natalia-Georgiana</h2>
-                            <p class="role">0745752480</p>
-                            <div>
-                                <a class="icon" href="mailto:nataliaboncea27@gmail.com"><i class="fa fa-envelope"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="/assets/images/default-avatar-square-normal.jpg">
-                        <div class="card-body">
-                            <h2>Buzea Lorena-Maria</h2>
-                            <p class="role">0747055101</p>
-                            <div>
-                                <a class="icon" href="mailto:lorenabuzea25@yahoo.com"><i class="fa fa-envelope"></i></a>
-                            </div>
-                        </div>
-                    </div>
+        .reprez {
+            margin: 2rem auto;
+            padding: 2rem;
+            max-width: 600px;
+            background-color: rgba(255, 255, 255, 0.274);
+            border-radius: 16px;
+            box-shadow: 0px 4px  12px rgba(255, 255, 255, 0.507);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            color: #000000;
+            margin-right: 3vw;
+        }
 
-                </div>
-            </section>
+        .reprez h1 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+            color: rgb(179, 10, 10);
+        }
 
-        </article>
-</main>
+        .reprez h2 {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            color: rgb(179, 10, 10);
+        }
 
-{{!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs --}}
-{{#contentFor "scripts"}}
-  <script defer src="{{asset "js/page.js"}}"></script>
-{{/contentFor}}
+        .reprez h4 {
+            font-size: 1.1rem;
+            margin: 0.4rem 0;
+            color: white;
+        }
+
+        .contact-link {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .contact-link:hover {
+            color: red;
+        }
+    </style>
+    <main class="main-wrap">
+
+
+        <div class="container" style="margin-top: 5vh;">
+            <h2 class="text-outline">SENATUL UNIVERSITAR</h2>
+        </div>
+        <div class="scroll-container">
+            <div class="reprez">
+                <h1>Mitocaru</h1>
+                <h2>Silviu</h2>
+                <h4>Email: mitocarusilviu227@gmail.com</h4>
+                <h4>Phone Number: 0752769200</h4>
+                <h4>Reprezentantul</h4>
+                <h4>Facultății de Arhitectură și Urbanism</h4>
+            </div>
+
+
+            <div class="reprez">
+                <h1>Buzea</h1>
+                <h2>Lorena</h2>
+                <h4>Email: lorena7buzea@gmail.com</h4>
+                <h4>Phone Number: 0747055101</h4>
+                <h4>Reprezentantul</h4>
+                <h4>Facultății de Automatică și Calculatoare</h4>
+            </div>
+            <div class="reprez">
+                <h1>Demean</h1>
+                <h2>Vlad</h2>
+                <h4>Email: demeanvlad8@gmail.com</h4>
+                <h4>Phone Number: 0736353111</h4>
+                <h4>Reprezentantul</h4>
+                <h4>Facultății de Automatică și Calculatoare</h4>
+            </div>
+
+            <div class="reprez">
+                <h1>Duțulescu </h1>
+                <h2>Aurelia-Georgiana</h2>
+                <h4>Email: dutulescureli14@gmail.com</h4>
+                <h4>Phone Number: 0746532877</h4>
+                <h4>Reprezentantul</h4>
+                <h4>Facultății de Automatică și Calculatoare</h4>
+            </div>
+
+            <div class="reprez">
+                <h1>Filip </h1>
+                <h2>Cristian-Mihai</h2>
+                <h4>Email: cristifilip2002@gmail.com</h4>
+                <h4>Phone Number: 0760993125</h4>
+                <h4>Reprezentantul</h4>
+                <h4>Facultății de Automatică și Calculatoare</h4>
+            </div>
+
+            <div class="reprez">
+                <h1>Ihoș </h1>
+                <h2>Iarina-Valentina</h2>
+                <h4>Email: iarinaihos@gmail.com</h4>
+                <h4>Phone Number: 0744216598</h4>
+                <h4>Reprezentantul</h4>
+                <h4>Facultății de Automatică și Calculatoare</h4>
+            </div>
+
+            <div class="reprez">
+                <h1>Abiculesei </h1>
+                <h2>Denis-Andrei</h2>
+                <h4>Email: abiculeseidenis7@gmail.com</h4>
+                <h4>Phone Number: 0745360232</h4>
+                <h4>Reprezentantul</h4>
+                <h4>Facultății de Construcții</h4>
+            </div>
+            <div class="reprez">
+                <h1>Ormindean </h1>
+                <h2>Vlad-Cosmin</h2>
+                <h4>Email: ormindeanvlad@gmail.com</h4>
+                <h4>Phone Number: 0743135003</h4>
+                <h4>Reprezentantul</h4>
+                <h4>Facultății de Construcții</h4>
+            </div>
+            <div class="reprez">
+                <h1>Timiș </h1>
+                <h2>Traian-Marius</h2>
+                <h4>Email: traiantimis02@gmail.com</h4>
+                <h4>Phone Number: 0757332298</h4>
+                <h4>Reprezentantul</h4>
+                <h4>Facultății de Construcții</h4>
+            </div>
+
+
+            <div class="reprez">
+                <h1>Bria </h1>
+                <h2>Mara Aiyana</h2>
+                <h4>Email: aiyanamara@gmail.com</h4>
+                <h4>Phone Number: 0758091841</h4>
+                <h4>Reprezentantul</h4>
+                <h4>Facultății de Autovehicule Rutiere, Mecatronică și Mecanică</h4>
+            </div>
+            <div class="reprez">
+                <h1>Vîrlan </h1>
+                <h2>Dragoș George</h2>
+                <h4>Email: dragosvirlan2413@gmail.com</h4>
+                <h4>Phone Number: 0746373983</h4>
+                <h4>Reprezentantul</h4>
+                <h4>Facultății de Autovehicule Rutiere, Mecatronică și Mecanică</h4>
+            </div>
+
+            <div class="reprez">
+                <h1>Licu</h1>
+                <h2>Arina Andreea</h2>
+                <h4>Email: arina.licu04@gmail.com</h4>
+                <h4>Phone Number: 0770938737</h4>
+                <h4>Reprezentantul</h4>
+                <h4>Facultății de Inginerie Industrială, <br>
+                    Robotică și Managementul Producției</h4>
+            </div>
+            <div class="reprez">
+                <h1>Livinschi</h1>
+                <h2>Cătălina</h2>
+                <h4>Email: catalinalivinschi97@gmail.com</h4>
+                <h4>Phone Number: 0759145397</h4>
+                <h4>Reprezentantul</h4>
+                <h4>Facultății de Inginerie Industrială, <br>
+                Robotică și Managementul Producției</h4>
+            </div>
+            <div class="reprez">
+                <h1>Maxim</h1>
+                <h2>Andrei Vasile</h2>
+                <h4>Email: andreimaxim805@gmail.com</h4>
+                <h4>Phone Number: 0756465679</h4>
+                <h4>Reprezentantul</h4>
+                <h4>Facultății de Inginerie Industrială, <br>
+                Robotică și Managementul Producției</h4>
+            </div>
+            <div class="reprez">
+                <h1>Nistor</h1>
+                <h2>Marius Gabriel</h2>
+                <h4>Email: nistormarius200@gmail.com</h4>
+                <h4>Phone Number: 0749631616</h4>
+                <h4>Reprezentantul</h4>
+                <h4>Facultății de Inginerie Industrială, <br>
+                Robotică și Managementul Producției</h4>
+            </div>
+
+
+            <div class="reprez">
+                <h1>Arimia </h1>
+                <h2>Andreea-Ștefania</h2>
+                <h4>Email: arimiaandreeastefania@gmail.com</h4>
+                <h4>Phone Number: 0762385168</h4>
+                <h4>Reprezentantul</h4>
+                <h4>Facultății de Electronică, Telecomunicații și Tehnologia Informației</h4>
+            </div>
+            <div class="reprez">
+                <h1>Ciotea </h1>
+                <h2>Alexandra-Anamaria</h2>
+                <h4>Email: lexaciotea@gmail.com</h4>
+                <h4>Phone Number: 0741285543</h4>
+                <h4>Reprezentantul</h4>
+                <h4>Facultății de Electronică, Telecomunicații și Tehnologia Informației</h4>
+            </div>
+            <div class="reprez">
+                <h1>Orțan</h1>
+                <h2>Adela-Lorena</h2>
+                <h4>Email: adelalorena16@gmail.com</h4>
+                <h4>Phone Number: 0754273202</h4>
+                <h4>Reprezentantul</h4>
+                <h4>Facultății de Electronică, Telecomunicații și Tehnologia Informației</h4>
+            </div>
+
+            <div class="reprez">
+                <h1>Moldovan</h1>
+                <h2>Ana-Maria</h2>
+                <h4>Email: anamariamoldovan09.amm@gmail.com</h4>
+                <h4>Phone Number: 0743282230</h4>
+                <h4>Reprezentantul</h4>
+                <h4>Facultății de Inginerie Electrică</h4>
+            </div>
+            <div class="reprez">
+                <h1>Spătăcean</h1>
+                <h2>Lidia-Giorgiana</h2>
+                <h4>Email: sgiorgiana02@gmail.com</h4>
+                <h4>Phone Number: 0783054447</h4>
+                <h4>Reprezentantul</h4>
+                <h4>Facultății de Inginerie Electrică</h4>
+            </div>
+
+            <div class="reprez">
+                <h1>Rusu</h1>
+                <h2>Horia Daniel</h2>
+                <h4>Email: horiarusu21@gmail.com</h4>
+                <h4>Phone Number: 0747473335</h4>
+                <h4>Reprezentantul</h4>
+                <h4>Facultății de Inginerie a Instalațiilor</h4>
+            </div>
+
+            <div class="reprez">
+                <h1>Borodi</h1>
+                <h2>Cristina</h2>
+                <h4>Email: cristinaborodi2003@gmail.com</h4>
+                <h4>Phone Number: 0762543494</h4>
+                <h4>Reprezentantul</h4>
+                <h4>Facultății de Ingineria Materialelor și a Mediului</h4>
+            </div>
+
+            <div class="reprez">
+                <h1>Dragoș</h1>
+                <h2>Alex Răzvan</h2>
+                <h4>Email: dragosalex318@gmail.com</h4>
+                <h4>Phone Number: 0757695110</h4>
+                <h4>Reprezentantul</h4>
+                <h4>Facultății de Litere CUNBM</h4>
+            </div>
+            <div class="reprez">
+                <h1>Dulf </h1>
+                <h2>Diana Geanina</h2>
+                <h4>Email: diana.dulf@lspv.ro</h4>
+                <h4>Phone Number: 0756499825</h4>
+                <h4>Reprezentantul</h4>
+                <h4>Facultății de Inginerie CUNBM</h4>
+            </div>
+            <div class="reprez">
+                <h1>Covaci </h1>
+                <h2>Sebastian-Andrei</h2>
+                <h4>Email: seb.covaci@gmail.com</h4>
+                <h4>Phone Number: 0752664094</h4>
+                <h4>Reprezentantul</h4>
+                <h4>Facultății de Științe CUNBM</h4>
+            </div>
+            <div class="reprez">
+                <h1>Șepși </h1>
+                <h2>Roxana</h2>
+                <h4>Email: roxanasepsi_09@yahoo.com</h4>
+                <h4>Phone Number: 0741900411</h4>
+                <h4>Reprezentantul</h4>
+                <h4>Facultății de Științe CUNBM</h4>
+            </div>
+        </div>
+
+
+        <div class="container">
+            <h2 class="text-outline">CONSIILE FACULTĂȚILOR -CLUJ-NAPOCA</h2>
+        </div>
+
+
+
+        <div class="container">
+            <h2 class="text-outline">FACULTATEA DE<span class="highlight">ARHITECTURĂ ȘI URBANISM</span></h2>
+        </div>
+        <div class="scroll-container">
+            <div class="reprez">
+                <h1>Dâscă</h1>
+                <h2>Sabrina-Ioana</h2>
+                <h4>Email: sabrinadasca@gmail.com</h4>
+                <h4>Phone Number: 0729579560</h4>
+
+            </div>
+            <div class="reprez">
+                <h1>Couti</h1>
+                <h2>Paul</h2>
+                <h4>Email: coutipaul372@gmail.com</h4>
+                <h4>Phone Number: 074528065</h4>
+            </div>
+            <div class="reprez">
+                <h1>Neculcea</h1>
+                <h2>Davide</h2>
+                <h4>Email: davidee.neculcea@gmail.com</h4>
+                <h4>Phone Number: 0745837559</h4>
+            </div>
+
+
+        </div>
+
+        <div class="container">
+            <h2 class="text-outline">FACULTATEA DE<span class="highlight">AUTOMATICĂ ȘI CALCULATOARE</span></h2>
+        </div>
+        <div class="scroll-container">
+            <div class="reprez">
+                <h1>Filip</h1>
+                <h2>Cristian-Mihai</h2>
+                <h4>Email: cristifilip2002@gmail.com</h4>
+                <h4>Phone Number: 0760993125</h4>
+
+            </div>
+            <div class="reprez">
+                <h1>Demean</h1>
+                <h2>Vlad</h2>
+                <h4>Email: demeanvlad8@gmail.com</h4>
+                <h4>Phone Number: 0736353111</h4>
+            </div>
+            <div class="reprez">
+                <h1>Nechita</h1>
+                <h2>Florina-Elena</h2>
+                <h4>Email: nechitaflorina2002@gmail.com</h4>
+                <h4>Phone Number: 0725534103</h4>
+            </div>
+            <div class="reprez">
+                <h1>Mozacu</h1>
+                <h2>Ştefania-Cristina</h2>
+                <h4>Email: stefaniamozacu1@gmail.com</h4>
+                <h4>Phone Number: 0756032882</h4>
+            </div>
+            <div class="reprez">
+                <h1>Bălănescu</h1>
+                <h2>Rareș-Ioan</h2>
+                <h4>Email: raresbalanescu@gmail.com</h4>
+                <h4>Phone Number: 0786825333</h4>
+            </div>
+            <div class="reprez">
+                <h1>Mureșan</h1>
+                <h2>Daria</h2>
+                <h4>Email: dariamuresan100@gmail.com</h4>
+                <h4>Phone Number: 0757203096</h4>
+            </div>
+            <div class="reprez">
+                <h1>Tudose</h1>
+                <h2>Rareș</h2>
+                <h4>Email: tudoserares20@gmail.com</h4>
+                <h4>Phone Number: 0742869019</h4>
+            </div>
+
+            <div class="reprez">
+                <h1>Avram</h1>
+                <h2>Iulia</h2>
+                <h4>Email: iuliaavram455@gmail.com</h4>
+                <h4>Phone Number: 0737615259</h4>
+            </div>
+
+            <div class="reprez">
+                <h1>Duțulescu</h1>
+                <h2>Aurelia-Georgiana</h2>
+                <h4>Email: dutulescureli14@gmail.com</h4>
+                <h4>Phone Number: 0746532877</h4>
+            </div>
+            <div class="reprez">
+                <h1>Vasile</h1>
+                <h2>Maria-Lorena</h2>
+                <h4>Email: vasilemarialorena@gmail.com</h4>
+                <h4>Phone Number: 0754637917</h4>
+            </div>
+
+
+
+        </div>
+
+        <div class="container">
+            <h2 class="text-outline">FACULTATEA DE<span class="highlight">AUTOVEHICULE RUTIERE, MECATRONICĂ SI
+                    MECANICĂ</span></h2>
+        </div>
+        <div class="scroll-container">
+            <div class="reprez">
+                <h1>Balazs</h1>
+                <h2>Andra-Renata</h2>
+                <h4>Email: andrarenata8@yahoo.com</h4>
+                <h4>Phone Number: 0757232711</h4>
+            </div>
+            <div class="reprez">
+                <h1>Bria</h1>
+                <h2>Mara-Aiyana</h2>
+                <h4>Email: aiyanamara@gmail.com</h4>
+                <h4>Phone Number: 0758091841</h4>
+            </div>
+            <div class="reprez">
+                <h1>Crăcăoanu</h1>
+                <h2>Răzvan-Ioan</h2>
+                <h4>Email: razvanioan071@gmail.com</h4>
+                <h4>Phone Number: 0754530670</h4>
+            </div>
+            <div class="reprez">
+                <h1>Ungur</h1>
+                <h2>Ştefania Denisa</h2>
+                <h4>Email: stefania_ungur@yahoo.com</h4>
+                <h4>Phone Number: 0745170966</h4>
+            </div>
+            <div class="reprez">
+                <h1>Cotea</h1>
+                <h2>Teona-Maria</h2>
+                <h4>Email: teonacotea@gmail.com</h4>
+                <h4>Phone Number: 0770863134</h4>
+            </div>
+            <div class="reprez">
+                <h1>Faur</h1>
+                <h2>David-Mihai</h2>
+                <h4>Email: faur.david850@gmail.com</h4>
+                <h4>Phone Number: 0761192359</h4>
+            </div>
+            <div class="reprez">
+                <h1>Virlan</h1>
+                <h2>Dragos-George</h2>
+                <h4>Email: dragosvirlan2413@gmail.com</h4>
+                <h4>Phone Number: 0746373983</h4>
+            </div>
+        </div>
+
+        <div class="container">
+            <h2 class="text-outline">FACULTATEA DE<span class="highlight">CONSTRUCȚII</span></h2>
+        </div>
+        <div class="scroll-container">
+            <div class="reprez">
+                <h1>Lenghel</h1>
+                <h2>Carmen-Anamaria</h2>
+                <h4>Email: carmenlenghek@gmail.com</h4>
+                <h4>Phone Number: 0763600973</h4>
+            </div>
+            <div class="reprez">
+                <h1>Timiș</h1>
+                <h2>Traian Marius</h2>
+                <h4>Email: traiantimis02@gmail.com</h4>
+                <h4>Phone Number: 0757332298</h4>
+            </div>
+            <div class="reprez">
+                <h1>Abiculesei</h1>
+                <h2>Denis-Andrei</h2>
+                <h4>Email: abiculeseidenis7@gmail.com</h4>
+                <h4>Phone Number: 0745360232</h4>
+            </div>
+            <div class="reprez">
+                <h1>Buda</h1>
+                <h2>Sebastian Petru</h2>
+                <h4>Email: sebipetrubuda@gmail.com</h4>
+                <h4>Phone Number: 0771495509</h4>
+            </div>
+            <div class="reprez">
+                <h1>Secară</h1>
+                <h2>Călin-Bogdan</h2>
+                <h4>Email: calinbogdan02@gmail.com</h4>
+                <h4>Phone Number: 0734785227</h4>
+            </div>
+            <div class="reprez">
+                <h1>Ormindean</h1>
+                <h2>Vlad Cosmin</h2>
+                <h4>Email: ormindeanvlad@gmail.com</h4>
+                <h4>Phone Number: 0743135003</h4>
+            </div>
+            <div class="reprez">
+                <h1>Urian</h1>
+                <h2>Andrei-Lucian</h2>
+                <h4>Email: urian.lucian@yahoo.com</h4>
+                <h4>Phone Number: 0771239970</h4>
+            </div>
+            <div class="reprez">
+                <h1>Miherta</h1>
+                <h2>Florentina-Ioana</h2>
+                <h4>Email: ioanamiherta2@gmail.com</h4>
+                <h4>Phone Number: 0742683469</h4>
+            </div>
+            <div class="reprez">
+                <h1>Marcu</h1>
+                <h2>Petra-Denisa</h2>
+                <h4>Email: marcudenisa3@gmail.com</h4>
+                <h4>Phone Number: 0755194584</h4>
+            </div>
+
+
+
+        </div>
+
+
+        <div class="container">
+            <h2 class="text-outline">FACULTATEA DE<span class="highlight">ELECTRONICĂ, TELECOMUNICAȚII ȘI TEHNOLOGIA
+                    INFORMAȚIEI</span></h2>
+        </div>
+        <div class="scroll-container">
+            <div class="reprez">
+                <h1>Oros</h1>
+                <h2>Ovidiu-Tiberiu</h2>
+                <h4>Email: Oros.Ov.Ovidiu@student.utcluj.ro</h4>
+                <h4>Phone Number: 0758346910</h4>
+            </div>
+            <div class="reprez">
+                <h1>Nicoară</h1>
+                <h2>Paul-Nicolae</h2>
+                <h4>Email: nicoara.ni.paul@student.utcluj.ro</h4>
+                <h4>Phone Number: 0799856742</h4>
+            </div>
+            <div class="reprez">
+                <h1>Arimia</h1>
+                <h2>Andreea-Ștefania</h2>
+                <h4>Email: Arimia.Io.Andreea@student.utcluj.ro</h4>
+                <h4>Phone Number: 0762385168</h4>
+            </div>
+            <div class="reprez">
+                <h1>Drule</h1>
+                <h2>Daniela-Ileana</h2>
+                <h4>Email: Drule.Vi.Daniela@student.utcluj.ro</h4>
+                <h4>Phone Number: 0765502464</h4>
+            </div>
+            <div class="reprez">
+                <h1>Avram</h1>
+                <h2>Maria</h2>
+                <h4>Email: Avram.Ma.Maria@student.utcluj.ro</h4>
+                <h4>Phone Number: 0741139690</h4>
+            </div>
+            <div class="reprez">
+                <h1>Beldean</h1>
+                <h2>Ioana Maria</h2>
+                <h4>Email: Beldean.Io.Ioana@student.utcluj.ro</h4>
+                <h4>Phone Number: 0743975523</h4>
+            </div>
+            <div class="reprez">
+                <h1>Ciotea</h1>
+                <h2>Alexandra-Anamaria</h2>
+                <h4>Email: Ciotea.Ad.Alexandra@student.utcluj.ro</h4>
+                <h4>Phone Number: 0741285543</h4>
+            </div>
+
+        </div>
+
+
+        <div class="container">
+            <h2 class="text-outline">FACULTATEA DE<span class="highlight">INGINERIA MATERIALELOR ȘI A MEDIULUI</span>
+            </h2>
+        </div>
+        <div class="scroll-container">
+            <div class="reprez">
+                <h1>Borodi</h1>
+                <h2>Cristina</h2>
+                <h4>Email: cristinaborodi2003@gmail.com</h4>
+                <h4>Phone Number: 0762543494</h4>
+            </div>
+            <div class="reprez">
+                <h1>Adorean</h1>
+                <h2>Lorena-Valentina</h2>
+                <h4>Email: adoreanlorena@gmail.com</h4>
+                <h4>Phone Number: 0771008548</h4>
+            </div>
+            <div class="reprez">
+                <h1>Cojocaru</h1>
+                <h2>Ana-Maria Nuți</h2>
+                <h4>Email: anamariaann222n@gmail.com</h4>
+                <h4>Phone Number: 0764730269</h4>
+            </div>
+            <div class="reprez">
+                <h1>Gherman</h1>
+                <h2>Anamaria Luisa</h2>
+                <h4>Email: ursan.annamarya.10@gmail.com</h4>
+                <h4>Phone Number: 0756608672</h4>
+            </div>
+
+
+
+        </div>
+        <div class="container">
+            <h2 class="text-outline">FACULTATEA DE<span class="highlight">INGINERIE A INSTALAȚIILOR</span></h2>
+        </div>
+        <div class="scroll-container">
+            <div class="reprez">
+                <h1>Nasca</h1>
+                <h2>Tudor</h2>
+                <h4>Email: nascatudor@gmail.com</h4>
+                <h4>Phone Number: 0760237647</h4>
+            </div>
+            <div class="reprez">
+                <h1>Costea</h1>
+                <h2>Alina-Paula-Daniela</h2>
+                <h4>Email: acostea53@yahoo.com</h4>
+                <h4>Phone Number: 0731853115</h4>
+            </div>
+            <div class="reprez">
+                <h1>Rusu</h1>
+                <h2>Horia-Daniel</h2>
+                <h4>Email: horiarusu21@gmail.com</h4>
+                <h4>Phone Number: 0747473335</h4>
+            </div>
+
+
+        </div>
+
+        <div class="container">
+            <h2 class="text-outline">FACULTATEA DE<span class="highlight">INGINERIE ELECTRICĂ</span></h2>
+        </div>
+        <div class="scroll-container">
+            <div class="reprez">
+                <h1>Mihai</h1>
+                <h2>Vlad-Gabriel</h2>
+                <h4>Email: mihaivg@gmail.com</h4>
+                <h4>Phone Number: 0732801763</h4>
+            </div>
+            <div class="reprez">
+                <h1>Ocneru</h1>
+                <h2>Diana</h2>
+                <h4>Email: ocnerudiana@gmail.com</h4>
+                <h4>Phone Number: 0757949870</h4>
+            </div>
+            <div class="reprez">
+                <h1>Moldovan</h1>
+                <h2>Ana-Maria</h2>
+                <h4>Email: anamariamoldovan09.amm@gmail.com</h4>
+                <h4>Phone Number: 0743282230</h4>
+            </div>
+            <div class="reprez">
+                <h1>Spătăcean</h1>
+                <h2>Lidia-Giorgiana</h2>
+                <h4>Email: sgiorgiana02@gmail.com</h4>
+                <h4>Phone Number: 0783054447</h4>
+            </div>
+            <div class="reprez">
+                <h1>Dumitrean</h1>
+                <h2>Denis-Andrei</h2>
+                <h4>Email: denisandreidumitrean@gmail.com</h4>
+                <h4>Phone Number: 0768456800</h4>
+            </div>
+            <div class="reprez">
+                <h1>Prode</h1>
+                <h2>Ioana Ștefania</h2>
+                <h4>Email: niastefa56@gmail.com</h4>
+                <h4>Phone Number: 0741397575</h4>
+            </div>
+
+
+        </div>
+
+        <div class="container">
+            <h2 class="text-outline">FACULTATEA DE<span class="highlight">INGINERIE INDUSTRIALĂ, ROBOTICĂ ȘI
+                    MANAGEMENTUL PRODUCȚIEI</span></h2>
+        </div>
+
+        <div class="scroll-container">
+            <div class="reprez">
+                <h1>Licu</h1>
+                <h2>Arina-Andreea</h2>
+                <h4>Email: arina.licu04@gmail.com</h4>
+                <h4>Phone Number: 0770938737</h4>
+            </div>
+            <div class="reprez">
+                <h1>Nistor</h1>
+                <h2>Marius-Gabriel</h2>
+                <h4>Email: nistormarius200@gmail.com</h4>
+                <h4>Phone Number: 0749631616</h4>
+            </div>
+            <div class="reprez">
+                <h1>Livinschi</h1>
+                <h2>Cătălina</h2>
+                <h4>Email: catalinalivinschi97@gmail.com</h4>
+                <h4>Phone Number: 0759145397</h4>
+            </div>
+            <div class="reprez">
+                <h1>Maxim</h1>
+                <h2>Andrei-Vasile</h2>
+                <h4>Email: andreimaxim805@gmail.com</h4>
+                <h4>Phone Number: 0756465679</h4>
+            </div>
+            <div class="reprez">
+                <h1>Streza</h1>
+                <h2>Cornel Bogdan</h2>
+                <h4>Email: bogdanstreza17@gmail.com</h4>
+                <h4>Phone Number: 0761024876</h4>
+            </div>
+
+            <div class="reprez">
+                <h1>Megheșan</h1>
+                <h2>Ana Camelia</h2>
+                <h4>Email: cameliameghesan105@gmail.com</h4>
+                <h4>Phone Number: 0756824591</h4>
+            </div>
+            <div class="reprez">
+                <h1>Man</h1>
+                <h2>Richard Daniel</h2>
+                <h4>Email: manricharddaniel@yahoo.com</h4>
+                <h4>Phone Number: 0745670036</h4>
+            </div>
+            <div class="reprez">
+                <h1>Spătar</h1>
+                <h2>Georgiana-Teodora</h2>
+                <h4>Email: georgispatar@gmail.com</h4>
+                <h4>Phone Number: 0752137279</h4>
+            </div>
+            <div class="reprez">
+                <h1>Privigyei</h1>
+                <h2>Ana-Maria-Alexandra</h2>
+                <h4>Email: privigyeianamaria@gmail.com</h4>
+                <h4>Phone Number: 0758740453</h4>
+            </div>
+
+
+        </div>
+        <div class="container">
+            <h2 class="text-outline">CONSIILE FACULTĂȚILOR - BAIA MARE</h2>
+        </div>
+
+        <div class="container">
+            <h2 class="text-outline">FACULTATEA DE<span class="highlight">INGINERIE</span></h2>
+        </div>
+        <div class="scroll-container">
+            <div class="reprez">
+                <h1>Gyorgy</h1>
+                <h2>Melissza Szemida</h2>
+                <h4>Email: Gyorgymelissza@gmail.com</h4>
+                <h4>Phone Number: 0747487529</h4>
+            </div>
+            <div class="reprez">
+                <h1>Țînțaș</h1>
+                <h2>Gheorghe-Mihăiță</h2>
+                <h4>Email: gheorghetintas.14@gmail.com</h4>
+                <h4>Phone Number: 0751535197</h4>
+            </div>
+            <div class="reprez">
+                <h1>Sillai</h1>
+                <h2>Beatrice</h2>
+                <h4>Email: sillaibeatrice@gmail.com</h4>
+                <h4>Phone Number: 0732779412</h4>
+            </div>
+
+        </div>
+
+
+        <div class="container">
+            <h2 class="text-outline">FACULTATEA DE<span class="highlight">LITERE</span></h2>
+        </div>
+        <div class="scroll-container">
+            <div class="reprez">
+                <h1>Dragoș</h1>
+                <h2>Alex</h2>
+                <h4>Email: dragosalex318@gmail.com</h4>
+                <h4>Phone Number: 0757695110</h4>
+            </div>
+            <div class="reprez">
+                <h1>Popdan</h1>
+                <h2>Nicoleta Andreea</h2>
+                <h4>Email: nicoletapopdan20@gmail.com</h4>
+                <h4>Phone Number: 0752063197</h4>
+            </div>
+            <div class="reprez">
+                <h1>Neamț</h1>
+                <h2>Lorena-Alexandra</h2>
+                <h4>Email: lanlore236@gmail.com</h4>
+                <h4>Phone Number: 0743080346</h4>
+            </div>
+            <div class="reprez">
+                <h1>Gaier</h1>
+                <h2>Andreea-Cristiana</h2>
+                <h4>Email: andreeagaier.student@gmail.com</h4>
+                <h4>Phone Number: 0764553543</h4>
+            </div>
+
+
+        </div>
+
+
+        <div class="container">
+            <h2 class="text-outline">FACULTATEA DE<span class="highlight">ȘTIINȚE</span></h2>
+        </div>
+        <div class="scroll-container">
+            <div class="reprez">
+                <h1>Şepşi</h1>
+                <h2>Roxana</h2>
+                <h4>Email: roxanasepsi_09@yahoo.com</h4>
+                <h4>Phone Number: 0741900411</h4>
+            </div>
+            <div class="reprez">
+                <h1>Deak</h1>
+                <h2>Szilvia Szabina</h2>
+                <h4>Email: szilvia.deak@lspv.ro</h4>
+                <h4>Phone Number: 0756371095</h4>
+            </div>
+            <div class="reprez">
+                <h1>Covaci</h1>
+                <h2>Sebastian Gabriel</h2>
+                <h4>Email: seb.covaci@gmail.com</h4>
+                <h4>Phone Number: 0752664094</h4>
+            </div>
+            <div class="reprez">
+                <h1>Leonte</h1>
+                <h2>Cosmin</h2>
+                <h4>Email: asassinulyoutubuluy@gmail.com</h4>
+                <h4>Phone Number: 0757184357</h4>
+            </div>
+
+
+        </div>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                document.querySelectorAll(".reprez").forEach(function (container) {
+                    container.innerHTML = container.innerHTML.replace(
+                        /Email: ([^<\s]+)/gi,
+                        'Email: <a href="mailto:$1" class="contact-link">$1</a>'
+                    ).replace(
+                        /Phone Number: ([^<\s]+)/gi,
+                        'Phone Number: <a href="tel:$1" class="contact-link">$1</a>'
+                    );
+                });
+            });
+        </script>
+
+    </main>
+
+    {{!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in
+    default.hbs --}}
+    {{#contentFor "scripts"}}
+    <script defer src="{{asset " js/page.js"}}"></script>
+    {{/contentFor}}

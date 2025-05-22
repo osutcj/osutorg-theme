@@ -4,51 +4,270 @@ This template is used for the posts that are marked as pages.
 
 {{!-- This block preloads specific assets for the post page --}}
 {{#contentFor "preload"}}
-  <link rel="preload" href="{{asset "css/post.css"}}" as="style" />
-  <link rel="preload" href="{{asset "js/page.js"}}" as="script" />
+<link rel="preload" href="{{asset " css/post.css"}}" as="style" />
+<link rel="preload" href="{{asset " js/page.js"}}" as="script" />
 {{/contentFor}}
 
 {{!-- This block loads specific styles for the post page --}}
 {{#contentFor "styles"}}
-  <link rel="stylesheet" type="text/css" href="{{asset "css/post.css"}}" media="screen" />
+<link rel="stylesheet" type="text/css" href="{{asset " css/post.css"}}" media="screen" />
 {{/contentFor}}
+
+<style>
+
+</style>
 
 {{!-- The tag below means: insert everything in this file
 into the {body} of the default.hbs template --}}
-{{!< default}}
-
-{{!-- Special header.hbs partial to generate the <header> tag --}}
-{{#post}}
-  {{> header background=feature_image}}
-{{/post}}
-
-<main class="main-wrap">
-  {{!-- Everything inside the #post tags pulls data from the post --}}
+{{!< default}} {{!-- Special header.hbs partial to generate the <header> tag --}}
   {{#post}}
-    {{!-- Inject styles of the hero image to make it responsive --}}
-    {{> hero background=feature_image}}
-    <div class="m-hero__content" data-aos="fade-down">
-      <h1 class="m-hero-title bigger">{{title}}</h1>
-      {{#if custom_excerpt}}
-        <p class="m-hero-description">{{custom_excerpt}}</p>
-      {{/if}}
+  {{> header background=feature_image}}
+  {{/post}}
+<style>
+  html, body {
+    height: 100%;
+    margin: 0;
+  }
+
+  body {
+    background-image: url("{{asset 'images/sky.jpg'}}");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+  }
+
+  .main-wrap {
+    background: none;
+  }
+
+  .container {
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+
+  .text-outline, .highlight {
+    margin: 0 0 1rem 0;
+    font-size: 32px;
+    font-weight: bold;
+    color: transparent;
+    -webkit-text-stroke: 1px white;
+    text-transform: uppercase;
+    text-align: center;
+    display: block;
+    width: 100%;
+    word-break: break-word;
+  }
+
+  .highlight {
+    -webkit-text-stroke: 1px RED;
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 10vh;
+    padding: 0 20px;
+  }
+
+  .button-download {
+    background-color: #a50000;
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    display: inline-block;
+    width: 100%;
+    max-width: 300px;
+    transition: 0.3s ease-in-out;
+  }
+
+  .button-download:hover {
+    background-color: #800000;
+  }
+
+  .scroll-container {
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    width: 90%;
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    scrollbar-width: none;
+  }
+
+  .scroll-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scroll-container img {
+    height: 50vh;
+    object-fit: cover;
+  }
+
+  .reprez {
+    margin: 2rem auto;
+    padding: 2rem;
+    max-width: 600px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    color: #000;
+    flex: 0 0 auto;
+    margin-right: 3vw;
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    word-break: break-word;
+  }
+
+  .mt-1 {
+    margin-top: 1rem !important;
+  }
+
+  @media (max-width: 768px) {
+    .text-outline, .highlight {
+      font-size: 36px;
+    }
+
+    .button-download {
+      font-size: 16px;
+      padding: 12px 24px;
+      max-width: 90%;
+    }
+
+    .button-container {
+      flex-direction: column;
+    }
+
+    .reprez {
+      padding: 1.5rem;
+      width: 90vw;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .reprez {
+      width: 500px;
+    }
+  }
+</style>
+
+
+  <main class="main-wrap">
+
+
+    <div class="container" style="margin-top: 5vh;">
+      <h2 class="text-outline">Documentele utile</h2>
     </div>
-    </section>
-    <article>
-      <div class="l-content">
-        <div class="l-wrapper in-post" data-aos="fade-up" data-aos-delay="300">
-          <div class="l-post-content">
-            <div class="pos-relative js-post-content">
-              {{content}}
-            </div>
-          </div>
+    <div class="scroll-container">
+      <div class="reprez">
+        <div class="container">
+          <h2 class="text-outline">CARTA</h2>
+        </div>
+        <div class="button-container">
+          <a href="/assets/pdf/carta.pdf" download class="button-download">
+            <i class="fa fa-download"></i> DOWNLOAD HERE</a>
         </div>
       </div>
-    </article>
-  {{/post}}
-</main>
 
-{{!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs --}}
-{{#contentFor "scripts"}}
-  <script defer src="{{asset "js/page.js"}}"></script>
-{{/contentFor}}
+      <div class="reprez">
+        <div class="container">
+          <h2 class="text-outline">ECTS</h2>
+        </div>
+        <div class="button-container">
+          <a href="/assets/pdf/ects.pdf" download class="button-download">
+            <i class="fa fa-download"></i> DOWNLOAD HERE</a>
+        </div>
+      </div>
+
+      <div class="reprez">
+        <div class="container">
+          <h2 class="text-outline">BURSE</h2>
+        </div>
+        <div class="button-container">
+          <a href="/assets/pdf/burse.pdf" download class="button-download">
+            <i class="fa fa-download"></i> DOWNLOAD HERE</a>
+        </div>
+      </div>
+
+      <div class="reprez">
+        <div class="container">
+          <h2 class="text-outline">TAXE</h2>
+        </div>
+        <div class="button-container">
+          <a href="/assets/pdf/taxe.pdf" download class="button-download">
+            <i class="fa fa-download"></i> DOWNLOAD HERE</a>
+        </div>
+      </div>
+
+      <div class="reprez">
+        <div class="container">
+          <h2 class="text-outline">CAMINE CANTINE</h2>
+        </div>
+        <div class="button-container">
+          <a href="/assets/pdf/caminecantine.pdf" download class="button-download">
+            <i class="fa fa-download"></i> DOWNLOAD HERE</a>
+        </div>
+      </div>
+
+      
+
+      <div class="reprez">
+        <div class="container">
+          <h2 class="text-outline">CDOS</h2>
+        </div>
+        <div class="button-container">
+          <a href="/assets/pdf/CDOS.pdf" download class="button-download">
+            <i class="fa fa-download"></i> DOWNLOAD HERE</a>
+        </div>
+      </div>
+
+      <div class="reprez">
+        <div class="container">
+          <h2 class="text-outline mt-1">Ghidul Studentului </h2>
+          <h2 class="text-outline">licenta</h2>
+        </div>
+        <div class="button-container">
+          <a href="/assets/pdf/ghid_student_licenta.pdf" download class="button-download">
+            <i class="fa fa-download"></i> DOWNLOAD HERE</a>
+        </div>
+      </div>
+
+      <div class="reprez">
+        <div class="container">
+          <h2 class="text-outline mt-1">Ghidul Studentului </h2>
+          <h2 class="text-outline">master</h2>
+        </div>
+        <div class="button-container">
+          <a href="/assets/pdf/ghid_student_master.pdf" download class="button-download">
+            <i class="fa fa-download"></i> DOWNLOAD HERE</a>
+        </div>
+      </div>
+    </div>
+
+
+  </main>
+
+  {{!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in
+  default.hbs --}}
+  {{#contentFor "scripts"}}
+  <script defer src="{{asset " js/page.js"}}"></script>
+  {{/contentFor}}

@@ -76,5 +76,14 @@
     "desktop": "assets/screenshot-desktop.jpg",
     "mobile": "assets/screenshot-mobile.jpg"
   },
-  "version": "1.5.2"
+  "version": "1.5.2",
+  "dependencies": {
+    "@tailwindcss/vite": "^4.0.14",
+    "tailwindcss": "^4.0.14"
+  }
+
+  
 }
+
+
+

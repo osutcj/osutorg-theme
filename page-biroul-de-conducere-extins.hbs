@@ -1,0 +1,547 @@
+{{!--
+This template is used for the posts that are marked as pages.
+--}}
+
+{{#contentFor "preload"}}
+<link rel="preload" href="{{asset " css/post.css"}}" as="style" />
+<link rel="preload" href="{{asset " js/page.js"}}" as="script" />
+{{/contentFor}}
+
+{{#contentFor "styles"}}
+<link rel="stylesheet" type="text/css" href="{{asset " css/post.css"}}" media="screen" />
+{{/contentFor}}
+
+{{!< default}} {{#post}} {{> header background=feature_image}}
+    {{/post}}
+
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+        }
+
+        body {
+            background-image: url("{{asset 'images/sky.jpg'}}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .main-wrap {
+            background: none;
+        }
+
+        .team-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            padding: 2rem;
+            width: 80%;
+            margin: 0 auto;
+            max-width: 60%;
+
+        }
+
+        .team-card {
+            text-align: center;
+            max-width: 250px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .team-photo {
+            width: 100%;
+            border-radius: 50%;
+            filter: drop-shadow(0px 0px 9px white) saturate(1.5);
+            object-fit: cover;
+            aspect-ratio: 1 / 1;
+            background-color: #222;
+        }
+
+        .team-name {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-top: 1rem;
+        }
+
+        .last-name {
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .first-name {
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .team-role {
+            color: #c10000;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 600px) {
+            .team-card {
+                max-width: 200px;
+            }
+
+            .team-name {
+                font-size: 1.4rem;
+            }
+
+            .team-role {
+                font-size: 1rem;
+            }
+        }
+
+        .img-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 90%;
+            margin-top: 10vh;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .img-center {
+            display: block;
+            width: 100%;
+            height: auto;
+            filter: drop-shadow(0px 0px 9px white);
+            border-radius: 5%;
+        }
+
+        .container {
+            text-align: center;
+            width: 90%;
+            margin: 10px auto;
+        }
+
+
+        .text-outline {
+            font-size: 54px;
+            font-weight: bold;
+            color: transparent;
+            -webkit-text-stroke: 1px white;
+            text-transform: uppercase;
+            text-align: center;
+            display: block;
+            width: 100%;
+        }
+
+        .highlight {
+            font-size: 54px;
+            font-weight: bold;
+            color: transparent;
+            -webkit-text-stroke: 1px RED;
+            text-transform: uppercase;
+            text-align: center;
+            display: block;
+            width: 100%;
+        }
+
+        .icon {
+            margin: 5px;
+            color: white !important;
+            text-decoration: none;
+            font-size: 22px;
+            transition-duration: 400ms;
+        }
+
+        .icon:hover {
+            color: #B50000 !important;
+        }
+
+        .img-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 90%;
+            margin-top: 10vh;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .img-center {
+            display: block;
+            width: 100%;
+            height: auto;
+            filter: drop-shadow(0px 0px 9px white);
+            border-radius: 5%;
+        }
+
+        .team-final-image {
+            display: block;
+            width: 70%;
+            margin: 60px auto 40px auto;
+            border-radius: 20px;
+            filter: brightness(0.9) contrast(1.1) saturate(1.2) drop-shadow(0 0 8px white);
+            transition: 0.3s ease-in-out;
+            margin-bottom: 0;
+        }
+
+        .team-final-image:hover {
+            transform: scale(1.02);
+            filter: brightness(1) contrast(1.2) saturate(1.4) drop-shadow(0 0 10px #ff0000);
+        }
+
+        .hover-image-container {
+            position: relative;
+            width: 80%;
+            margin: 0.1vh auto 0 auto;
+            aspect-ratio: 3 / 2;
+            overflow: hidden;
+        }
+
+        .hover-image-container img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            /* ✅ păstrează proporțiile corect fără crop */
+            border-radius: 20px;
+            filter: brightness(0.9) contrast(1.1) saturate(1.2) drop-shadow(0 0 8px white);
+            transition: 0.3s ease-in-out;
+            display: block;
+            vertical-align: bottom;
+        }
+
+
+
+        .default-img {
+            z-index: 1;
+        }
+
+        .hover-img {
+            opacity: 0;
+            z-index: 2;
+        }
+
+        .hover-image-container:hover .hover-img {
+            opacity: 1;
+            transform: scale(1.02);
+            filter: brightness(1) contrast(1.2) saturate(1.4) drop-shadow(0 0 10px #ff0000);
+        }
+
+        .hover-image-container:hover .default-img {
+            opacity: 0;
+        }
+
+        .bc-title {
+            font-family: 'Arial Black', sans-serif;
+            font-size: clamp(2rem, 5vw, 4rem);
+            /* scalare între 2rem și 4rem în funcție de ecran */
+            text-align: center;
+            margin: 5rem 1rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            line-height: 1.1;
+        }
+
+        .white-text {
+            color: white;
+            text-shadow: 2px 2px 4px red;
+        }
+
+        .red-text {
+            color: red;
+            font-weight: 900;
+            text-shadow: 2px 2px 4px white;
+        }
+    </style>
+
+    <main class="main-wrap">
+        <h1 class="bc-title">
+            <span class="white-text">BIROUL DE</span> <span class="red-text">CONDUCERE EXTINS</span>
+        </h1>
+
+        <div class="hover-image-container">
+            <img src="/assets/images/bce/bce.png" class="team-final-image default-img">
+            <img src="/assets/images/bce/bce1.png" class="team-final-image hover-img">
+        </div>
+
+        <div class="container" style="margin-top: 5vh;">
+            <h2 class="text-outline">DIRECȚII</h2>
+        </div>
+
+        <div class="team-section">
+            <div class="team-card">
+                <img src="/assets/images/bce/Seulean.jpg" alt="Timis Traian" class="team-photo">
+                <div class="team-name">
+                    <span class="last-name">Șeulean</span><span class="first-name">DRAGOȘ</span>
+                </div>
+                <div class="team-role">Coord. Cultural</div>
+                <div class="links">
+                    <a class="icon" href="https://www.facebook.com/share/15vaKHqSh8/?mibextid=LQQJ4d" target="_blank"><i
+                            class="fab fa-facebook"></i></a>
+                    <a class="icon"
+                        href="https://www.instagram.com/dragos.seu?igsh=MWU0bG81dzY0NjVsZg%3D%3D&amp;utm_source=qr"
+                        target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a class="icon"
+                        href="https://www.linkedin.com/in/drago%C8%99-oliviu-%C8%99eulean-13605220a/?ref=osut.org"
+                        target="_blank"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+
+            <div class="team-card">
+                <img src="/assets/images/bce/DanielaIN.jpg" alt="Tudose Rareș" class="team-photo">
+                <div class="team-name">
+                    <span class="last-name">Indreiu</span><span class="first-name">DANIELA</span>
+                </div>
+                <div class="team-role">Coord. Divertisment</div>
+                <div class="links">
+                    <a class="icon" href="https://www.facebook.com/danielaioana.indreiu/" target="_blank"><i
+                            class="fab fa-facebook"></i></a>
+                    <a class="icon" href="https://www.instagram.com/daniela.indreiu/?ref=osut.org" target="_blank"><i
+                            class="fab fa-instagram"></i></a>
+                    <a class="icon" href="https://www.linkedin.com/in/daniela-indreiu-52a503348/?ref=osut.org"
+                        target="_blank"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+
+            <div class="team-card">
+                <img src="/assets/images/bce/Juravle.jpg" alt="Spătăcean Giorgiana" class="team-photo">
+                <div class="team-name">
+                    <span class="last-name">Juravle</span><span class="first-name">MONICA</span>
+                </div>
+                <div class="team-role">Coord. Educațional</div>
+                <div class="links">
+                    <a class="icon" href="https://www.facebook.com/juravle.monica27/" target="_blank"><i
+                            class="fab fa-facebook"></i></a>
+                    <a class="icon" href="https://www.instagram.com/monicajuravle/?ref=osut.org" target="_blank"><i
+                            class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <div class="team-card">
+                <img src="/assets/images/bce/LexaC.jpg" alt="Filip Cristian" class="team-photo">
+                <div class="team-name">
+                    <span class="last-name">Ciotea</span><span class="first-name">ALEXANDRA</span>
+                </div>
+                <div class="team-role">Coord. Sport și Sănătate</div>
+                <div class="links">
+                    <a class="icon" href="https://www.facebook.com/alexandra.ciotea.58" target="_blank"><i
+                            class="fab fa-facebook"></i></a>
+                    <a class="icon" href="https://www.instagram.com/lexa.ciotea?igsh=YmptNDZyOHZ5cTdh&amp;utm_source=qr"
+                        target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a class="icon" href="https://www.linkedin.com/in/alexandra-anamaria-ciotea-9832a42b1/?ref=osut.org"
+                        target="_blank"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+
+            <div class="team-card">
+                <img src="/assets/images/bce/RaresBALA.jpg" alt="Abiculesei Denis" class="team-photo">
+                <div class="team-name">
+                    <span class="last-name">Bălănescu</span><span class="first-name">RAREȘ</span>
+                </div>
+                <div class="team-role">Coord. Tineret</div>
+                <div class="links">
+                    <a class="icon" href="https://www.facebook.com/rares.balanescu?locale=ro_RO" target="_blank"><i
+                            class="fab fa-facebook"></i></a>
+                    <a class="icon" href="https://www.instagram.com/rares.bala_4/?ref=osut.org" target="_blank"><i
+                            class="fab fa-instagram"></i></a>
+                    <a class="icon" href="https://www.linkedin.com/in/rares-balanescu-790958298/?ref=osut.org"
+                        target="_blank"><i class="fab fa-linkedin"></i></a>
+
+                </div>
+            </div>
+
+            <div class="container" style="margin-top: 5vh;">
+                <h2 class="text-outline">SERVICII</h2>
+            </div>
+
+
+            <div class="team-card">
+                <img src="/assets/images/bce/Maia.jpg" alt="Nistor Marius" class="team-photo">
+                <div class="team-name">
+                    <span class="last-name">Avram</span><span class="first-name">MARIA</span>
+                </div>
+                <div class="team-role">Coord. Financiar</div>
+                <div class="links">
+                    <a class="icon" href="https://www.facebook.com/profile.php?id=100008618348137" target="_blank"><i
+                            class="fab fa-facebook"></i></a>
+                    <a class="icon"
+                        href="https://www.instagram.com/maia_avram?igsh=MWFkcHJzc2E0cnFjcQ%3D%3D&amp;utm_source=qr"
+                        target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a class="icon" href="http://www.linkedin.com/in/maya-avram-398a352b4?ref=osut.org"
+                        target="_blank"><i class="fab fa-linkedin"></i></a>
+
+                </div>
+            </div>
+
+            <div class="team-card">
+                <img src="/assets/images/bce/ElenaM.jpg" alt="Ortan Adela" class="team-photo">
+                <div class="team-name">
+                    <span class="last-name">Moiceanu</span><span class="first-name">ELENA</span>
+                </div>
+                <div class="team-role">Coord. Imagine</div>
+                <div class="links">
+                    <a class="icon" href="https://www.facebook.com/ella.moiceanu" target="_blank"><i
+                            class="fab fa-facebook"></i></a>
+
+                    <a class="icon" href="https://www.instagram.com/ellamoiceanu/?ref=osut.org" target="_blank"><i
+                            class="fab fa-instagram"></i></a>
+                    <a class="icon" href="http://www.linkedin.com/in/elena-moiceanu-494031269?ref=osut.org"
+                        target="_blank"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+
+            <div class="team-card">
+                <img src="/assets/images/bce/Georgi.jpg" alt="Ihoș Iarina" class="team-photo">
+                <div class="team-name">
+                    <span class="last-name">Murariu</span><span class="first-name">GEORGIANA</span>
+                </div>
+                <div class="team-role">Coord. IT</div>
+                <div class="links">
+                    <a class="icon" href="https://www.facebook.com/profile.php?id=100009081565180" target="_blank"><i
+                            class="fab fa-facebook"></i></a>
+
+                    <a class="icon" href="https://www.instagram.com/georgiamurariu/?ref=osut.org" target="_blank"><i
+                            class="fab fa-instagram"></i></a>
+                    <a class="icon" href="https://www.linkedin.com/in/georgiana-roxana-murariu-aa7272271/?ref=osut.org"
+                        target="_blank"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+
+            <div class="team-card">
+                <img src="/assets/images/bce/AlexandraH.jpg" alt="Prode Ștefania" class="team-photo">
+                <div class="team-name">
+                    <span class="last-name">Homiuc</span><span class="first-name">ALEXANDRA</span>
+                </div>
+                <div class="team-role">Coord. Media</div>
+                <div class="links">
+                    <a class="icon" href="https://www.facebook.com/alexandra.homiuc.77/" target="_blank"><i
+                            class="fab fa-facebook"></i></a>
+
+                    <a class="icon" href="https://www.instagram.com/alexandra.homiuc/?ref=osut.org" target="_blank"><i
+                            class="fab fa-instagram"></i></a>
+                    <a class="icon" href="https://www.linkedin.com/in/alexandra-homiuc-50755828b/?ref=osut.org"
+                        target="_blank"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+
+            <div class="team-card">
+                <img src="/assets/images/bce/VladO.jpg" alt="Prode Ștefania" class="team-photo">
+                <div class="team-name">
+                    <span class="last-name">Ormindean</span><span class="first-name">VLAD</span>
+                </div>
+                <div class="team-role">Coord. Tehnic-Administrativ</div>
+                <div class="links">
+                    <a class="icon" href="https://www.facebook.com/vlad.ormindean.1/" target="_blank"><i
+                            class="fab fa-facebook"></i></a>
+                    <a class="icon" href="https://www.instagram.com/__vld._/?ref=osut.org" target="_blank"><i
+                            class="fab fa-instagram"></i></a>
+
+
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="container" style="margin-top: 5vh;">
+            <h2 class="text-outline">PROIECTE</h2>
+        </div>
+
+        <div class="team-section">
+            <div class="team-card">
+                <img src="/assets/images/bce/FloreaALEX.jpg" alt="Nistor Marius" class="team-photo">
+                <div class="team-name">
+                    <span class="last-name">Florea</span><span class="first-name">ALEXANDRU</span>
+                </div>
+                <div class="team-role">Coord. ESU</div>
+                <div class="links">
+                    <a class="icon" href="https://www.facebook.com/flowerman13" target="_blank"><i
+                            class="fab fa-facebook"></i></a>
+                    <a class="icon" href="https://www.instagram.com/alexandruflorea13?ref=osut.org" target="_blank"><i
+                            class="fab fa-instagram"></i></a>
+
+                </div>
+            </div>
+
+            <div class="team-card">
+                <img src="/assets/images/bce/LenghelCARMEN.jpg" alt="Ortan Adela" class="team-photo">
+                <div class="team-name">
+                    <span class="last-name">Lenghel</span><span class="first-name">CARMEN</span>
+                </div>
+                <div class="team-role">Coord. Gala Aniversară</div>
+                <div class="links">
+                    <a class="icon" href="https://www.facebook.com/carmen.lenghel.9" target="_blank"><i
+                            class="fab fa-facebook"></i></a>
+                    <a class="icon" href="https://www.instagram.com/carmen.anamaria_/?ref=osut.org" target="_blank"><i
+                            class="fab fa-instagram"></i></a>
+                    <a class="icon"
+                        href="https://www.linkedin.com/feed/?trk=guest_homepage-basic_google-one-tap-submit&amp;ref=osut.org"
+                        target="_blank"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+
+            <div class="team-card">
+                <img src="/assets/images/bce/StefaniaM.jpg" alt="Ihoș Iarina" class="team-photo">
+                <div class="team-name">
+                    <span class="last-name">Mozacu</span><span class="first-name">ȘTEFANIA</span>
+                </div>
+                <div class="team-role">Coord. InfoTech</div>
+                <div class="links">
+                    <a class="icon" href="https://www.facebook.com/profile.php?id=100074283859738" target="_blank"><i
+                            class="fab fa-facebook"></i></a>
+                    <a class="icon" href="https://www.instagram.com/stefaniamozacu/?ref=osut.org" target="_blank"><i
+                            class="fab fa-instagram"></i></a>
+                    <a class="icon"
+                        href="https://www.linkedin.com/in/%C8%99tefania-cristina-mozacu-43977423b/?ref=osut.org"
+                        target="_blank"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+
+            <div class="team-card">
+                <img src="/assets/images/bce/Arimia.jpg" alt="Prode Ștefania" class="team-photo">
+                <div class="team-name">
+                    <span class="last-name">Arimia</span><span class="first-name">ANDREEA</span>
+                </div>
+                <div class="team-role">Coord. PoliHack</div>
+                <div class="links">
+                    <a class="icon" href="https://www.facebook.com/andreea.arimia" target="_blank"><i
+                            class="fab fa-facebook"></i></a>
+                    <a class="icon" href="https://www.instagram.com/andreeaa_stefaniaa/?ref=osut.org" target="_blank"><i
+                            class="fab fa-instagram"></i></a>
+                    <a class="icon" href="https://www.linkedin.com/in/andreea-arimia-0713972a2/?ref=osut.org"
+                        target="_blank"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+
+            <div class="team-card">
+                <img src="/assets/images/bce/ArinaL.jpg" alt="Prode Ștefania" class="team-photo">
+                <div class="team-name">
+                    <span class="last-name">Licu</span><span class="first-name">ARINA</span>
+                </div>
+                <div class="team-role">Coord. ViitorInginer</div>
+                <div class="links">
+                    <a class="icon" href="https://www.facebook.com/arina.licu" target="_blank"><i
+                            class="fab fa-facebook"></i></a>
+
+                    <a class="icon"
+                        href="https://www.instagram.com/arina_andreea?igsh=ZGQzZDg2NXdiZTg3&amp;utm_source=qr"
+                        target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a class="icon" href="https://www.linkedin.com/in/arina-licu-3355b520a/?ref=osut.org"
+                        target="_blank"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+
+        </div>
+
+    </main>
+
+    {{#contentFor "scripts"}}
+    <script defer src="{{asset " js/page.js"}}"></script>
+    {{/contentFor}}

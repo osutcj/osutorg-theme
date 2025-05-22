@@ -1,83 +1,153 @@
-{{!--
-This template is used for the posts that are marked as pages.
---}}
-
-{{!-- This block preloads specific assets for the post page --}}
 {{#contentFor "preload"}}
-  <link rel="preload" href="{{asset "css/contact.css"}}" as="style" />
-
-  <link rel="preload" href="{{asset "js/home.js"}}" as="script" />
+<link rel="preload" href="{{asset "css/post.css"}}" as="style" />
+<link rel="preload" href="{{asset "js/page.js"}}" as="script" />
 {{/contentFor}}
 
 {{#contentFor "styles"}}
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          spacing: {
-            '128': '32rem',
-          }
-        }
-      }
-    }
-  </script>
-  <link rel="stylesheet" type="text/css" href="{{asset "css/contact.css"}}" media="screen" />
+<link rel="stylesheet" type="text/css" href="{{asset "css/post.css"}}" media="screen" />
 {{/contentFor}}
 
-{{!< default}} {{!-- Special header.hbs partial to generate the <header> tag --}}
-{{#post}}
+{{!< default}} 
 {{> header background=feature_image}}
-{{/post}}
 
 <style>
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-image: url("{{asset 'images/sky.jpg'}}");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    color: white;
+  }
 
-.container1{
-  background-color: white;
+ .main-wrap {
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  height: 50%;
-  width: 60%;
+  justify-content: center;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 80px 20px;
 }
-</style>
-<main class="main-wrap" >
-<body>
-    <div class="container">
-        <div class="form-section">
-            <h1>Contact Us</h1>
-            <p>Feel free to contact us any time. We will get back to you as soon as we can!</p>
-           <iframe src="https://forms.gle/NbXugjLwq5y89vAMA?embedded=true"   frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-    
-        </div>
-      
-        <div class="info-section" >
-            <h2>Info</h2>
-            <p>Email: osutcluj@gmail.com</p>
-             <p>Address: Ceahlau nr 72</p>
-            <h3>Timiș Traian</h3>
-            <p>Phone: 0757 332 298</p>
-           
-            
-        </div>
-    </div>
-    <h1 style="text-align: center; margin-bottom:5vh;">WE ARE HERE FOR YOU!!</h1>
-</body>
- 
-  </section>
- 
 
+.section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 120px;
+  width: 100%;
+  max-width: 1000px;
+  position: relative;
+  text-align: left;
+}
+
+
+  .section:nth-child(even) {
+    flex-direction: row-reverse;
+  }
+
+  .section-image {
+    flex: 1 1 400px;
+  }
+
+  .section-image img {
+    width: 100%;
+    border-radius: 12px;
+    object-fit: cover;
+    height: auto;
+  }
+
+  .section-text {
+    flex: 1 1 400px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .section-text h2 {
+    font-size: 1rem;
+    letter-spacing: 2px;
+    color: red;
+    margin-bottom: 10px;
+  }
+
+  .section-text h3 {
+    font-size: 2rem;
+    margin: 0 0 20px;
+  }
+
+  .section-text p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .section-number {
+    position: absolute;
+    font-size: 6rem;
+    color: rgba(255, 255, 255, 0.158);
+    font-weight: bold;
+    top: -40px;
+    left: 10px;
+    z-index: 1;
+  }
+
+  @media (max-width: 768px) {
+   .section {
+    flex-direction: column !important;
+    text-align: center;
+  }
+
+    .section-number {
+      font-size: 4rem;
+      left: 0;
+      top: -30px;
+    }
+  }
+</style>
+
+<main class="main-wrap">
+
+<div class="section">
+  <div class="section-text">
+    <div class="section-number">01</div>
+    <h2>CE ÎNSEAMNĂ</h2>
+    <h3>Butonul Roșu?</h3>
+    <p>Este mecanismul rapid prin care ne poți semnala orice problemă întâmpini ca student: profesori abuzivi, probleme în cămin, lipsa accesului la informații și multe altele.</p>
+  </div>
+  <div class="section-image">
+    <img src="{{asset 'images/rosu1.jpg'}}" alt="Butonul Roșu">
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-text">
+    <div class="section-number">02</div>
+    <h2>CUM FUNCȚIONEAZĂ</h2>
+    <h3>Trimiți. Analizăm. Acționăm.</h3>
+    <p>Totul se face anonim dacă dorești. Trimitem situația către persoanele competente și revenim cu soluții. Fără birocrație, fără timp pierdut.</p>
+  </div>
+  <div class="section-image">
+    <img src="{{asset 'images/rosu2.jpg'}}" alt="Analizăm sesizarea">
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-text">
+    <div class="section-number">03</div>
+    <h2>DE CE E IMPORTANT</h2>
+    <h3>Vocea ta contează</h3>
+    <p>Fiecare sesizare ne ajută să înțelegem mai bine ce se întâmplă în facultăți și cămine. Prin Butonul Roșu construim un mediu studențesc mai corect și mai sigur.</p>
+  </div>
+  <div class="section-image">
+    <img src="{{asset 'images/rosu3.jpg'}}" alt="Studenți implicați">
+  </div>
+</div>
 
 </main>
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const iframe = document.getElementById("google-form");
-        iframe.onload = function () {
-            iframe.contentWindow.scrollTo(0, 200); // Ajustează valoarea scroll-ului după nevoi
-        };
-    });
-</script>
 
-{{!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in
-default.hbs --}}
 {{#contentFor "scripts"}}
-<script defer src="{{asset " js/page.js"}}"></script>
+<script defer src="{{asset "js/page.js"}}"></script>
 {{/contentFor}}
