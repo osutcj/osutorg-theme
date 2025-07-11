@@ -66,16 +66,17 @@ This template is used for the posts that are marked as pages.
             margin-top: 1rem;
         }
 
-        .last-name {
-            color: white;
-            font-size: 1.2rem;
-        }
+     .last-name {
+  color: white;
+  font-size: clamp(0.8rem, 2vw, 1rem);
+}
 
-        .first-name {
-            color: white;
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
+.first-name {
+  color: white;
+  font-weight: bold;
+  font-size: clamp(0.8rem, 2vw, 1rem);
+}
+
 
         .team-role {
             color: #c10000;
@@ -126,27 +127,29 @@ This template is used for the posts that are marked as pages.
         }
 
 
-        .text-outline {
-            font-size: 54px;
-            font-weight: bold;
-            color: transparent;
-            -webkit-text-stroke: 1px white;
-            text-transform: uppercase;
-            text-align: center;
-            display: block;
-            width: 100%;
-        }
+       
+           .text-outline {
+  font-size: clamp(24px, 8vw, 50px); /* dimensiune între 24px și 50px, scalabilă cu viewport */
+  font-weight: bold;
+  color: transparent;
+  -webkit-text-stroke: 1px white;
+  text-transform: uppercase;
+  text-align: center;
+  display: block;
+  width: 100%;
+}
 
-        .highlight {
-            font-size: 54px;
-            font-weight: bold;
-            color: transparent;
-            -webkit-text-stroke: 1px RED;
-            text-transform: uppercase;
-            text-align: center;
-            display: block;
-            width: 100%;
-        }
+
+    .highlight {
+  font-size: clamp(24px, 8vw, 54px); /* scalare adaptivă între 24px și 54px */
+  font-weight: bold;
+  color: transparent;
+  -webkit-text-stroke: 1px red;
+  text-transform: uppercase;
+  text-align: center;
+  display: block;
+  width: 100%;
+}
 
         .icon {
             margin: 5px;

@@ -52,22 +52,23 @@ into the {body} of the default.hbs template --}}
     box-sizing: border-box;
   }
 
-  .text-outline, .highlight {
-    margin: 0 0 1rem 0;
-    font-size: 32px;
-    font-weight: bold;
-    color: transparent;
-    -webkit-text-stroke: 1px white;
-    text-transform: uppercase;
-    text-align: center;
-    display: block;
-    width: 100%;
-    word-break: break-word;
-  }
+.text-outline, .highlight {
+  margin: 0 0 1rem 0;
+  font-size: clamp(20px, 4vw, 32px);
+  font-weight: bold;
+  color: transparent;
+  -webkit-text-stroke: 1px white;
+  text-transform: uppercase;
+  text-align: center;
+  display: block;
+  width: 100%;
+  word-break: break-word;
+}
 
-  .highlight {
-    -webkit-text-stroke: 1px RED;
-  }
+.highlight {
+  -webkit-text-stroke: 1px red;
+}
+
 
   .button-container {
     display: flex;
@@ -242,8 +243,8 @@ into the {body} of the default.hbs template --}}
 
       <div class="reprez">
         <div class="container">
-          <h2 class="text-outline mt-1">Ghidul Studentului </h2>
-          <h2 class="text-outline">licenta</h2>
+          <h4 class="text-outline mt-1">Ghidul Studentului </h4>
+          <h4 class="text-outline">licenta</h4>
         </div>
         <div class="button-container">
           <a href="/assets/pdf/ghid_student_licenta.pdf" download class="button-download">
@@ -253,8 +254,8 @@ into the {body} of the default.hbs template --}}
 
       <div class="reprez">
         <div class="container">
-          <h2 class="text-outline mt-1">Ghidul Studentului </h2>
-          <h2 class="text-outline">master</h2>
+          <h4 class="text-outline mt-1">Ghidul Studentului </h4>
+          <h4 class="text-outline">master</h4>
         </div>
         <div class="button-container">
           <a href="/assets/pdf/ghid_student_master.pdf" download class="button-download">
