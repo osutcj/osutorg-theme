@@ -52,18 +52,17 @@ into the {body} of the default.hbs template --}}
     box-sizing: border-box;
   }
 
-  .text-outline, .highlight {
-    margin: 0 0 1rem 0;
-    font-size: 32px;
-    font-weight: bold;
-    color: transparent;
-    -webkit-text-stroke: 1px white;
-    text-transform: uppercase;
-    text-align: center;
-    display: block;
-    width: 100%;
-    word-break: break-word;
-  }
+          .text-outline {
+  font-size: clamp(24px, 8vw, 50px); /* dimensiune între 24px și 50px, scalabilă cu viewport */
+  font-weight: bold;
+  color: transparent;
+  -webkit-text-stroke: 1px white;
+  text-transform: uppercase;
+  text-align: center;
+  display: block;
+  width: 100%;
+}
+
 
   .highlight {
     -webkit-text-stroke: 1px RED;
@@ -178,6 +177,16 @@ into the {body} of the default.hbs template --}}
       <h2 class="text-outline">Documentele utile</h2>
     </div>
     <div class="scroll-container">
+     <div class="reprez">
+        <div class="container">
+          <h2 class="text-outline">Ghidul Bobocului </h2>
+        </div>
+        <div class="button-container">
+          <a href="/assets/pdf/carta.pdf" download class="button-download">
+            <i class="fa fa-download"></i> DOWNLOAD HERE</a>
+        </div>
+      </div>
+
       <div class="reprez">
         <div class="container">
           <h2 class="text-outline">CARTA</h2>

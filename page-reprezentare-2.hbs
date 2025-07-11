@@ -49,27 +49,29 @@ into the {body} of the default.hbs template --}}
         }
 
 
-        .text-outline {
-            font-size: 54px;
-            font-weight: bold;
-            color: transparent;
-            -webkit-text-stroke: 1px white;
-            text-transform: uppercase;
-            text-align: center;
-            display: block;
-            width: 100%;
-        }
+     .text-outline {
+  font-size: clamp(24px, 8vw, 50px); /* dimensiune între 24px și 50px, scalabilă cu viewport */
+  font-weight: bold;
+  color: transparent;
+  -webkit-text-stroke: 1px white;
+  text-transform: uppercase;
+  text-align: center;
+  display: block;
+  width: 100%;
+}
 
-        .highlight {
-            font-size: 54px;
-            font-weight: bold;
-            color: transparent;
-            -webkit-text-stroke: 1px RED;
-            text-transform: uppercase;
-            text-align: center;
-            display: block;
-            width: 100%;
-        }
+
+    .highlight {
+  font-size: clamp(24px, 8vw, 54px); /* scalare adaptivă între 24px și 54px */
+  font-weight: bold;
+  color: transparent;
+  -webkit-text-stroke: 1px red;
+  text-transform: uppercase;
+  text-align: center;
+  display: block;
+  width: 100%;
+}
+
 
         .scroll-container {
             overflow-x: auto;
