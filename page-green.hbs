@@ -173,7 +173,7 @@
     }
   }
 
-  .reprez {
+.reprez {
   width: 40%;
   max-width: 600px;
   background-color: rgba(255, 255, 255, 0.1);
@@ -186,6 +186,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  white-space: nowrap; /* Prevent words from splitting */
+  overflow: hidden; /* Optional: Hide text that overflows */
+  text-overflow: ellipsis; /* Optional: Adds "..." if text overflows */
 }
 
 /* === DOWNLOAD LINK === */
