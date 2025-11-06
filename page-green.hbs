@@ -174,55 +174,42 @@
   }
 
     .reprez {
-    margin: 2rem auto;
-    padding: 2rem;
-    max-width: 600px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 16px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    text-align: center;
-    color: #000;
-    flex: 0 0 auto;
-    margin-right: 3vw;
-    width: 80vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    word-break: break-word;
+  width: 75%;
+  max-width: 900px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  color: #ffffff;
+  text-align: center;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* === DOWNLOAD LINK === */
+.download-link {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  margin-top: 1.5rem;
+  display: inline-block;
+  transition: 0.3s ease;
+}
+
+.download-link:hover {
+  text-decoration: underline;
+  opacity: 0.8;
+}
+
+/* === MOBILE === */
+@media (max-width: 768px) {
+  .reprez {
+    width: 90%;
+    padding: 1.5rem;
   }
-
-  .mt-1 {
-    margin-top: 1rem !important;
-  }
-
-  @media (max-width: 768px) {
-    .text-outline, .highlight {
-      font-size: 36px;
-    }
-
-    .button-download {
-      font-size: 16px;
-      padding: 12px 24px;
-      max-width: 90%;
-    }
-
-    .button-container {
-      flex-direction: column;
-    }
-
-    .reprez {
-      padding: 1.5rem;
-      width: 90vw;
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .reprez {
-      width: 500px;
-    }
-  }
+}
 </style>
 
 <main class="main-wrap">
